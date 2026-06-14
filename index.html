@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo-bullweb.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Limpiar Service Workers del dominio anterior (main app PWA) -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(regs) {
+          regs.forEach(function(reg) { reg.unregister(); });
+        });
+        // Limpiar caches del SW anterior
+        if ('caches' in window) {
+          caches.keys().then(function(names) {
+            names.forEach(function(name) { caches.delete(name); });
+          });
+        }
+      }
+    </script>
+
+    <!-- SEO -->
+    <title>BullWeb Chile — Sistema POS para Restaurantes | KDS, Delivery y Boletas DTE</title>
+    <meta
+      name="description"
+      content="Sistema POS todo-en-uno para restaurantes chilenos. KDS, App Mesero, Delivery integrado, Boletas DTE y más. Prueba 7 días gratis. Sin tarjeta de crédito."
+    />
+    <meta name="keywords" content="POS restaurante Chile, sistema punto de venta, KDS cocina, delivery restaurante, software restaurante Chile, boletas DTE SII" />
+    <meta name="author" content="BullWeb Chile" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.bullwebchile.com" />
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://www.bullwebchile.com" />
+    <meta property="og:title"       content="BullWeb Chile — Sistema POS para Restaurantes | KDS, Delivery y Boletas DTE" />
+    <meta property="og:description" content="Sistema POS todo-en-uno para restaurantes chilenos. KDS, App Mesero, Delivery, Boletas DTE. Prueba 7 días gratis." />
+    <meta property="og:image"       content="https://www.bullwebchile.com/og-image.png" />
+    <meta property="og:locale"      content="es_CL" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="BullWeb Chile — Sistema POS para Restaurantes" />
+    <meta name="twitter:description" content="Sistema POS todo-en-uno para restaurantes chilenos. Prueba 7 días gratis. Sin tarjeta de crédito." />
+    <meta name="twitter:image" content="https://www.bullwebchile.com/og-image.png" />
+
+    <!-- Google Fonts — Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
