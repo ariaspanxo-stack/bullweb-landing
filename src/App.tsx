@@ -1,11 +1,11 @@
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar       from './components/Navbar';
 import Hero         from './components/Hero';
-import SiiDirectoSection from './components/SiiDirectoSection';
-import AhorroCalculator  from './components/AhorroCalculator';
 import Features     from './components/Features';
 import HowItWorks   from './components/HowItWorks';
 import Modules      from './components/Modules';
+import SiiDirectoSection from './components/SiiDirectoSection';
+import AhorroCalculator  from './components/AhorroCalculator';
 import Pricing      from './components/Pricing';
 import Testimonials from './components/Testimonials';
 import FAQ          from './components/FAQ';
@@ -22,11 +22,11 @@ function HomePage() {
       <Navbar />
       <main>
         <Hero />
-        <SiiDirectoSection />
-        <AhorroCalculator />
         <Features />
         <HowItWorks />
         <Modules />
+        <SiiDirectoSection />
+        <AhorroCalculator />
         <Pricing />
         <Testimonials />
         <FAQ />
@@ -40,13 +40,13 @@ function HomePage() {
 
 export default function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route path="/"           element={<HomePage />} />
         <Route path="/terminos"   element={<Terminos />} />
         <Route path="/privacidad" element={<Privacidad />} />
         <Route path="/cookies"    element={<Cookies />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }

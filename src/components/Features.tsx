@@ -7,6 +7,7 @@ import {
   Truck,
   Star,
   BarChart3,
+  Calculator,
 } from 'lucide-react';
 
 interface Feature {
@@ -40,12 +41,12 @@ const FEATURES: Feature[] = [
   },
   {
     icon:        <Truck className="w-6 h-6" />,
-    title:       'Delivery Integrado',
-    desc:        'Gestiona pedidos a domicilio con asignación y seguimiento.',
+    title:       'Delivery de Apps Integrado',
+    desc:        'Conecta Uber Eats, Rappi y PedidosYa. Los pedidos llegan directo a tu POS y cocina. Si un producto se agota, se pausa solo en las apps.',
     color:       'text-green-500',
     bgColor:     'bg-green-50',
-    metric:      '100%',
-    metricLabel: 'pedidos rastreados',
+    metric:      '3 apps',
+    metricLabel: 'en una sola pantalla',
   },
   {
     icon:        <Star className="w-6 h-6" />,
@@ -64,6 +65,15 @@ const FEATURES: Feature[] = [
     bgColor:     'bg-rose-50',
     metric:      '24/7',
     metricLabel: 'datos en vivo',
+  },
+  {
+    icon:        <Calculator className="w-6 h-6" />,
+    title:       'Recetas y Costeo Real',
+    desc:        'Sabe exactamente cuánto te cuesta cada plato. Calcula márgenes de ganancia al instante y deja de perder dinero.',
+    color:       'text-amber-500',
+    bgColor:     'bg-amber-50',
+    metric:      '+15%',
+    metricLabel: 'margen promedio',
   },
 ];
 
@@ -132,8 +142,8 @@ export default function Features() {
             <FeatureCard key={feature.title} feature={feature} index={i} />
           ))}
         </div>
-        {/* Fila 2: 2 columnas centradas */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto w-full">
+        {/* Fila 2: 3 columnas */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {FEATURES.slice(3).map((feature, i) => (
             <FeatureCard key={feature.title} feature={feature} index={i + 3} />
           ))}

@@ -53,9 +53,9 @@ function FaqItem({ faq, idx }: { faq: typeof FAQS[0]; idx: number }) {
         className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-slate-50 transition-colors"
         aria-expanded={open}
       >
-        <span className={`font-semibold text-[0.9375rem] transition-colors ${open ? 'text-orange-500' : 'text-slate-800'}`}>
+<h3 className={`font-semibold text-[0.9375rem] transition-colors ${open ? 'text-orange-500' : 'text-slate-800'}`}>
           {faq.q}
-        </span>
+        </h3>
         <motion.span
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.25 }}

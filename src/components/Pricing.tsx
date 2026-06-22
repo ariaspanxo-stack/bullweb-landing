@@ -8,7 +8,7 @@ const COMPARISON: [string, boolean, boolean][] = [
   ['KDS Cocina Digital',              false, true],
   ['Carta QR (cliente pide solo)',     false, true],
   ['CRM + Programa de puntos',        false, true],
-  ['Delivery sin comisiones',         false, true],
+  ['Uber Eats + Rappi + PedidosYa integrados', false, true],
   ['Campañas email/WhatsApp',         false, true],
   ['PWA instalable',                  false, true],
   ['Soporte en español 24/7',         false, true],
@@ -65,7 +65,7 @@ export default function Pricing() {
 
             <div className="flex items-center gap-2 mb-6">
               <span className="text-2xl">⚡</span>
-              <span className="text-white font-black text-xl tracking-wide uppercase">BullWeb Completo</span>
+              <h3 className="text-white font-black text-xl tracking-wide uppercase">BullWeb Completo</h3>
             </div>
 
             {/* Precio */}
@@ -104,7 +104,7 @@ export default function Pricing() {
             <div className="grid grid-cols-2 gap-x-4 gap-y-1 mb-6">
               <div className="space-y-2">
                 <p className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-2">⚙️ Operación</p>
-                {['App Mesero (celular)', 'Arqueo de caja', 'Empleados + roles', 'Impresión Epson/Star', 'Delivery sin comisión'].map((f, i) => (
+                {['App Mesero (celular)', 'Arqueo de caja', 'Empleados + roles', 'Impresión Epson/Star', 'Uber Eats + Rappi + PedidosYa'].map((f, i) => (
                   <div key={i} className="flex items-center gap-2 text-gray-300 text-xs">
                     <span className="text-orange-400">✓</span>{f}
                   </div>

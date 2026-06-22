@@ -153,6 +153,27 @@ export default function SiiDirectoSection() {
             ))}
           </div>
         </motion.div>
+
+        {/* ── CTA ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-center"
+        >
+          <a
+            href="https://app.bullwebchile.com/register"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl text-lg transition-colors shadow-lg shadow-orange-500/30"
+          >
+            Quiero emitir mis Boletas a $0 →
+          </a>
+          <p className="text-slate-500 text-xs mt-3">
+            7 días gratis · Sin tarjeta · Funciona con tu Firma Electrónica
+          </p>
+        </motion.div>
       </div>
     </section>
   );

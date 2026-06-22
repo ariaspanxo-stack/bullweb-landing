@@ -15,11 +15,11 @@ const FEATURED_MODULES = [
 
 const SECONDARY_MODULES = [
   { icon: <QrCode className="w-5 h-5" />,    label: 'Carta QR',        desc: 'Menú digital desde la mesa'    },
-  { icon: <Bike className="w-5 h-5" />,      label: 'Delivery',        desc: 'Gestiona pedidos a domicilio'  },
+  { icon: <Bike className="w-5 h-5" />,      label: 'Delivery',        desc: 'Uber Eats, Rappi y PedidosYa'  },
   { icon: <FileText className="w-5 h-5" />,  label: 'Boletas DTE',     desc: 'Emisión electrónica SII'       },
   { icon: <Gift className="w-5 h-5" />,      label: 'Prog. Puntos',    desc: 'Fideliza a tus clientes'       },
   { icon: <Users className="w-5 h-5" />,     label: 'Empleados',       desc: 'Control de personal y turnos'  },
-  { icon: <Package className="w-5 h-5" />,   label: 'Inventario',      desc: 'Stock e insumos al día'        },
+  { icon: <Package className="w-5 h-5" />,   label: 'Inventario + Recetas', desc: 'Costeo, márgenes y stock en tiempo real' },
   { icon: <Ticket className="w-5 h-5" />,    label: 'Cupones',         desc: 'Descuentos y promociones'      },
   { icon: <Building2 className="w-5 h-5" />, label: 'Multi-sucursal',  desc: 'Gestiona varios locales'       },
 ];
@@ -84,7 +84,7 @@ export default function Modules() {
                 )}
               </div>
               <div>
-                <p className="font-bold text-white text-sm">{mod.label}</p>
+<h3 className="font-bold text-white text-sm">{mod.label}</h3>
                 <p className="text-slate-400 text-xs mt-1 leading-snug">{mod.desc}</p>
               </div>
             </motion.div>
@@ -103,7 +103,7 @@ export default function Modules() {
             >
               <div className="text-slate-400 group-hover:text-orange-400 transition-colors shrink-0">{mod.icon}</div>
               <div>
-                <p className="font-semibold text-white text-xs leading-tight">{mod.label}</p>
+<h3 className="font-semibold text-white text-xs leading-tight">{mod.label}</h3>
                 <p className="text-slate-500 text-[10px] mt-0.5 group-hover:text-slate-400 transition-colors leading-snug">{mod.desc}</p>
               </div>
             </motion.div>
