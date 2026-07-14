@@ -30,7 +30,7 @@ export default function CTA() {
 
           {/* Subtítulo */}
           <p className="text-orange-100 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-            Más de 30 restaurantes chilenos ya gestionan su negocio con BullWeb.
+            Ya en producción en restaurantes chilenos.
             Comienza gratis, sin compromiso.
           </p>
 

@@ -3,7 +3,7 @@
 $FTP_HOST = "46.202.145.208"
 $FTP_USER = "u908873455.bullwebchile.com"
 $FTP_PASS = "Panxosk8@@@@@..."
-$REMOTE   = ""
+$REMOTE   = ""   # Hostinger: la raíz del FTP es el document root (no public_html)
 
 $ErrorActionPreference = "Stop"
 $landingPath = "C:\Users\Francisco\OneDrive\Escritorio\Bullweb3.0\bullweb-landing"
@@ -74,7 +74,7 @@ foreach ($f in $assets) {
 }
 
 if (Test-Path "$DIST\.htaccess") {
-  doDelete ".htaccess"
+  doDelete "$REMOTE/.htaccess"
   doUpload "$DIST\.htaccess" "$REMOTE/.htaccess"
 }
 
@@ -89,13 +89,13 @@ if (Test-Path "$DIST\images") {
 # Subir assets estáticos de raíz (favicon, og-image, etc.)
 $rootAssets = Get-ChildItem "$DIST\*" -File -Include "*.svg","*.png","*.ico","*.webmanifest"
 foreach ($f in $rootAssets) {
-  doDelete $f.Name
+  doDelete "$REMOTE/$($f.Name)"
   doUpload $f.FullName "$REMOTE/$($f.Name)"
 }
 
 # Borrar index.html antes de subir — fuerza a LiteSpeed a invalidar caché
 Write-Host "  [cache] Borrando index.html del servidor..." -ForegroundColor DarkGray
-doDelete "index.html"
+doDelete "$REMOTE/index.html"
 doUpload "$DIST\index.html" "$REMOTE/index.html"
 
 Write-Host ""

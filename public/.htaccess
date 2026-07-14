@@ -1,6 +1,14 @@
 Options -MultiViews
 RewriteEngine On
 
+# --- Canonicalización: forzar dominio sin www (regla más agresiva, primera) ---
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^(.*)$ https://bullwebchile.com/$1 [L,R=301]
+
+# HTTP -> HTTPS (para tráfico no-www por HTTP)
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
 # LiteSpeed: deshabilitar full-page cache para index.html
 <IfModule LiteSpeed>
   SetEnv no-cache 1

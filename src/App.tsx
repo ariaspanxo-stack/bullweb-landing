@@ -22,11 +22,11 @@ function HomePage() {
       <Navbar />
       <main>
         <Hero />
+        <AhorroCalculator />
         <Features />
         <HowItWorks />
         <Modules />
         <SiiDirectoSection />
-        <AhorroCalculator />
         <Pricing />
         <Testimonials />
         <FAQ />

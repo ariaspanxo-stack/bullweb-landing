@@ -7,8 +7,8 @@ const LINKS = {
 };
 
 const METRICS = [
-  { value: '$0',  label: 'Por Boleta Emitida'          },
-  { value: '30+', label: 'Restaurantes en Chile'       },
+  { value: '$0',  label: 'Por Boleta Emitida', hint: '$0 por documento emitido — tu plan mensual cubre el resto del sistema.' },
+  { value: '✓',  label: 'Ya en producción en restaurantes chilenos' },
   { value: '7',   label: 'Días prueba gratis'          },
 ];
 
@@ -88,7 +88,7 @@ export default function Hero() {
 
             {/* H1 */}
             <motion.h1
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] tracking-tight mb-6"
+              className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] tracking-tight mb-3"
               custom={0.1}
               initial="hidden"
               animate="visible"
@@ -99,6 +99,17 @@ export default function Hero() {
                 Costo CERO
               </span>
             </motion.h1>
+
+            {/* Microtexto Boletas */}
+            <motion.p
+              className="text-xs sm:text-sm text-orange-300/70 mb-6 max-w-lg mx-auto lg:mx-0"
+              custom={0.15}
+              initial="hidden"
+              animate="visible"
+              variants={fadeUp}
+            >
+              $0 por documento emitido — tu plan mensual cubre el resto del sistema.
+            </motion.p>
 
             {/* Subtítulo */}
             <motion.p
@@ -121,7 +132,7 @@ export default function Hero() {
               variants={fadeUp}
             >
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse shrink-0" />
-              <span>3 restaurantes se registraron hoy — Últimos cupos fundadores — precio sube a $29.990 al completarse</span>
+              <span>Precio de Fundador disponible por tiempo limitado — $29.000/mes bloqueado por 12 meses</span>
             </motion.div>
 
             {/* CTAs */}
@@ -156,6 +167,11 @@ export default function Hero() {
                 <div key={i} className="text-center lg:text-left">
                   <p className="text-2xl font-black text-white">{m.value}</p>
                   <p className="text-xs text-white/40 font-medium mt-0.5">{m.label}</p>
+                  {m.hint && (
+                    <p className="text-[10px] text-white/30 font-normal mt-1 max-w-[140px] leading-tight">
+                      {m.hint}
+                    </p>
+                  )}
                 </div>
               ))}
             </motion.div>

@@ -32,15 +32,16 @@ export default function Pricing() {
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
           <span className="inline-flex items-center gap-2 bg-orange-50 border border-orange-200 text-orange-600 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
-            🚀 Precio de Fundador · Tiempo limitado
+            🚀 Precio de Fundador — Tiempo limitado
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4 leading-tight">
-            Un solo plan.{' '}
-            <span className="text-orange-500">Todo incluido.</span>
+            Un solo plan core.{' '}
+            <span className="text-orange-500">Todo lo esencial, sin letra chica.</span>
           </h2>
-          <p className="text-gray-500 text-lg max-w-xl mx-auto">
-            Sin planes confusos, sin add-ons escondidos.
-            Un precio, todas las funciones, desde el día 1.
+          <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+            Sin planes confusos. Un precio fijo cubre POS, KDS, Delivery y Boletas DTE
+            desde el día 1. Suma módulos de crecimiento (CRM, Cupones, Empleados) cuando
+            los necesites.
           </p>
         </motion.div>
 
@@ -70,19 +71,14 @@ export default function Pricing() {
 
             {/* Precio */}
             <div className="mb-6">
-              <div className="flex items-center gap-3 mb-1">
-                <span className="text-gray-500 line-through text-xl">$29.990/mes</span>
-                <span className="bg-green-500/20 text-green-400 text-xs font-bold px-2 py-0.5 rounded-full">-33% primer año</span>
-              </div>
-              <div className="flex items-baseline gap-2 mb-1">
-                <span className="text-white text-6xl font-black">$25.000</span>
+              <div className="flex items-baseline gap-2 mb-2">
+                <span className="text-white text-6xl font-black">$29.000</span>
                 <span className="text-gray-400 text-lg">/mes</span>
               </div>
               <div className="flex items-center gap-2 mt-2 mb-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-orange-400" />
                 <p className="text-orange-300 text-sm font-medium">Precio bloqueado por 12 meses</p>
               </div>
-              <p className="text-gray-500 text-xs">A partir del mes 13 pasa a $29.990/mes</p>
             </div>
 
             {/* Top 3 features */}
@@ -143,7 +139,7 @@ export default function Pricing() {
               </div>
               <div className="flex justify-between items-center mt-1">
                 <span className="text-orange-400 text-sm font-black">Tu precio hoy:</span>
-                <span className="text-orange-400 text-xl font-black">$25.000/mes</span>
+                <span className="text-orange-400 text-xl font-black">$29.000/mes</span>
               </div>
             </div>
 
@@ -171,8 +167,15 @@ export default function Pricing() {
           transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="bg-[#0f172a] border border-white/10 rounded-3xl p-8">
+          {/* Etiqueta de extras opcionales */}
+          <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 rounded-full px-4 py-1.5 mb-6 mx-auto">
+            <span className="text-orange-400 text-xs font-bold uppercase tracking-wider">
+              Extras opcionales · No incluidos en el plan core
+            </span>
+          </div>
+
           {/* Separador */}
-          <div className="flex items-center gap-4 mb-8">
+          <div className="flex items-center gap-4 mb-6">
             <div className="flex-1 h-px bg-white/10" />
             <p className="text-white/40 text-xs uppercase tracking-widest font-semibold whitespace-nowrap">
               ➕ Agrega lo que necesitas
@@ -180,8 +183,10 @@ export default function Pricing() {
             <div className="flex-1 h-px bg-white/10" />
           </div>
 
-          <p className="text-center text-white/30 text-sm mb-8">
-            Actívalos cuando quieras. Sin contrato. Cancela cuando quieras.
+          <p className="text-center text-white/40 text-sm mb-8">
+            Tu plan core ya incluye POS, KDS, Delivery y Boletas DTE. Estos módulos son
+            extras opcionales para crecer: actívalos cuando quieras, sin contrato y
+            cancela cuando quieras.
           </p>
 
           {/* Cards */}
@@ -268,7 +273,7 @@ export default function Pricing() {
             <strong className="text-gray-300">$29.990/mes</strong>
           </p>
           <p className="text-gray-500 text-xs">
-            🔒 Tu precio de $25.000 queda bloqueado los primeros 12 meses sin importar cuándo se llenen los cupos.
+            🔒 Tu precio de $29.000 queda bloqueado los primeros 12 meses sin importar cuándo se llenen los cupos.
           </p>
         </motion.div>
 
@@ -300,7 +305,7 @@ export default function Pricing() {
                   </th>
                   <th className="py-4 px-5 text-center bg-orange-50">
                     <span className="text-orange-600 font-black text-sm">⚡ BullWeb</span>
-                    <div className="text-xs font-normal text-orange-500 mt-0.5">$25.000/mes</div>
+                    <div className="text-xs font-normal text-orange-500 mt-0.5">$29.000/mes</div>
                   </th>
                 </tr>
               </thead>
@@ -330,7 +335,7 @@ export default function Pricing() {
                   <td className="py-4 px-5 text-gray-600 font-semibold text-sm">Precio mensual</td>
                   <td className="py-4 px-5 text-center text-gray-500 font-bold">hasta $52.500</td>
                   <td className="py-4 px-5 text-center bg-orange-50/50">
-                    <span className="text-orange-500 font-black text-lg">$25.000</span>
+                    <span className="text-orange-500 font-black text-lg">$29.000</span>
                   </td>
                 </tr>
               </tfoot>
