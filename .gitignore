@@ -4,3 +4,12 @@ dist/
 .env.local
 .env.production
 *.tar.gz
+
+# Build artifacts y logs temporales
+tsc_out.txt
+
+# Build artifacts
+*.tar.gz
+tsc_out.txt
+dist/
+node_modules/
