@@ -1,19 +1,21 @@
 ﻿param([switch]$SkipBuild)
 
-$FTP_HOST = "46.202.145.208"
-$FTP_USER = "u908873455.bullwebchile.com"
-$FTP_PASS = "Panxosk8@@@@@..."
+# Credenciales desde variables de entorno (no hardcodear)
+$FTP_HOST = $env:BULLWEB_FTP_HOST
+$FTP_USER = $env:BULLWEB_FTP_USER
+$FTP_PASS = $env:BULLWEB_FTP_PASS
 $REMOTE   = ""   # Hostinger: la raíz del FTP es el document root (no public_html)
+
+# Validación temprana: abortar si falta alguna variable de entorno FTP
+if (-not $FTP_HOST -or -not $FTP_USER -or -not $FTP_PASS) {
+    Write-Error "Faltan variables de entorno FTP (BULLWEB_FTP_HOST, BULLWEB_FTP_USER, BULLWEB_FTP_PASS)."
+    exit 1
+}
 
 $ErrorActionPreference = "Stop"
 $landingPath = "C:\Users\Francisco\OneDrive\Escritorio\Bullweb3.0\bullweb-landing"
 Set-Location $landingPath
 $DIST = ".\dist"
-
-if ($FTP_PASS -eq "") {
-  Write-Host "ERROR: Pon tu contrasena FTP en FTP_PASS" -ForegroundColor Red
-  exit 1
-}
 
 $curlCmd = Get-Command curl.exe -ErrorAction SilentlyContinue
 if (-not $curlCmd) {

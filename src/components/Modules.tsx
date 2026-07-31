@@ -1,112 +1,155 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import {
-  MonitorSmartphone, Smartphone, QrCode, ChefHat,
-  Bike, BarChart3, FileText, Gift, Users, Package,
-  Ticket, Building2,
+  Zap, ChefHat, Heart, ShieldCheck,
+  Smartphone, QrCode, Package, BarChart3,
+  Gift, Ticket, FileText, Clock,
 } from 'lucide-react';
 
-const FEATURED_MODULES = [
-  { icon: <MonitorSmartphone className="w-6 h-6" />, label: 'Restaurant POS',  desc: 'Comandas, mesas y cobro rápido', badge: 'Core' },
-  { icon: <Smartphone className="w-6 h-6" />,        label: 'App Mesero',      desc: 'Toma pedidos desde el celular', badge: 'Popular' },
-  { icon: <ChefHat className="w-6 h-6" />,           label: 'KDS Cocina',      desc: 'Pantalla de comandas en cocina', badge: null },
-  { icon: <BarChart3 className="w-6 h-6" />,         label: 'Reportes',        desc: 'Ventas e indicadores en tiempo real', badge: null },
+interface Pillar {
+  icon:    React.ReactNode;
+  kicker:  string;
+  title:   string;
+  bullets: { icon: React.ReactNode; text: string }[];
+  accent:  string;
+}
+
+const PILLARS: Pillar[] = [
+  {
+    kicker: 'Pilar 1',
+    title:  'Vende más rápido',
+    icon: (
+      <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-orange-500/20 text-orange-400 mb-5">
+        <Zap className="w-7 h-7" />
+      </div>
+    ),
+    accent: 'orange',
+    bullets: [
+      { icon: <Zap className="w-4 h-4" />,          text: 'POS ultrarrápido con Modo Offline' },
+      { icon: <Smartphone className="w-4 h-4" />,   text: 'App Mesero desde el celular — sin hardware extra' },
+      { icon: <QrCode className="w-4 h-4" />,       text: 'Carta digital QR, pedidos directos a la caja' },
+    ],
+  },
+  {
+    kicker: 'Pilar 2',
+    title:  'Ordena la cocina y el stock',
+    icon: (
+      <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-blue-500/20 text-blue-400 mb-5">
+        <ChefHat className="w-7 h-7" />
+      </div>
+    ),
+    accent: 'blue',
+    bullets: [
+      { icon: <ChefHat className="w-4 h-4" />,  text: 'Pantalla de Cocina (KDS) con despacho por estaciones y tiempos reales' },
+      { icon: <Package className="w-4 h-4" />,  text: 'Inventario en tiempo real: descuenta stock al cobrar' },
+      { icon: <Package className="w-4 h-4" />,  text: 'Control de recetas y food cost' },
+    ],
+  },
+  {
+    kicker: 'Pilar 3',
+    title:  'Haz que vuelvan',
+    icon: (
+      <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-pink-500/20 text-pink-400 mb-5">
+        <Heart className="w-7 h-7" />
+      </div>
+    ),
+    accent: 'pink',
+    bullets: [
+      { icon: <Heart className="w-4 h-4" />,  text: 'CRM y fidelización con puntos y segmentación' },
+      { icon: <Ticket className="w-4 h-4" />, text: 'Cupones y promociones que se aplican solos en caja' },
+      { icon: <Gift className="w-4 h-4" />,   text: 'Campañas dirigidas a tus mejores clientes' },
+    ],
+  },
+  {
+    kicker: 'Pilar 4',
+    title:  'Cumple sin dolores de cabeza',
+    icon: (
+      <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-green-500/20 text-green-400 mb-5">
+        <ShieldCheck className="w-7 h-7" />
+      </div>
+    ),
+    accent: 'green',
+    bullets: [
+      { icon: <FileText className="w-4 h-4" />,    text: 'Boletas electrónicas al SII desde la venta' },
+      { icon: <Clock className="w-4 h-4" />,       text: 'Reloj control y libro de asistencia digital (estándar DT)' },
+      { icon: <BarChart3 className="w-4 h-4" />,   text: 'Cuadres de caja, turnos, ingresos y egresos' },
+      { icon: <BarChart3 className="w-4 h-4" />,   text: 'Reportes avanzados: ventas por mesero, heatmaps, exportación a Excel' },
+    ],
+  },
 ];
 
-const SECONDARY_MODULES = [
-  { icon: <QrCode className="w-5 h-5" />,    label: 'Carta QR',        desc: 'Menú digital desde la mesa'    },
-  { icon: <Bike className="w-5 h-5" />,      label: 'Delivery',        desc: 'Uber Eats, Rappi y PedidosYa'  },
-  { icon: <FileText className="w-5 h-5" />,  label: 'Boletas DTE',     desc: 'Emisión electrónica SII'       },
-  { icon: <Gift className="w-5 h-5" />,      label: 'Prog. Puntos',    desc: 'Fideliza a tus clientes'       },
-  { icon: <Users className="w-5 h-5" />,     label: 'Empleados',       desc: 'Control de personal y turnos'  },
-  { icon: <Package className="w-5 h-5" />,   label: 'Inventario + Recetas', desc: 'Costeo, márgenes y stock en tiempo real' },
-  { icon: <Ticket className="w-5 h-5" />,    label: 'Cupones',         desc: 'Descuentos y promociones'      },
-  { icon: <Building2 className="w-5 h-5" />, label: 'Multi-sucursal',  desc: 'Gestiona varios locales'       },
-];
+const SUBTITLE: Record<Pillar['accent'], string> = {
+  orange: 'El salón funcionando sin fricción, con o sin internet.',
+  blue:   'Que nada se pierda entre la comanda y el plato.',
+  pink:   'Convierte clientes de una vez en clientes de siempre.',
+  green:  'Lo que el SII y la DT te exigen, resuelto por dentro.',
+};
 
-export default function Modules() {
-  const ref    = useRef<HTMLDivElement>(null);
+function PillarCard({ pillar, index }: { pillar: Pillar; index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
 
   return (
-    <section id="modules" className="py-24" style={{ background: '#0F172A' }}>
+    <motion.div
+      ref={ref}
+      className="group relative flex flex-col bg-white/5 hover:bg-white/10 rounded-3xl p-8 border border-white/10 hover:border-orange-500/30 transition-all duration-300"
+      initial={{ opacity: 0, y: 30 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {pillar.icon}
+
+      <span className="inline-block self-start text-xs font-bold uppercase tracking-wider text-orange-400 mb-2">
+        {pillar.kicker}
+      </span>
+      <h3 className="text-xl font-bold text-white mb-2">{pillar.title}</h3>
+      <p className="text-sm text-slate-400 leading-relaxed mb-6">
+        {SUBTITLE[pillar.accent]}
+      </p>
+
+      <ul className="space-y-3 mt-auto">
+        {pillar.bullets.map((b, i) => (
+          <li key={i} className="flex items-start gap-3 text-sm text-slate-300">
+            <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-orange-500/20 text-orange-400 mt-0.5 shrink-0">
+              {b.icon}
+            </span>
+            <span>{b.text}</span>
+          </li>
+        ))}
+      </ul>
+    </motion.div>
+  );
+}
+
+export default function Modules() {
+  const headerRef = useRef<HTMLDivElement>(null);
+  const headerInView = useInView(headerRef, { once: true, margin: '-60px' });
+
+  return (
+    <section id="features" className="py-24" style={{ background: '#0F172A' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <motion.div
+          ref={headerRef}
           className="text-center mb-14"
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
+          animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
           <span className="inline-block px-4 py-1.5 bg-orange-500/10 text-orange-400 text-sm font-semibold rounded-full border border-orange-500/20 mb-4">
-            Módulos
+            4 pilares
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight">
-            Todo lo que necesitas,{' '}
-            <span className="text-orange-400">en un solo lugar</span>
+          <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight max-w-3xl mx-auto">
+            Un solo sistema para operar{' '}
+            <span className="text-orange-400">todo el restaurante.</span>
           </h2>
-          <p className="mt-4 text-slate-400 text-lg max-w-2xl mx-auto">
-            Plataforma todo-en-uno diseñada para restaurantes chilenos.
-            Sin integraciones complicadas.
-          </p>
         </motion.div>
 
-        {/* Banner todos incluidos */}
-        <motion.div
-          className="flex items-center justify-center gap-3 px-6 py-4 mb-10 bg-green-500/20 border border-green-500/30 rounded-2xl text-green-400 font-semibold text-sm"
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <span>✅</span>
-          <span>Todos los módulos incluidos en cada plan · Sin cargos extra ni integraciones de pago adicionales</span>
-        </motion.div>
-
-        {/* Cards destacadas (4) */}
-        <div ref={ref} className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-          {FEATURED_MODULES.map((mod, i) => (
-            <motion.div
-              key={mod.label}
-              className="group relative flex flex-col gap-3 p-5 bg-white/10 hover:bg-orange-500/10 rounded-2xl border border-white/10 hover:border-orange-500/30 transition-all duration-200 cursor-default"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.4, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 group-hover:bg-orange-500/20 transition-colors text-slate-300 group-hover:text-orange-400">
-                  {mod.icon}
-                </div>
-                {mod.badge && (
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-500/20 text-orange-400">{mod.badge}</span>
-                )}
-              </div>
-              <div>
-<h3 className="font-bold text-white text-sm">{mod.label}</h3>
-                <p className="text-slate-400 text-xs mt-1 leading-snug">{mod.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Cards secundarias (8) */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {SECONDARY_MODULES.map((mod, i) => (
-            <motion.div
-              key={mod.label}
-              className="group flex items-center gap-3 p-4 bg-white/5 hover:bg-orange-500/10 rounded-xl border border-white/5 hover:border-orange-500/20 transition-all duration-200 cursor-default"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.4, delay: (i + 4) * 0.05, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className="text-slate-400 group-hover:text-orange-400 transition-colors shrink-0">{mod.icon}</div>
-              <div>
-<h3 className="font-semibold text-white text-xs leading-tight">{mod.label}</h3>
-                <p className="text-slate-500 text-[10px] mt-0.5 group-hover:text-slate-400 transition-colors leading-snug">{mod.desc}</p>
-              </div>
-            </motion.div>
+        {/* 4 pilares */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {PILLARS.map((p, i) => (
+            <PillarCard key={p.title} pillar={p} index={i} />
           ))}
         </div>
       </div>

@@ -1,17 +1,16 @@
+import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navbar       from './components/Navbar';
-import Hero         from './components/Hero';
-import Features     from './components/Features';
-import HowItWorks   from './components/HowItWorks';
-import Modules      from './components/Modules';
-import SiiDirectoSection from './components/SiiDirectoSection';
-import AhorroCalculator  from './components/AhorroCalculator';
-import Pricing      from './components/Pricing';
-import Testimonials from './components/Testimonials';
-import FAQ          from './components/FAQ';
-import CTA          from './components/CTA';
-import Footer        from './components/Footer';
-import WhatsAppButton from './components/WhatsAppButton';
+import Navbar             from './components/Navbar';
+import Hero               from './components/Hero';
+import Features           from './components/Features';          // Pain Points
+import OfflineModeSection from './components/OfflineModeSection'; // Modo Offline destacado
+import Modules            from './components/Modules';            // 4 pilares
+import TestimonioDestacado from './components/TestimonioDestacado';
+import Pricing            from './components/Pricing';
+import FAQ                from './components/FAQ';
+import CTA                from './components/CTA';
+import Footer             from './components/Footer';
+import WhatsAppButton     from './components/WhatsAppButton';
 import Terminos     from './pages/Terminos';
 import Privacidad   from './pages/Privacidad';
 import Cookies      from './pages/Cookies';
@@ -21,16 +20,14 @@ function HomePage() {
     <div className="min-h-screen font-sans">
       <Navbar />
       <main>
-        <Hero />
-        <AhorroCalculator />
-        <Features />
-        <HowItWorks />
-        <Modules />
-        <SiiDirectoSection />
+        <Hero />                {/* 1º CTA dentro del Hero */}
+        <TestimonioDestacado /> {/* Social Proof */}
+        <Features />            {/* Pain Points */}
+        <Modules />             {/* 4 pilares */}
+        <OfflineModeSection />  {/* Modo Offline destacado + 2º CTA */}
         <Pricing />
-        <Testimonials />
         <FAQ />
-        <CTA />
+        <CTA />                 {/* 3º CTA tras la FAQ */}
       </main>
       <Footer />
       <WhatsAppButton />
@@ -39,6 +36,12 @@ function HomePage() {
 }
 
 export default function App() {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new Event('render-event'));
+    }
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>

@@ -4,36 +4,16 @@ import { ChevronDown } from 'lucide-react';
 
 const FAQS = [
   {
-    q: '¿Necesito instalar algo en mi computador?',
-    a: 'No. BullWeb es 100% en la nube. Solo necesitas un navegador moderno (Chrome, Edge, Firefox) y conexión a internet. No hay software que instalar ni actualizaciones manuales.',
+    q: '¿Necesito comprar hardware caro?',
+    a: 'No. BullWeb funciona en los dispositivos que ya tienes: el celular o tablet de tus meseros hace de comandera, y cualquier computador o tablet sirve de caja. La App Mesero es una PWA — se abre desde el navegador, sin instalar nada. Si más adelante quieres impresora o pantalla de cocina dedicada, se conectan, pero para partir no necesitas invertir en equipos.',
   },
   {
-    q: '¿Cuánto tiempo tarda la implementación?',
-    a: 'La mayoría de nuestros clientes están operando el mismo día que se registran. El setup está incluido en tu plan. Te ayudamos a configurar todo el primer día por WhatsApp.',
+    q: '¿Qué pasa si me quiero cambiar desde mi sistema actual?',
+    a: 'Te acompañamos en el traspaso. Cargamos tu carta, tus productos y tus datos para que arranques rápido, sin partir de cero. Y como tienes 7 días de prueba gratis sin tarjeta, puedes tenerlo funcionando en paralelo y comprobar que todo calza antes de soltar tu sistema viejo.',
   },
   {
-    q: '¿Funciona sin internet? ¿Modo offline?',
-    a: 'BullWeb requiere conexión activa para sincronización en tiempo real. Sin embargo, contamos con caché local que permite continuar tomando pedidos ante cortes breves. Recomendamos siempre tener un plan de datos móvil como respaldo.',
-  },
-  {
-    q: '¿Emite boletas y facturas electrónicas (DTE)?',
-    a: 'Sí. BullWeb está integrado con el SII de Chile para emisión de boletas y facturas electrónicas. Disponible en todos los planes. Solo debes tener tu empresa inscrita como contribuyente electrónico.',
-  },
-  {
-    q: '¿Puedo gestionar múltiples sucursales?',
-    a: 'Sí, BullWeb funciona para múltiples sucursales. Cada local mantiene su operación independiente con reportes consolidados en un panel central. Contáctanos por WhatsApp para coordinar el setup.',
-  },
-  {
-    q: '¿Qué tipo de soporte ofrecen?',
-    a: 'Todos los clientes tienen soporte directo por WhatsApp con Francisco, el fundador. Sin bots, sin tickets. Tenemos equipo en Chile atendiendo en español.',
-  },
-  {
-    q: '¿Puedo cancelar cuando quiera?',
-    a: 'Sí, sin permanencia ni penalizaciones. Puedes cancelar tu suscripción en cualquier momento directamente desde el panel de administración. No hay compromisos de permanencia.',
-  },
-  {
-    q: '¿Tiene integración con Uber Eats o Rappi?',
-    a: 'La integración directa con marketplaces como Uber Eats y Rappi está en nuestro roadmap para 2026. Hoy puedes gestionar tu propio delivery integrado dentro de BullWeb sin comisiones de plataforma.',
+    q: '¿Los $29.000 son de verdad todo incluido, o hay cobros escondidos?',
+    a: 'Todo incluido, de verdad. Las once funciones del plan vienen dentro del precio: no cobramos módulos aparte, ni por usuario, ni por función nueva. $29.000 al mes, sin contratos amarrados, cancelas cuando quieras. Ese es el punto: un solo precio, sin letra chica.',
   },
 ];
 

@@ -7,15 +7,15 @@ const LINKS = {
 };
 
 const METRICS = [
-  { value: '$0',  label: 'Por Boleta Emitida', hint: '$0 por documento emitido — tu plan mensual cubre el resto del sistema.' },
-  { value: '✓',  label: 'Ya en producción en restaurantes chilenos' },
-  { value: '7',   label: 'Días prueba gratis'          },
+  { value: '$29.000', label: 'Precio fijo/mes',  hint: 'Todo incluido. Sin costos ocultos ni módulos extra.' },
+  { value: '📶',      label: 'Modo Offline PWA',  hint: 'Sigue vendiendo aunque se caiga el internet.' },
+  { value: '✓',       label: 'Boletas DTE integradas' },
 ];
 
 const BADGES = [
-  { emoji: '🧾', text: 'Boletas al SII a Costo $0'          },
-  { emoji: '🇨🇱', text: 'Hecho para restaurantes chilenos' },
-  { emoji: '✅',  text: 'Sin tarjeta de crédito'            },
+  { emoji: '📶', text: 'Modo Offline: vende sin internet'          },
+  { emoji: '🧾', text: 'Boletas DTE integradas al SII'             },
+  { emoji: '🔒', text: 'Precio fijo $29.000 — sin letra chica'    },
 ];
 
 const fadeUp = {
@@ -88,52 +88,31 @@ export default function Hero() {
 
             {/* H1 */}
             <motion.h1
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] tracking-tight mb-3"
+              className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] tracking-tight mb-6"
               custom={0.1}
               initial="hidden"
               animate="visible"
               variants={fadeUp}
             >
-              El único POS chileno que emite tus Boletas al SII a{' '}
+              Todo tu restaurante en un solo plan por{' '}
               <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
-                Costo CERO
+                $29.000
               </span>
+              . Sin letra chica.
             </motion.h1>
-
-            {/* Microtexto Boletas */}
-            <motion.p
-              className="text-xs sm:text-sm text-orange-300/70 mb-6 max-w-lg mx-auto lg:mx-0"
-              custom={0.15}
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp}
-            >
-              $0 por documento emitido — tu plan mensual cubre el resto del sistema.
-            </motion.p>
 
             {/* Subtítulo */}
             <motion.p
-              className="text-lg text-white/60 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0"
+              className="text-lg text-white/60 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0"
               custom={0.2}
               initial="hidden"
               animate="visible"
               variants={fadeUp}
             >
-              Gestiona tu restaurante, toma órdenes y cobra. Nosotros nos encargamos de emitir
-              la boleta al SII automáticamente. Sin intermediarios. Sin costo por documento.
+              Punto de venta, cocina, inventario, fidelización, asistencia y boletas al SII — todo
+              incluido en un precio fijo. Y si se cae el internet, sigues vendiendo. Olvida los
+              cobros por módulo de Foodics o Simplr.
             </motion.p>
-
-            {/* Barra de urgencia */}
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500/10 border border-orange-500/20 rounded-full text-sm text-orange-400 mb-6 max-w-full"
-              custom={0.28}
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp}
-            >
-              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse shrink-0" />
-              <span>Precio de Fundador disponible por tiempo limitado — $29.000/mes bloqueado por 12 meses</span>
-            </motion.div>
 
             {/* CTAs */}
             <motion.div
@@ -149,11 +128,28 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-2xl transition-all shadow-xl shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 text-base"
               >
-                Empieza a ahorrar hoy
+                Pruébalo gratis 7 días — sin tarjeta
                 <ArrowRight className="w-4 h-4" />
               </a>
 
+              <a
+                href="#pricing"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/5 hover:bg-white/10 border border-white/20 text-white font-bold rounded-2xl transition-all hover:-translate-y-0.5 text-base"
+              >
+                Agenda una demo
+              </a>
             </motion.div>
+
+            {/* Microcopy */}
+            <motion.p
+              className="text-sm text-white/40 mb-8 text-center lg:text-left"
+              custom={0.35}
+              initial="hidden"
+              animate="visible"
+              variants={fadeUp}
+            >
+              Sin tarjeta de crédito. Sin instalar nada. Listo en minutos.
+            </motion.p>
 
             {/* Métricas */}
             <motion.div

@@ -25,8 +25,10 @@ const OUT_DIR = path.join(DIST_DIR, 'prerendered');
 
 // La landing es una single-page con secciones ancla (#features, #pricing, #faq).
 // Navegamos con hash para forzar el render del contenido de cada sección.
+// `replaceIndex: true` reemplaza dist/index.html con el HTML prerenderizado de
+// la ruta raíz, de modo que Google/WhatsApp lean el contenido sin ejecutar JS.
 const ROUTES = [
-  { route: '/',           file: 'index.html' },
+  { route: '/',           file: 'index.html',   replaceIndex: true },
   { route: '/#features',  file: 'funciones.html' },
   { route: '/#pricing',   file: 'precios.html' },
   { route: '/#faq',       file: 'faq.html' },
@@ -174,14 +176,23 @@ async function main() {
   });
 
   try {
-    for (const { route, file } of ROUTES) {
+    for (const { route, file, replaceIndex } of ROUTES) {
       process.stdout.write(`  → ${route.padEnd(12)} `);
       const html = await renderRoute(browser, route);
+
+      // Copia de respaldo en dist/prerendered/
       const outPath = path.join(OUT_DIR, file);
       await writeFile(outPath, html, 'utf8');
       console.log(`✓ ${path.relative(ROOT, outPath)} (${(html.length / 1024).toFixed(1)} KB)`);
+
+      // Reemplazar dist/index.html para que crawlers lean el contenido SSG
+      if (replaceIndex) {
+        const indexPath = path.join(DIST_DIR, 'index.html');
+        await writeFile(indexPath, html, 'utf8');
+        console.log(`  ↻ Reemplazado ${path.relative(ROOT, indexPath)} con HTML prerenderizado`);
+      }
     }
-    console.log('✅ Prerender completo en dist/prerendered/');
+    console.log('✅ Prerender completo en dist/prerendered/ y dist/index.html actualizado');
   } finally {
     await browser.close();
     server.close();

@@ -44,7 +44,7 @@ export default function CTA() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Comenzar gratis ahora
+              Pruébalo gratis 7 días — sin tarjeta
               <ArrowRight className="w-5 h-5" />
             </motion.a>
 
