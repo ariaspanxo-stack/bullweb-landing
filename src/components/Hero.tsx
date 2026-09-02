@@ -8,12 +8,12 @@ const LINKS = {
 
 const METRICS = [
   { value: '$29.000', label: 'Precio fijo/mes',  hint: 'Todo incluido. Sin costos ocultos ni módulos extra.' },
-  { value: '📶',      label: 'Modo Offline PWA',  hint: 'Sigue vendiendo aunque se caiga el internet.' },
+  { value: '⚡',      label: 'POS ultrarrápido',  hint: 'App instalable que carga al instante.' },
   { value: '✓',       label: 'Boletas DTE integradas' },
 ];
 
 const BADGES = [
-  { emoji: '📶', text: 'Modo Offline: vende sin internet'          },
+  { emoji: '⚡', text: 'POS ultrarrápido, siempre disponible'      },
   { emoji: '🧾', text: 'Boletas DTE integradas al SII'             },
   { emoji: '🔒', text: 'Precio fijo $29.000 — sin letra chica'    },
 ];
@@ -110,8 +110,7 @@ export default function Hero() {
               variants={fadeUp}
             >
               Punto de venta, cocina, inventario, fidelización, asistencia y boletas al SII — todo
-              incluido en un precio fijo. Y si se cae el internet, sigues vendiendo. Olvida los
-              cobros por módulo de Foodics o Simplr.
+              incluido en un precio fijo. Olvida los cobros por módulo de otros POS.
             </motion.p>
 
             {/* CTAs */}
@@ -258,7 +257,7 @@ export default function Hero() {
                 {/* Stats rápidas */}
                 <div className="grid grid-cols-3 gap-2">
                   {[
-                    { label: 'Ventas hoy',  value: '$284.990', color: 'text-green-400' },
+                    { label: 'Ventas hoy',  value: '$487.250', color: 'text-green-400' },
                     { label: 'Boletas SII',  value: '$0 c/u',   color: 'text-orange-400' },
                     { label: 'En cocina',    value: '4',        color: 'text-blue-400'   },
                   ].map((s, i) => (

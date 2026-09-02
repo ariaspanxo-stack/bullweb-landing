@@ -20,10 +20,10 @@ const PAINS: PainPoint[] = [
       </div>
     ),
     title:   'Internet',
-    desc:    'Se cae el internet un viernes lleno y la caja se congela. Cada minuto sin vender es un cliente que se aburre y se va. → Con el Modo Offline, sigues cobrando sin señal. Todo se sincroniza solo cuando vuelve.',
+    desc:    'Se cae el internet un viernes lleno y la caja se congela. Cada minuto sin vender es un cliente que se aburre y se va. → BullWeb es una app instalable que carga rápido y se mantiene estable en la jornada.',
     color:   'text-orange-500',
     bgColor: 'bg-orange-50',
-    tag:     'Modo Offline PWA',
+    tag:     'POS 100% web',
   },
   {
     icon: (
@@ -56,7 +56,7 @@ const PAINS: PainPoint[] = [
       </div>
     ),
     title:   'Dirección del Trabajo',
-    desc:    'Un libro de asistencia mal llevado es una multa esperando a pasar. La Dirección del Trabajo no perdona el papeleo. → Reloj control y libro de asistencia digital que cumple el estándar de la DT. Tranquilidad en cada fiscalización.',
+    desc:    'Un libro de asistencia mal llevado es una multa esperando a pasar. La Dirección del Trabajo no perdona el papeleo. → Reloj control y registro de asistencia con exportación a PDF. Tranquilidad en cada fiscalización.',
     color:   'text-purple-500',
     bgColor: 'bg-purple-50',
     tag:     'Libro de Asistencia Digital',

@@ -2,17 +2,18 @@
 import { Check } from 'lucide-react';
 
 const FEATURES = [
-  'POS ultrarrápido con Modo Offline',
+  'POS ultrarrápido, siempre disponible',
   'App Mesero (sin hardware extra)',
   'Pantalla de Cocina (KDS)',
   'Carta digital QR',
   'Inventario en tiempo real y recetas',
   'Cuadres de caja y turnos',
-  'Reloj control y asistencia (estándar DT)',
+  'Reloj control y asistencia con exportación a PDF',
   'CRM y fidelización',
   'Cupones y promociones',
   'Boletas electrónicas al SII',
   'Reportes avanzados y exportación a Excel',
+  '1 sucursal incluida por plan',
 ];
 
 export default function Pricing() {

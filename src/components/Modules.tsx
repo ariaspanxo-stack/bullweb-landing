@@ -25,7 +25,7 @@ const PILLARS: Pillar[] = [
     ),
     accent: 'orange',
     bullets: [
-      { icon: <Zap className="w-4 h-4" />,          text: 'POS ultrarrápido con Modo Offline' },
+      { icon: <Zap className="w-4 h-4" />,          text: 'POS ultrarrápido, siempre disponible' },
       { icon: <Smartphone className="w-4 h-4" />,   text: 'App Mesero desde el celular — sin hardware extra' },
       { icon: <QrCode className="w-4 h-4" />,       text: 'Carta digital QR, pedidos directos a la caja' },
     ],
@@ -71,7 +71,7 @@ const PILLARS: Pillar[] = [
     accent: 'green',
     bullets: [
       { icon: <FileText className="w-4 h-4" />,    text: 'Boletas electrónicas al SII desde la venta' },
-      { icon: <Clock className="w-4 h-4" />,       text: 'Reloj control y libro de asistencia digital (estándar DT)' },
+      { icon: <Clock className="w-4 h-4" />,       text: 'Reloj control y registro de asistencia con exportación a PDF' },
       { icon: <BarChart3 className="w-4 h-4" />,   text: 'Cuadres de caja, turnos, ingresos y egresos' },
       { icon: <BarChart3 className="w-4 h-4" />,   text: 'Reportes avanzados: ventas por mesero, heatmaps, exportación a Excel' },
     ],
@@ -79,7 +79,7 @@ const PILLARS: Pillar[] = [
 ];
 
 const SUBTITLE: Record<Pillar['accent'], string> = {
-  orange: 'El salón funcionando sin fricción, con o sin internet.',
+  orange: 'El salón funcionando sin fricción, en cada turno.',
   blue:   'Que nada se pierda entre la comanda y el plato.',
   pink:   'Convierte clientes de una vez en clientes de siempre.',
   green:  'Lo que el SII y la DT te exigen, resuelto por dentro.',
