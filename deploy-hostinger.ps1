@@ -89,7 +89,7 @@ if (Test-Path "$DIST\images") {
 }
 
 # Subir assets estáticos de raíz (favicon, og-image, etc.)
-$rootAssets = Get-ChildItem "$DIST\*" -File -Include "*.svg","*.png","*.ico","*.webmanifest"
+$rootAssets = Get-ChildItem "$DIST\*" -File -Include "*.svg","*.png","*.ico","*.webmanifest","*.webp"
 foreach ($f in $rootAssets) {
   doDelete "$REMOTE/$($f.Name)"
   doUpload $f.FullName "$REMOTE/$($f.Name)"

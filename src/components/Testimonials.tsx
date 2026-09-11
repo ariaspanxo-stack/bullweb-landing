@@ -1,15 +1,4 @@
 import { motion } from 'framer-motion';
-import { Star } from 'lucide-react';
-
-function Stars({ count }: { count: number }) {
-  return (
-    <div className="flex gap-0.5">
-      {Array.from({ length: count }).map((_, i) => (
-        <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
-      ))}
-    </div>
-  );
-}
 
 export default function Testimonials() {
   return (
@@ -34,47 +23,6 @@ export default function Testimonials() {
           <p className="mt-4 text-slate-500 text-lg max-w-2xl mx-auto">
             En producción desde 2026 · Santiago, Chile
           </p>
-        </motion.div>
-
-        {/* Tarjeta Francisco Arias */}
-        <motion.div
-          className="max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="relative bg-white rounded-3xl p-10 shadow-md border border-slate-100">
-            {/* Comillas decorativas */}
-            <span className="absolute top-6 right-8 text-7xl font-black text-orange-100 leading-none select-none">&ldquo;</span>
-
-            {/* Badge */}
-            <span className="inline-block px-3 py-1 bg-orange-50 text-orange-500 text-xs font-bold rounded-full border border-orange-100 mb-5">
-              🧑‍💻 Fundador
-            </span>
-
-            {/* Rating */}
-            <Stars count={5} />
-
-            {/* Texto */}
-            <blockquote className="mt-4 text-slate-700 leading-relaxed text-lg relative z-10">
-              &ldquo;BullWeb Chile no nació como una idea más. Nació desde la necesidad de crear un sistema gastronómico realmente rápido, estable y escalable. Después de años analizando cómo operan distintos negocios del rubro, desarrollé una plataforma POS multitenant enfocada en rendimiento, automatización y control total de la operación. Cada función, mejora y actualización tiene un objetivo claro: simplificar procesos, ahorrar tiempo y entregar una herramienta moderna que realmente acompañe el crecimiento de cada negocio.&rdquo;
-            </blockquote>
-
-            {/* Autor */}
-            <div className="flex items-center gap-4 mt-8 pt-6 border-t border-slate-100">
-              <img
-                src="/images/francisco-arias.jpg"
-                alt="Francisco Arias"
-                className="w-14 h-14 rounded-full object-cover bg-orange-100"
-                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-              />
-              <div>
-                <p className="font-black text-slate-800 text-base">Francisco Arias</p>
-                <p className="text-slate-500 text-sm">Fundador BullWeb · Ingeniero Software · Santiago, Chile</p>
-              </div>
-            </div>
-          </div>
         </motion.div>
 
         {/* Sub-texto invitación */}

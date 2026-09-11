@@ -52,8 +52,10 @@ export default function Navbar() {
               className="flex items-center gap-2 flex-shrink-0"
             >
               <img
-                src="/logo-bullweb.png"
+                src="/logo-bullweb.webp"
                 alt="BullWeb Chile"
+                width="320"
+                height="320"
                 className="h-9 w-auto"
               />
             </a>

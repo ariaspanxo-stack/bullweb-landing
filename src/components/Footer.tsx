@@ -31,8 +31,11 @@ export default function Footer() {
           <div className="space-y-5">
             <div className="flex items-center gap-2">
               <img
-                src="/logo-bullweb.png"
+                src="/logo-bullweb.webp"
                 alt="BullWeb Chile"
+                width="320"
+                height="320"
+                loading="lazy"
                 className="h-10 w-auto brightness-0 invert"
               />
             </div>
@@ -97,7 +100,7 @@ export default function Footer() {
 
             {/* Badge SII */}
             <div className="mt-6 inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-500/10 text-green-400 text-xs font-semibold rounded-lg border border-green-500/20">
-              ✓ Compatible con Bsale · SII Chile
+              ✓ Facturación Electrónica Nativa · SII Chile
             </div>
           </div>
         </div>

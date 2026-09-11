@@ -30,7 +30,6 @@ export default function CTA() {
 
           {/* Subtítulo */}
           <p className="text-orange-100 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-            Ya en producción en restaurantes chilenos.
             Comienza gratis, sin compromiso.
           </p>
 
@@ -64,6 +63,11 @@ export default function CTA() {
           {/* Trust line */}
           <p className="text-orange-200 text-sm mt-8">
             Sin tarjeta de crédito · Cancela cuando quieras · Soporte local en español
+          </p>
+
+          {/* Sellos de infraestructura */}
+          <p className="text-orange-200/80 text-xs mt-3 tracking-wide">
+            Backups diarios automáticos · Datos aislados por restaurante · Roles y permisos granulares · Auditoría de acciones críticas
           </p>
         </motion.div>
       </div>

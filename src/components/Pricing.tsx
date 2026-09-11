@@ -9,7 +9,7 @@ const FEATURES = [
   'Inventario en tiempo real y recetas',
   'Cuadres de caja y turnos',
   'Reloj control y asistencia con exportación a PDF',
-  'CRM y fidelización',
+  'CRM y fidelización · 100 emails incluidos al mes',
   'Cupones y promociones',
   'Boletas electrónicas al SII',
   'Reportes avanzados y exportación a Excel',

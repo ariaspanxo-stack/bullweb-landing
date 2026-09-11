@@ -15,6 +15,10 @@ const FAQS = [
     q: '¿Los $29.000 son de verdad todo incluido, o hay cobros escondidos?',
     a: 'Todo incluido, de verdad. Las once funciones del plan vienen dentro del precio: no cobramos módulos aparte, ni por usuario, ni por función nueva. $29.000 al mes, sin contratos amarrados, cancelas cuando quieras. Ese es el punto: un solo precio, sin letra chica.',
   },
+  {
+    q: '¿Se integra con Uber Eats o Rappi?',
+    a: 'Hoy no. Gestionas tu delivery propio desde el sistema: recibes el pedido, asignas repartidor y cobras, todo dentro de BullWeb.',
+  },
 ];
 
 function FaqItem({ faq, idx }: { faq: typeof FAQS[0]; idx: number }) {

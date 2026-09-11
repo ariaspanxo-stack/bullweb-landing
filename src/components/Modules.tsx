@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import {
   Zap, ChefHat, Heart, ShieldCheck,
   Smartphone, QrCode, Package, BarChart3,
-  Gift, Ticket, FileText, Clock,
+  Gift, Ticket, FileText, Clock, Bike,
 } from 'lucide-react';
 
 interface Pillar {
@@ -28,6 +28,7 @@ const PILLARS: Pillar[] = [
       { icon: <Zap className="w-4 h-4" />,          text: 'POS ultrarrápido, siempre disponible' },
       { icon: <Smartphone className="w-4 h-4" />,   text: 'App Mesero desde el celular — sin hardware extra' },
       { icon: <QrCode className="w-4 h-4" />,       text: 'Carta digital QR, pedidos directos a la caja' },
+      { icon: <Bike className="w-4 h-4" />,         text: 'Pedidos de delivery propio: los recibes, asignas repartidor y cobras desde el mismo sistema.' },
     ],
   },
   {

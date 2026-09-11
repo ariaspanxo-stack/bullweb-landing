@@ -3,9 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar             from './components/Navbar';
 import Hero               from './components/Hero';
 import Features           from './components/Features';          // Pain Points
-import OfflineModeSection from './components/OfflineModeSection'; // Modo Offline destacado
 import Modules            from './components/Modules';            // 4 pilares
-import TestimonioDestacado from './components/TestimonioDestacado';
 import Pricing            from './components/Pricing';
 import FAQ                from './components/FAQ';
 import CTA                from './components/CTA';
@@ -21,10 +19,8 @@ function HomePage() {
       <Navbar />
       <main>
         <Hero />                {/* 1º CTA dentro del Hero */}
-        <TestimonioDestacado /> {/* Social Proof */}
         <Features />            {/* Pain Points */}
         <Modules />             {/* 4 pilares */}
-        <OfflineModeSection />  {/* Modo Offline destacado + 2º CTA */}
         <Pricing />
         <FAQ />
         <CTA />                 {/* 3º CTA tras la FAQ */}

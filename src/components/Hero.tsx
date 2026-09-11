@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { ArrowRight, CheckCircle, Star, Cpu } from 'lucide-react';
+import { ArrowRight, CheckCircle, Cpu } from 'lucide-react';
 
 const LINKS = {
   register: 'https://app.bullwebchile.com/register',
@@ -271,17 +271,6 @@ export default function Hero() {
             </div>
 
             {/* Badges flotantes */}
-            <motion.div
-              className="absolute -top-4 -right-4 bg-white rounded-2xl px-3 py-2 shadow-xl flex items-center gap-2"
-              animate={{ y: [0, -6, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-              <div>
-                <p className="text-xs font-black text-gray-800">4.9 / 5</p>
-                <p className="text-[10px] text-gray-400">En producción real</p>
-              </div>
-            </motion.div>
 
             <motion.div
               className="absolute -bottom-4 -left-4 bg-white rounded-2xl px-3 py-2 shadow-xl flex items-center gap-2"
