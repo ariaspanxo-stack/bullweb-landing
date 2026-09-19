@@ -7,7 +7,7 @@ const LINKS = {
 };
 
 const METRICS = [
-  { value: '$29.000', label: 'Precio fijo/mes',  hint: 'Todo incluido. Sin costos ocultos ni módulos extra.' },
+  { value: '$34.000', label: 'Precio fijo/mes',  hint: 'Todo incluido. Sin costos ocultos ni módulos extra.' },
   { value: '⚡',      label: 'POS ultrarrápido',  hint: 'App instalable que carga al instante.' },
   { value: '✓',       label: 'Boletas DTE integradas' },
 ];
@@ -15,7 +15,7 @@ const METRICS = [
 const BADGES = [
   { emoji: '⚡', text: 'POS ultrarrápido, siempre disponible'      },
   { emoji: '🧾', text: 'Boletas DTE integradas al SII'             },
-  { emoji: '🔒', text: 'Precio fijo $29.000 — sin letra chica'    },
+  { emoji: '🔒', text: 'Precio fijo $34.000 — sin letra chica'    },
 ];
 
 const fadeUp = {
@@ -96,7 +96,7 @@ export default function Hero() {
             >
               Todo tu restaurante en un solo plan por{' '}
               <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
-                $29.000
+                $34.000
               </span>
               . Sin letra chica.
             </motion.h1>

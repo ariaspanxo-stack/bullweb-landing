@@ -12,8 +12,8 @@ const FAQS = [
     a: 'Te acompañamos en el traspaso. Cargamos tu carta, tus productos y tus datos para que arranques rápido, sin partir de cero. Y como tienes 7 días de prueba gratis sin tarjeta, puedes tenerlo funcionando en paralelo y comprobar que todo calza antes de soltar tu sistema viejo.',
   },
   {
-    q: '¿Los $29.000 son de verdad todo incluido, o hay cobros escondidos?',
-    a: 'Todo incluido, de verdad. Las once funciones del plan vienen dentro del precio: no cobramos módulos aparte, ni por usuario, ni por función nueva. $29.000 al mes, sin contratos amarrados, cancelas cuando quieras. Ese es el punto: un solo precio, sin letra chica.',
+    q: '¿Los $34.000 son de verdad todo incluido, o hay cobros escondidos?',
+    a: 'Todo incluido, de verdad. Las once funciones del plan vienen dentro del precio: no cobramos módulos aparte, ni por usuario, ni por función nueva. $34.000 al mes, sin contratos amarrados, cancelas cuando quieras. Ese es el punto: un solo precio, sin letra chica.',
   },
   {
     q: '¿Se integra con Uber Eats o Rappi?',

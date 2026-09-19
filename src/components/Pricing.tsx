@@ -53,7 +53,7 @@ export default function Pricing() {
             {/* Precio */}
             <div className="relative mb-2">
               <div className="flex items-baseline gap-2 mb-2 flex-wrap justify-center">
-                <span className="text-white text-5xl sm:text-6xl font-black">$29.000</span>
+                <span className="text-white text-5xl sm:text-6xl font-black">$34.000</span>
                 <span className="text-gray-400 text-lg">/ mes</span>
               </div>
             </div>

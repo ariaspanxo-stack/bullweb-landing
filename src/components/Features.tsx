@@ -44,10 +44,10 @@ const PAINS: PainPoint[] = [
       </div>
     ),
     title:   'Competencia',
-    desc:    'Con otros sistemas partes barato, pero fidelización aparte, reportes aparte, cada función es un cobro nuevo. En seis meses pagas el doble. → En BullWeb los $29.000 son los $29.000, con todo adentro.',
+    desc:    'Con otros sistemas partes barato, pero fidelización aparte, reportes aparte, cada función es un cobro nuevo. En seis meses pagas el doble. → En BullWeb los $34.000 son los $34.000, con todo adentro.',
     color:   'text-green-500',
     bgColor: 'bg-green-50',
-    tag:     'Todo incluido por $29.000',
+    tag:     'Todo incluido por $34.000',
   },
   {
     icon: (
