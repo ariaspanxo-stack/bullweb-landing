@@ -6,7 +6,6 @@ import Features           from './components/Features';          // Pain Points
 import HowItWorks         from './components/HowItWorks';        // Onboarding 3 pasos (#190)
 import Modules            from './components/Modules';            // 4 pilares
 import SiiDirectoSection  from './components/SiiDirectoSection'; // Boletas $0 (#190)
-import AhorroCalculator   from './components/AhorroCalculator';  // Calculadora pérdida (#190)
 import Pricing            from './components/Pricing';
 import Testimonials       from './components/Testimonials';      // Prueba social fundador (#190)
 import FAQ                from './components/FAQ';
@@ -27,7 +26,6 @@ function HomePage() {
         <HowItWorks />          {/* Onboarding en 3 pasos (#190) */}
         <SiiDirectoSection />   {/* Boletas al SII a costo cero (#190) — sobre Modules (#191) */}
         <Modules />             {/* 4 pilares */}
-        <AhorroCalculator />    {/* Calculadora de pérdida por boleta (#190) */}
         <Pricing />
         <Testimonials />        {/* Prueba social honesta del fundador (#190) */}
         <FAQ />
