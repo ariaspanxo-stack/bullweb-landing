@@ -100,7 +100,7 @@ export default function Footer() {
 
             {/* Badge SII */}
             <div className="mt-6 inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-500/10 text-green-400 text-xs font-semibold rounded-lg border border-green-500/20">
-              ✓ Facturación Electrónica Nativa · SII Chile
+              ✓ Boletas Electrónicas Nativas · SII Chile
             </div>
           </div>
         </div>

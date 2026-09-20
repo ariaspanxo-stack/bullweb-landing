@@ -17,15 +17,46 @@ export default function Testimonials() {
             Testimonios
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-800 leading-tight">
-            Directo desde{' '}
-            <span className="text-orange-500">producción real</span>
+            Construido por un restaurantero.{' '}
+            <span className="text-orange-500">Probado en uno real.</span>
           </h2>
-          <p className="mt-4 text-slate-500 text-lg max-w-2xl mx-auto">
-            En producción desde 2026 · Santiago, Chile
+          <p className="mt-4 text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed">
+            Bullweb no nació en una oficina: nació en la cocina. Nuestro propio restaurante
+            opera con el sistema todos los días — POS, comandas, inventario y boletas al SII.
+            Lo que ves en esta página es lo que usamos en producción.
           </p>
         </motion.div>
 
-        {/* Sub-texto invitación */}
+        {/* Tarjeta del fundador */}
+        <motion.div
+          className="max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 bg-white rounded-3xl p-8 border border-slate-100 shadow-sm">
+            <img
+              src="/images/francisco-arias.jpg"
+              alt="Francisco Arias — Fundador de Bullweb"
+              width="96"
+              height="96"
+              loading="lazy"
+              className="w-24 h-24 rounded-2xl object-cover shrink-0 ring-4 ring-orange-100"
+            />
+            <div className="text-center sm:text-left">
+              <p className="text-slate-700 text-base leading-relaxed italic">
+                "Antes pagaba por módulos y por cada boleta. Hoy pago un precio fijo y el
+                restaurante completo corre en un solo sistema — empezando por el mío."
+              </p>
+              <p className="mt-4 text-slate-900 font-bold text-sm">
+                Francisco Arias — Fundador · Cliente Cero
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Línea de cierre */}
         <motion.p
           className="text-center text-slate-400 text-sm mt-8"
           initial={{ opacity: 0 }}
@@ -33,15 +64,7 @@ export default function Testimonials() {
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
         >
-          ¿Quieres ser el próximo testimonio?{' '}
-          <a
-            href="https://app.bullwebchile.com/register"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-orange-500 font-semibold hover:underline"
-          >
-            Empieza gratis hoy →
-          </a>
+          Operando desde 2026 · Santiago, Chile
         </motion.p>
       </div>
     </section>

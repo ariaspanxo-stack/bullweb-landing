@@ -4,12 +4,13 @@ import { ArrowRight, CheckCircle, Cpu } from 'lucide-react';
 
 const LINKS = {
   register: 'https://app.bullwebchile.com/register',
+  demo:     'https://wa.me/56937458347?text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20Bullweb',
 };
 
 const METRICS = [
-  { value: '$34.000', label: 'Precio fijo/mes',  hint: 'Todo incluido. Sin costos ocultos ni módulos extra.' },
-  { value: '⚡',      label: 'POS ultrarrápido',  hint: 'App instalable que carga al instante.' },
-  { value: '✓',       label: 'Boletas DTE integradas' },
+  { value: '7 días',  label: 'Prueba gratis',    hint: 'Sin tarjeta. Listo en minutos.' },
+  { value: '$0',      label: 'Por boleta SII',   hint: 'Emisión directa, sin costo por documento.' },
+  { value: '12',      label: 'Módulos incluidos', hint: 'Todo incluido. Sin costos ocultos ni cobros extra.' },
 ];
 
 const BADGES = [
@@ -132,7 +133,9 @@ export default function Hero() {
               </a>
 
               <a
-                href="#pricing"
+                href={LINKS.demo}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/5 hover:bg-white/10 border border-white/20 text-white font-bold rounded-2xl transition-all hover:-translate-y-0.5 text-base"
               >
                 Agenda una demo
@@ -141,7 +144,7 @@ export default function Hero() {
 
             {/* Microcopy */}
             <motion.p
-              className="text-sm text-white/40 mb-8 text-center lg:text-left"
+              className="text-sm text-white/40 mb-4 text-center lg:text-left"
               custom={0.35}
               initial="hidden"
               animate="visible"
@@ -149,6 +152,20 @@ export default function Hero() {
             >
               Sin tarjeta de crédito. Sin instalar nada. Listo en minutos.
             </motion.p>
+
+            {/* Badge estático boletas (#190) */}
+            <motion.div
+              className="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-green-500/10 border border-green-500/30 rounded-full"
+              custom={0.38}
+              initial="hidden"
+              animate="visible"
+              variants={fadeUp}
+            >
+              <span className="text-base leading-none">🧾</span>
+              <span className="text-green-400 text-sm font-semibold">
+                Boletas Electrónicas al SII — $0 por documento
+              </span>
+            </motion.div>
 
             {/* Métricas */}
             <motion.div
