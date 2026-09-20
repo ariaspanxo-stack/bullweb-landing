@@ -4,13 +4,16 @@ import { ArrowRight, CheckCircle, Cpu } from 'lucide-react';
 
 const LINKS = {
   register: 'https://app.bullwebchile.com/register',
-  demo:     'https://wa.me/56937458347?text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20Bullweb',
+  // #191 — WhatsApp contextual por sección
+  demo:     'https://wa.me/56937458347?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20BullWeb',
 };
 
+// #191 — Métricas Hero: principal con mayor peso visual = "Todo incluido — $34.000";
+// secundarias "$0 por boleta al SII" y "7 días gratis".
 const METRICS = [
-  { value: '7 días',  label: 'Prueba gratis',    hint: 'Sin tarjeta. Listo en minutos.' },
-  { value: '$0',      label: 'Por boleta SII',   hint: 'Emisión directa, sin costo por documento.' },
-  { value: '12',      label: 'Módulos incluidos', hint: 'Todo incluido. Sin costos ocultos ni cobros extra.' },
+  { value: '$34.000', label: 'Todo incluido',  hint: 'Un solo precio. Sin costos ocultos ni cobros extra.', primary: true },
+  { value: '$0',      label: 'Por boleta al SII', hint: 'Emisión directa, sin costo por documento.' },
+  { value: '7 días',  label: 'Prueba gratis',  hint: 'Sin tarjeta. Listo en minutos.' },
 ];
 
 const BADGES = [
@@ -177,8 +180,10 @@ export default function Hero() {
             >
               {METRICS.map((m, i) => (
                 <div key={i} className="text-center lg:text-left">
-                  <p className="text-2xl font-black text-white">{m.value}</p>
-                  <p className="text-xs text-white/40 font-medium mt-0.5">{m.label}</p>
+                  <p className={`font-black text-white ${m.primary ? 'text-4xl sm:text-5xl bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent' : 'text-2xl'}`}>
+                    {m.value}
+                  </p>
+                  <p className={`font-medium mt-0.5 ${m.primary ? 'text-sm text-orange-400 font-semibold' : 'text-xs text-white/40'}`}>{m.label}</p>
                   {m.hint && (
                     <p className="text-[10px] text-white/30 font-normal mt-1 max-w-[140px] leading-tight">
                       {m.hint}

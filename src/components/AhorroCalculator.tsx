@@ -111,13 +111,15 @@ export default function AhorroCalculator() {
             </p>
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button — #191: WhatsApp contextual de la sección (label armonizado con el mensaje) */}
           <div className="text-center">
             <a
-              href="#contacto"
+              href="https://wa.me/56937458347?text=Hola%2C%20quiero%20comparar%20cu%C3%A1nto%20estoy%20pagando%20hoy"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 text-white text-lg font-bold px-8 py-4 rounded-full shadow-lg shadow-orange-500/25 transition-all hover:shadow-orange-500/40 hover:scale-105"
             >
-              Quiero emitir mis Boletas Gratis
+              Comparar cuánto pago hoy
               <ArrowRight className="w-5 h-5" />
             </a>
           </div>

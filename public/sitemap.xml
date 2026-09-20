@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.bullwebchile.com/</loc>
+    <loc>https://bullwebchile.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.bullwebchile.com/terminos</loc>
+    <loc>https://bullwebchile.com/terminos</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.bullwebchile.com/privacidad</loc>
+    <loc>https://bullwebchile.com/privacidad</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.bullwebchile.com/cookies</loc>
+    <loc>https://bullwebchile.com/cookies</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

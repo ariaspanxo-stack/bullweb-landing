@@ -25,8 +25,8 @@ function HomePage() {
         <Hero />                {/* 1º CTA dentro del Hero */}
         <Features />            {/* Pain Points */}
         <HowItWorks />          {/* Onboarding en 3 pasos (#190) */}
+        <SiiDirectoSection />   {/* Boletas al SII a costo cero (#190) — sobre Modules (#191) */}
         <Modules />             {/* 4 pilares */}
-        <SiiDirectoSection />   {/* Boletas al SII a costo cero (#190) */}
         <AhorroCalculator />    {/* Calculadora de pérdida por boleta (#190) */}
         <Pricing />
         <Testimonials />        {/* Prueba social honesta del fundador (#190) */}

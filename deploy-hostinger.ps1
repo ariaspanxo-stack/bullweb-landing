@@ -89,7 +89,14 @@ if (Test-Path "$DIST\images") {
 }
 
 # Subir assets estáticos de raíz (favicon, og-image, etc.)
-$rootAssets = Get-ChildItem "$DIST\*" -File -Include "*.svg","*.png","*.ico","*.webmanifest","*.webp"
+# Hotfix #191: -Include con wildcard inicial ("*.svg") no matchea en Get-ChildItem sin -Recurse
+# (causa raíz de que robots/sitemap/favicon nunca subieran). Ahora se listan todos los archivos
+# de raíz del dist y se filtra explícitamente, incluyendo robots.txt y sitemap.xml.
+$rootAll    = Get-ChildItem "$DIST\*" -File
+$rootAssets = $rootAll | Where-Object {
+  $_.Name -eq "robots.txt" -or $_.Name -eq "sitemap.xml" -or
+  $_.Extension -in ".svg",".png",".ico",".webmanifest",".webp"
+}
 foreach ($f in $rootAssets) {
   doDelete "$REMOTE/$($f.Name)"
   doUpload $f.FullName "$REMOTE/$($f.Name)"

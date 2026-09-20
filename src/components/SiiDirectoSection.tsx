@@ -173,6 +173,17 @@ export default function SiiDirectoSection() {
           <p className="text-slate-500 text-xs mt-3">
             7 días gratis · Sin tarjeta · Funciona con tu Firma Electrónica
           </p>
+          {/* #191 — WhatsApp contextual de la sección */}
+          <p className="mt-4">
+            <a
+              href="https://wa.me/56937458347?text=Hola%2C%20quiero%20saber%20c%C3%B3mo%20funcionan%20las%20boletas%20al%20SII"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-green-400 underline underline-offset-4 decoration-slate-600 hover:decoration-green-400 transition-colors text-sm"
+            >
+              ¿Dudas con las boletas? Pregúntanos por WhatsApp
+            </a>
+          </p>
         </motion.div>
       </div>
     </section>

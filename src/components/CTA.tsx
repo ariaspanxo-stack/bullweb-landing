@@ -47,8 +47,9 @@ export default function CTA() {
               <ArrowRight className="w-5 h-5" />
             </motion.a>
 
+            {/* #191 — WhatsApp contextual del CTA final */}
             <motion.a
-              href="https://wa.me/56937458347?text=Hola%2C%20quiero%20información%20sobre%20BullWeb%20Chile"
+              href="https://wa.me/56937458347?text=Hola%2C%20quiero%20agendar%20una%20demo"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 bg-white/15 hover:bg-white/25 text-white font-bold rounded-2xl border border-white/30 transition-all text-base"

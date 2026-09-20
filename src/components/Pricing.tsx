@@ -85,7 +85,18 @@ export default function Pricing() {
             >
               Empieza gratis 7 días — sin tarjeta
             </a>
-            <p className="relative text-center text-gray-500 text-xs mt-4">
+            {/* #191 — WhatsApp contextual de la sección (enlace secundario discreto) */}
+            <p className="relative text-center mt-4">
+              <a
+                href="https://wa.me/56937458347?text=Hola%2C%20quiero%20empezar%20la%20prueba%20gratis%20de%207%20d%C3%ADas"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-green-600 underline underline-offset-4 decoration-gray-300 hover:decoration-green-500 transition-colors text-xs"
+              >
+                ¿Prefieres que te guiemos? Escríbenos por WhatsApp
+              </a>
+            </p>
+            <p className="relative text-center text-gray-500 text-xs mt-3">
               Sin contratos amarrados. Cancela cuando quieras.
             </p>
           </div>
