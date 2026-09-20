@@ -7,7 +7,6 @@ import HowItWorks         from './components/HowItWorks';        // Onboarding 3
 import Modules            from './components/Modules';            // 4 pilares
 import SiiDirectoSection  from './components/SiiDirectoSection'; // Boletas $0 (#190)
 import Pricing            from './components/Pricing';
-import Testimonials       from './components/Testimonials';      // Prueba social fundador (#190)
 import FAQ                from './components/FAQ';
 import CTA                from './components/CTA';
 import Footer             from './components/Footer';
@@ -27,7 +26,6 @@ function HomePage() {
         <SiiDirectoSection />   {/* Boletas al SII a costo cero (#190) — sobre Modules (#191) */}
         <Modules />             {/* 4 pilares */}
         <Pricing />
-        <Testimonials />        {/* Prueba social honesta del fundador (#190) */}
         <FAQ />
         <CTA />                 {/* 3º CTA tras la FAQ */}
       </main>
