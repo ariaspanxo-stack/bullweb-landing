@@ -18,6 +18,7 @@ const FEATURES_TODO = [
 
 const FEATURES_BASICO = [
   'POS de mostrador con caja y cobros',
+  'Gestión de mesas desde el POS',
   'Comandas e impresión de tickets',
   'Tienda online: retiro y delivery propio',
   'Carta digital QR visual',
@@ -27,7 +28,6 @@ const FEATURES_BASICO = [
 const SIN_BASICO = [
   'Boletas electrónicas al SII',
   'Pantalla de Cocina (KDS)',
-  'Gestión de mesas',
   'App Mesero',
   'Inventario y recetas',
   'Fidelización y campañas',
