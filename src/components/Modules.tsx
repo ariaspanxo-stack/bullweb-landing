@@ -25,7 +25,7 @@ const PILLARS: Pillar[] = [
     ),
     accent: 'orange',
     bullets: [
-      { icon: <Zap className="w-4 h-4" />,          text: 'POS ultrarrápido, siempre disponible' },
+      { icon: <Zap className="w-4 h-4" />,          text: 'Punto de venta ultrarrápido para tu local' },
       { icon: <Smartphone className="w-4 h-4" />,   text: 'App Mesero desde el celular — sin hardware extra' },
       { icon: <QrCode className="w-4 h-4" />,       text: 'Carta digital QR, pedidos directos a la caja' },
       { icon: <Bike className="w-4 h-4" />,         text: 'Pedidos de delivery propio: los recibes, asignas repartidor y cobras desde el mismo sistema.' },

@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { ArrowRight, CheckCircle, Cpu } from 'lucide-react';
+import { PRICE_BASICO, PRICE_TODO, BADGE_DUAL } from '../lib/plans';
 
 const LINKS = {
   register: 'https://app.bullwebchile.com/register',
@@ -8,18 +9,20 @@ const LINKS = {
   demo:     'https://wa.me/56937458347?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20BullWeb',
 };
 
-// #191 — Métricas Hero: principal con mayor peso visual = "Todo incluido — $34.000";
-// secundarias "$0 por boleta al SII" y "7 días gratis".
+// #227 — Métricas Hero desde las constantes (src/lib/plans.ts): principal
+// "Desde $19.900/mes"; secundarias "$0 por boleta al SII" y "7 días gratis".
 const METRICS = [
-  { value: '$34.000', label: 'Todo incluido',  hint: 'Un solo precio. Sin costos ocultos ni cobros extra.', primary: true },
+  { value: `Desde ${PRICE_BASICO}`, label: `Plan Básico / mes`, hint: `O plan TODO a ${PRICE_TODO} con todo incluido. Sin costos ocultos ni cobros extra.`, primary: true },
   { value: '$0',      label: 'Por boleta al SII', hint: 'Emisión directa, sin costo por documento.' },
   { value: '7 días',  label: 'Prueba gratis',  hint: 'Sin tarjeta. Listo en minutos.' },
 ];
 
+// #227 — El badge dual va PRIMERO: es el que queda en el DOM al prerender
+// (la rotación de AnimatePresence solo renderiza BADGES[0] sin JS).
 const BADGES = [
-  { emoji: '⚡', text: 'POS ultrarrápido, siempre disponible'      },
+  { emoji: '🔒', text: BADGE_DUAL },
+  { emoji: '⚡', text: 'Punto de venta ultrarrápido para tu local'      },
   { emoji: '🧾', text: 'Boletas DTE integradas al SII'             },
-  { emoji: '🔒', text: 'Precio fijo $34.000 — sin letra chica'    },
 ];
 
 const fadeUp = {
@@ -98,11 +101,7 @@ export default function Hero() {
               animate="visible"
               variants={fadeUp}
             >
-              Todo tu restaurante en un solo plan por{' '}
-              <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
-                $34.000
-              </span>
-              . Sin letra chica.
+              Punto de venta y tienda online para tu restaurante
             </motion.h1>
 
             {/* Subtítulo */}
@@ -113,8 +112,8 @@ export default function Hero() {
               animate="visible"
               variants={fadeUp}
             >
-              Punto de venta, cocina, inventario, fidelización, asistencia y boletas al SII — todo
-              incluido en un precio fijo. Olvida los cobros por módulo de otros POS.
+              Vende en tu local, recibe pedidos por carta QR y toma pedidos online en el mismo
+              sistema. Desde {PRICE_BASICO} al mes.
             </motion.p>
 
             {/* CTAs */}
@@ -131,7 +130,7 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-2xl transition-all shadow-xl shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 text-base"
               >
-                Pruébalo gratis 7 días — sin tarjeta
+                Probar 7 días gratis
                 <ArrowRight className="w-4 h-4" />
               </a>
 
@@ -153,7 +152,7 @@ export default function Hero() {
               animate="visible"
               variants={fadeUp}
             >
-              Sin tarjeta de crédito. Sin instalar nada. Listo en minutos.
+              Sin tarjeta. Sin instalar nada. Listo en minutos.
             </motion.p>
 
             {/* Badge estático boletas (#190) */}
@@ -227,7 +226,7 @@ export default function Hero() {
                       <Cpu className="w-3.5 h-3.5 text-white" />
                     </div>
                     <div>
-                      <p className="text-white text-xs font-bold">BullWeb POS</p>
+                      <p className="text-white text-xs font-bold">BullWeb punto de venta</p>
                       <p className="text-white/30 text-[10px]">Turno abierto · $10.000</p>
                     </div>
                   </div>

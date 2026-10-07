@@ -20,11 +20,11 @@
       }
     </script>
 
-    <!-- SEO -->
-    <title>BullWeb POS | Todo incluido por $34.000 — POS, Carta QR y Fidelización</title>
+    <!-- SEO (#227 — metas desde src/lib/plans.ts vía vite.config.ts) -->
+    <title>{{SEO_TITLE}}</title>
     <meta
       name="description"
-      content="Sistema POS todo-en-uno para restaurantes en Chile. Por solo $34.000/mes: Punto de Venta, Control de Empleados, Fidelización (CRM) y Cupones. Boletas electrónicas DTE integradas."
+      content="{{SEO_DESCRIPTION}}"
     />
     <meta name="keywords" content="POS restaurante Chile, sistema punto de venta, KDS cocina, delivery restaurante, software restaurante Chile, boletas DTE SII" />
     <meta name="author" content="BullWeb Chile" />
@@ -34,8 +34,8 @@
     <!-- Open Graph -->
     <meta property="og:type"        content="website" />
     <meta property="og:url"         content="https://bullwebchile.com" />
-    <meta property="og:title"       content="BullWeb POS | Todo incluido por $34.000" />
-    <meta property="og:description" content="POS, Carta QR, Fidelización y Cupones incluidos por $34.000/mes, sin costos ocultos. Boletas electrónicas DTE integradas." />
+    <meta property="og:title"       content="{{SEO_TITLE}}" />
+    <meta property="og:description" content="{{SEO_DESCRIPTION}}" />
     <meta property="og:image"        content="https://bullwebchile.com/og-image.png" />
     <meta property="og:image:width"  content="1200" />
     <meta property="og:image:height" content="630" />
@@ -43,8 +43,8 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card"        content="summary_large_image" />
-    <meta name="twitter:title"       content="BullWeb POS | Todo incluido por $34.000" />
-    <meta name="twitter:description" content="POS, Carta QR, Fidelización y Cupones incluidos por $34.000/mes, sin costos ocultos. Boletas electrónicas DTE integradas." />
+    <meta name="twitter:title"       content="{{SEO_TITLE}}" />
+    <meta name="twitter:description" content="{{SEO_DESCRIPTION}}" />
     <meta name="twitter:image" content="https://bullwebchile.com/og-image.png" />
 
     <!-- Theme color (mobile browsers) -->
@@ -95,12 +95,7 @@
       "description": "Sistema POS todo-en-uno para restaurantes chilenos. Incluye KDS (Kitchen Display System), App Mesero con código QR, Delivery integrado, Inventario, Emisión de Boletas Electrónicas DTE al SII de Chile.",
       "url": "https://bullwebchile.com",
       "image": "https://bullwebchile.com/og-image.png",
-      "offers": {
-        "@type": "Offer",
-        "price": "34000",
-        "priceCurrency": "CLP",
-        "description": "Plan único BullWeb Completo — Prueba 7 días gratis, sin tarjeta de crédito."
-      },
+      "offers": {{JSONLD_OFFERS}},
       "featureList": [
         "POS Punto de Venta",
         "KDS Kitchen Display System",
@@ -142,10 +137,10 @@
         },
         {
           "@type": "Question",
-          "name": "¿Los $34.000 son de verdad todo incluido, o hay cobros escondidos?",
+          "name": "{{FAQ_Q_PRECIOS}}",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Todo incluido, de verdad. Las once funciones del plan vienen dentro del precio: no cobramos módulos aparte, ni por usuario, ni por función nueva. $34.000 al mes, sin contratos amarrados, cancelas cuando quieras. Ese es el punto: un solo precio, sin letra chica."
+            "text": "{{FAQ_A_PRECIOS}}"
           }
         },
         {

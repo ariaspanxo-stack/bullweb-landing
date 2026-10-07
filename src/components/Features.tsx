@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { WifiOff, Receipt, Boxes, FileText } from 'lucide-react';
+import { PRICE_BASICO, PRICE_TODO } from '../lib/plans';
 
 interface PainPoint {
   icon:    React.ReactNode;
@@ -44,10 +45,10 @@ const PAINS: PainPoint[] = [
       </div>
     ),
     title:   'Competencia',
-    desc:    'Con otros sistemas partes barato, pero fidelización aparte, reportes aparte, cada función es un cobro nuevo. En seis meses pagas el doble. → En BullWeb los $34.000 son los $34.000, con todo adentro.',
+    desc:    `Con otros sistemas partes barato, pero fidelización aparte, reportes aparte, cada función es un cobro nuevo. En seis meses pagas el doble. → En BullWeb eliges tu plan y ese es el precio: ${PRICE_BASICO} (Básico) o ${PRICE_TODO} (TODO) con todo incluido.`,
     color:   'text-green-500',
     bgColor: 'bg-green-50',
-    tag:     'Todo incluido por $34.000',
+    tag:     `Dos planes — desde ${PRICE_BASICO}`,
   },
   {
     icon: (

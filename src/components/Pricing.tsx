@@ -1,8 +1,9 @@
 ﻿import { motion } from 'framer-motion';
 import { Check, X, Rocket, Zap } from 'lucide-react';
+import { PRICE_BASICO, PRICE_TODO } from '../lib/plans';
 
 const FEATURES_TODO = [
-  'POS ultrarrápido, siempre disponible',
+  'Punto de venta ultrarrápido para tu local',
   'App Mesero (sin hardware extra)',
   'Pantalla de Cocina (KDS)',
   'Carta digital QR',
@@ -91,7 +92,7 @@ export default function Pricing() {
               {/* Precio */}
               <div className="relative mb-2">
                 <div className="flex items-baseline gap-2 mb-1 flex-wrap justify-center">
-                  <span className="text-white text-5xl font-black">$34.000</span>
+                  <span className="text-white text-5xl font-black">{PRICE_TODO}</span>
                   <span className="text-gray-400 text-lg">/ mes</span>
                 </div>
                 <p className="text-center text-gray-500 text-xs">IVA incluido</p>
@@ -159,7 +160,7 @@ export default function Pricing() {
               {/* Precio */}
               <div className="mb-2">
                 <div className="flex items-baseline gap-2 mb-1 flex-wrap justify-center">
-                  <span className="text-gray-900 text-5xl font-black">$19.900</span>
+                  <span className="text-gray-900 text-5xl font-black">{PRICE_BASICO}</span>
                   <span className="text-slate-400 text-lg">/ mes</span>
                 </div>
                 <p className="text-center text-slate-400 text-xs">IVA incluido</p>
