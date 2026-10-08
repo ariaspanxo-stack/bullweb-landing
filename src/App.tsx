@@ -5,7 +5,7 @@ import Hero               from './components/Hero';
 import Features           from './components/Features';          // Pain Points
 import HowItWorks         from './components/HowItWorks';        // Onboarding 3 pasos (#190)
 import Modules            from './components/Modules';            // 4 pilares
-import SiiDirectoSection  from './components/SiiDirectoSection'; // Boletas $0 (#190)
+import SiiDirectoSection  from './components/SiiDirectoSection'; // Boletas Full, tras Pricing (#228)
 import Pricing            from './components/Pricing';
 import FAQ                from './components/FAQ';
 import CTA                from './components/CTA';
@@ -23,9 +23,9 @@ function HomePage() {
         <Hero />                {/* 1º CTA dentro del Hero */}
         <Features />            {/* Pain Points */}
         <HowItWorks />          {/* Onboarding en 3 pasos (#190) */}
-        <SiiDirectoSection />   {/* Boletas al SII a costo cero (#190) — sobre Modules (#191) */}
         <Modules />             {/* 4 pilares */}
         <Pricing />
+        <SiiDirectoSection />   {/* Boletas incluidas en Full, módulo del plan — después de Pricing (#228) */}
         <FAQ />
         <CTA />                 {/* 3º CTA tras la FAQ */}
       </main>

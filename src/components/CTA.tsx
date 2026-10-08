@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, MessageCircle, ShieldCheck } from 'lucide-react';
+import { REGISTER_URL, track } from '../lib/measurement';
 
 export default function CTA() {
   return (
@@ -36,9 +37,10 @@ export default function CTA() {
           {/* Botones CTA */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.a
-              href="https://app.bullwebchile.com/register"
+              href={REGISTER_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => track('cta_click', { location: 'cta-final' })}
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-orange-600 font-bold rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all text-base"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -52,6 +54,7 @@ export default function CTA() {
               href="https://wa.me/56937458347?text=Hola%2C%20quiero%20agendar%20una%20demo"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => track('whatsapp_click', { location: 'cta-final' })}
               className="inline-flex items-center gap-2 px-8 py-4 bg-white/15 hover:bg-white/25 text-white font-bold rounded-2xl border border-white/30 transition-all text-base"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}

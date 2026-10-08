@@ -1,6 +1,12 @@
 import { motion } from 'framer-motion';
-import { CheckCircle, Zap, Upload, CreditCard, ShieldCheck } from 'lucide-react';
+import { CheckCircle, Zap, Upload, ShieldCheck, FileCheck } from 'lucide-react';
+import { REGISTER_URL, track } from '../lib/measurement';
 
+/**
+ * #228 — BOLETAS REUBICADAS (módulo del plan Full, se muestra después de
+ * Pricing en App.tsx). Redacción con la frase exacta del Comandante, SIN
+ * jerga DTE, SIN "$0 por boleta" como dato destacado, SIN "ya emiten".
+ */
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
@@ -13,18 +19,18 @@ const fadeUp = {
 const steps = [
   {
     icon: <Upload className="w-8 h-8 text-orange-400" />,
-    title: 'Sube tu Firma Electrónica',
-    desc: 'Carga tu certificado .pfx una sola vez. Bullweb lo encripta y guarda seguro.',
+    title: 'Carga tu certificado',
+    desc: 'Tu certificado digital (emitido por un certificador externo) se sube una sola vez. Queda encriptado y guardado seguro.',
   },
   {
-    icon: <CreditCard className="w-8 h-8 text-orange-400" />,
-    title: 'Cobra en el POS',
-    desc: 'Funciona como siempre. No cambias tu flujo de trabajo ni tu operación.',
+    icon: <FileCheck className="w-8 h-8 text-orange-400" />,
+    title: 'Carga tus folios',
+    desc: 'Tus folios CAF se obtienen gratis en mi.sii.cl. Con ellos el sistema queda autorizado para emitir tus boletas.',
   },
   {
     icon: <Zap className="w-8 h-8 text-orange-400" />,
-    title: 'Boleta emitida al SII',
-    desc: 'En 2 segundos la boleta se firma y se envía automáticamente. Cero clicks extra.',
+    title: 'Emite directo al SII',
+    desc: 'Cobras en el punto de venta y la boleta se firma y envía automáticamente. Te acompañamos en la puesta en marcha.',
   },
 ];
 
@@ -35,7 +41,7 @@ export default function SiiDirectoSection() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-orange-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto px-4">
-        {/* ── Hero ── */}
+        {/* ── Encabezado (frase exacta del Comandante) ── */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -47,38 +53,20 @@ export default function SiiDirectoSection() {
             custom={0}
             className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight"
           >
-            Emite tus Boletas al SII a{' '}
+            Boletas incluidas en{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">
-              Costo CERO.
+              Full
             </span>
           </motion.h2>
           <motion.p
             variants={fadeUp}
             custom={1}
-            className="mt-4 text-lg md:text-xl text-slate-400 max-w-3xl mx-auto"
+            className="mt-4 text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed"
           >
-            Sin intermediarios. Sin cobros por documento. Directo de tu POS al SII con tu
-            propia Firma Electrónica.
+            Boletas incluidas en Full: emisión directa al SII, sin comisión por
+            documento. Se activa cargando tu certificado y tus folios — te
+            acompañamos en la puesta en marcha.
           </motion.p>
-        </motion.div>
-
-        {/* ── El Problema ── */}
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 mb-12"
-        >
-          <h3 className="text-2xl font-bold text-red-400 mb-3">
-            💸 El costo oculto que te está sangrando.
-          </h3>
-          <p className="text-slate-300 leading-relaxed">
-            Otros sistemas POS te cobran por cada boleta que emites, o te obligan a pagar
-            costosas suscripciones a plataformas intermedias. Si emites 100 boletas al día,
-            eso son <strong className="text-white">miles de pesos mensuales</strong> que se
-            van por el desagüe.
-          </p>
         </motion.div>
 
         {/* ── La Solución ── */}
@@ -90,40 +78,34 @@ export default function SiiDirectoSection() {
           className="bg-gradient-to-br from-orange-500/10 to-red-500/10 border border-orange-500/30 rounded-2xl p-8 mb-16"
         >
           <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
-            🚀 SII Directo: Tu Facturación sin comisiones.
+            🚀 Emisión directa al SII, sin comisión por documento.
           </h3>
           <ul className="space-y-4">
             <li className="flex items-start gap-3">
-              <span className="mt-0.5 text-2xl">🔴</span>
-              <div>
-                <span className="text-xl font-extrabold text-red-400">
-                  Costo por Boleta: $0
-                </span>
-              </div>
-            </li>
-            <li className="flex items-start gap-3">
               <CheckCircle className="w-6 h-6 text-green-400 mt-0.5 flex-shrink-0" />
               <span className="text-slate-200 text-lg">
-                <strong>Conexión Directa al SII</strong> — Sin pasar por terceros.
+                <strong>Incluidas en el plan Full</strong> — dentro del precio
+                del plan, sin cobros por documento.
               </span>
             </li>
             <li className="flex items-start gap-3">
               <ShieldCheck className="w-6 h-6 text-green-400 mt-0.5 flex-shrink-0" />
               <span className="text-slate-200 text-lg">
-                <strong>Usa tu Firma Electrónica</strong> — Tú ya la tienes, solo súbela.
+                <strong>Conexión directa al SII</strong> — emisión con tu
+                propio certificado digital y tus folios.
               </span>
             </li>
             <li className="flex items-start gap-3">
               <Zap className="w-6 h-6 text-green-400 mt-0.5 flex-shrink-0" />
               <span className="text-slate-200 text-lg">
-                <strong>100% Automático</strong> — Cobras en el POS y la boleta se emite
-                sola en 2 segundos.
+                <strong>100% automático</strong> — cobras en el punto de venta
+                y la boleta se firma y envía sola en segundos.
               </span>
             </li>
           </ul>
         </motion.div>
 
-        {/* ── El Flujo ── */}
+        {/* ── El Flujo de activación ── */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -154,6 +136,23 @@ export default function SiiDirectoSection() {
           </div>
         </motion.div>
 
+        {/* ── Primera línea de activación + nota ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mb-12 max-w-3xl mx-auto text-center"
+        >
+          <p className="text-slate-200 leading-relaxed">
+            Para activarlas necesitas tu certificado digital (un certificador
+            externo), tus folios CAF (gratis en mi.sii.cl) y tu RUT.
+          </p>
+          <p className="text-slate-500 text-xs mt-3">
+            Requisito informado en la primera conversación de venta.
+          </p>
+        </motion.div>
+
         {/* ── CTA ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -163,15 +162,16 @@ export default function SiiDirectoSection() {
           className="text-center"
         >
           <a
-            href="https://app.bullwebchile.com/register"
+            href={REGISTER_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => track('cta_click', { location: 'sii-directo-full' })}
             className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl text-lg transition-colors shadow-lg shadow-orange-500/30"
           >
-            Quiero emitir mis Boletas a $0 →
+            Quiero el plan Full con boletas incluidas →
           </a>
           <p className="text-slate-500 text-xs mt-3">
-            7 días gratis · Sin tarjeta · Funciona con tu Firma Electrónica
+            7 días gratis · Sin tarjeta · IVA incluido
           </p>
           {/* #191 — WhatsApp contextual de la sección */}
           <p className="mt-4">

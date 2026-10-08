@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { track } from '../lib/measurement';
 
 const WHATSAPP_NUMBER = '56937458347';
 const WHATSAPP_MSG    = encodeURIComponent('Hola BullWeb 👋 tengo una consulta antes de registrarme');
@@ -27,6 +28,7 @@ export default function WhatsAppButton() {
         rel="noopener noreferrer"
         onMouseEnter={() => setTooltip(true)}
         onMouseLeave={() => setTooltip(false)}
+        onClick={() => track('whatsapp_click', { location: 'flotante' })}
         aria-label="Contactar por WhatsApp"
         className="relative w-14 h-14 bg-[#25D366] hover:bg-[#20bc5a] rounded-full shadow-lg shadow-green-500/30 flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
       >

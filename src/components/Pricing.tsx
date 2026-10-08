@@ -1,6 +1,7 @@
 ﻿import { motion } from 'framer-motion';
 import { Check, X, Rocket, Zap } from 'lucide-react';
-import { PRICE_BASICO, PRICE_TODO } from '../lib/plans';
+import { PRICE_BASICO, PRICE_TODO, PRICE_NOTE } from '../lib/plans';
+import { REGISTER_URL, track } from '../lib/measurement';
 
 const FEATURES_TODO = [
   'Punto de venta ultrarrápido para tu local',
@@ -12,7 +13,7 @@ const FEATURES_TODO = [
   'Reloj control y asistencia con exportación a PDF',
   'CRM y fidelización · 100 emails incluidos al mes',
   'Cupones y promociones',
-  'Boletas electrónicas al SII',
+  'Boletas electrónicas al SII (requieren activación con tu certificado y folios)',
   'Reportes avanzados y exportación a Excel',
   '1 sucursal incluida por plan',
 ];
@@ -81,9 +82,9 @@ export default function Pricing() {
                 </span>
               </div>
 
-              {/* Nombre del plan */}
+              {/* Nombre del plan (#228 — display "Full", identificador interno intacto) */}
               <h3 className="relative text-center text-xl font-extrabold text-white mb-1">
-                Plan TODO
+                Plan Full
               </h3>
               <p className="relative text-center text-gray-400 text-sm mb-6">
                 Todo incluido — un solo precio, sin módulos aparte.
@@ -95,7 +96,7 @@ export default function Pricing() {
                   <span className="text-white text-5xl font-black">{PRICE_TODO}</span>
                   <span className="text-gray-400 text-lg">/ mes</span>
                 </div>
-                <p className="text-center text-gray-500 text-xs">IVA incluido</p>
+                <p className="text-center text-gray-500 text-xs">{PRICE_NOTE}</p>
               </div>
 
               {/* Lista de características */}
@@ -118,9 +119,10 @@ export default function Pricing() {
 
               {/* CTA */}
               <a
-                href="https://app.bullwebchile.com/register"
+                href={REGISTER_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => track('cta_click', { location: 'pricing-full' })}
                 className="relative block w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-center py-4 rounded-xl text-lg transition-colors shadow-lg shadow-orange-500/30"
               >
                 Empieza gratis 7 días — sin tarjeta
@@ -163,7 +165,7 @@ export default function Pricing() {
                   <span className="text-gray-900 text-5xl font-black">{PRICE_BASICO}</span>
                   <span className="text-slate-400 text-lg">/ mes</span>
                 </div>
-                <p className="text-center text-slate-400 text-xs">IVA incluido</p>
+                <p className="text-center text-slate-400 text-xs">{PRICE_NOTE}</p>
               </div>
 
               {/* Lista de características */}
@@ -195,15 +197,16 @@ export default function Pricing() {
 
               {/* CTA */}
               <a
-                href="https://app.bullwebchile.com/register"
+                href={REGISTER_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => track('plan_selected', { plan: 'basico' })}
                 className="block w-full bg-white hover:bg-slate-50 text-gray-900 font-bold text-center py-4 rounded-xl text-lg transition-colors border-2 border-slate-300 hover:border-slate-400"
               >
                 Empezar con Básico — 7 días gratis
               </a>
               <p className="text-center text-slate-400 text-xs mt-3">
-                ¿Necesitas más? Mejora a TODO desde el panel, en un clic.
+                ¿Necesitas más? Mejora a Full desde el panel, en un clic.
               </p>
             </div>
           </motion.div>

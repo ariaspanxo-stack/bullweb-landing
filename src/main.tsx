@@ -9,9 +9,13 @@ import '@fontsource/inter/800.css';
 import '@fontsource/inter/900.css';
 import './index.css';
 import App from './App';
+// #228 — FASE 3: medición ARMADA SIN ACTIVAR (placeholders PENDING en
+// src/lib/measurement.ts; GATE de privacidad documentado en el ADN #228).
+import MeasurementScripts from './components/MeasurementScripts';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <MeasurementScripts />
     <App />
   </StrictMode>
 );

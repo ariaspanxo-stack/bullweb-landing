@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { REGISTER_URL, track } from '../lib/measurement';
 
 const LINKS = {
-  register: 'https://app.bullwebchile.com/register',
+  register: REGISTER_URL,
   login:    'https://app.bullwebchile.com/login',
 };
 
@@ -87,6 +88,7 @@ export default function Navbar() {
                 href={LINKS.register}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => track('cta_click', { location: 'navbar' })}
                 className="inline-flex items-center gap-1.5 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold rounded-xl transition-all shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5"
               >
                 Prueba gratis
@@ -153,6 +155,7 @@ export default function Navbar() {
                 href={LINKS.register}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => track('cta_click', { location: 'navbar-mobile' })}
                 className="w-full py-3 text-center bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-2xl transition-colors shadow-lg shadow-orange-500/30"
               >
                 Prueba gratis →

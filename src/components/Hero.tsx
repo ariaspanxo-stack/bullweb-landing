@@ -1,19 +1,23 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { ArrowRight, CheckCircle, Cpu } from 'lucide-react';
-import { PRICE_BASICO, PRICE_TODO, BADGE_DUAL } from '../lib/plans';
+import { PRICE_BASICO, PRICE_TODO, BADGE_DUAL, HERO_PRICE_TEXT } from '../lib/plans';
+
+import { REGISTER_URL, track } from '../lib/measurement';
 
 const LINKS = {
-  register: 'https://app.bullwebchile.com/register',
+  register: REGISTER_URL, // #228 — UTM estándar via helper
   // #191 — WhatsApp contextual por sección
   demo:     'https://wa.me/56937458347?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20BullWeb',
 };
 
-// #227 — Métricas Hero desde las constantes (src/lib/plans.ts): principal
-// "Desde $19.900/mes"; secundarias "$0 por boleta al SII" y "7 días gratis".
+// #227/#228 — Métricas Hero desde las constantes (src/lib/plans.ts): principal
+// "Desde $19.900/mes, IVA incluido"; secundarias boletas Full y 7 días gratis.
+// La métrica de boletas ya NO dice "$0 por boleta" como dato destacado (#228):
+// habla del plan Full y su activación con certificado y folios.
 const METRICS = [
-  { value: `Desde ${PRICE_BASICO}`, label: `Plan Básico / mes`, hint: `O plan TODO a ${PRICE_TODO} con todo incluido. Sin costos ocultos ni cobros extra.`, primary: true },
-  { value: '$0',      label: 'Por boleta al SII', hint: 'Emisión directa, sin costo por documento.' },
+  { value: `Desde ${PRICE_BASICO}`, label: `Plan Básico / mes, IVA incluido`, hint: `O plan Full a ${PRICE_TODO} con todo incluido, IVA incluido. Sin costos ocultos ni cobros extra.`, primary: true },
+  { value: 'Boletas al SII', label: 'Incluidas en Full', hint: 'Emisión directa al SII. Se activa con tu certificado y tus folios.' },
   { value: '7 días',  label: 'Prueba gratis',  hint: 'Sin tarjeta. Listo en minutos.' },
 ];
 
@@ -22,7 +26,7 @@ const METRICS = [
 const BADGES = [
   { emoji: '🔒', text: BADGE_DUAL },
   { emoji: '⚡', text: 'Punto de venta ultrarrápido para tu local'      },
-  { emoji: '🧾', text: 'Boletas DTE integradas al SII'             },
+  { emoji: '🧾', text: 'Boletas electrónicas al SII incluidas en Full'  },
 ];
 
 const fadeUp = {
@@ -93,7 +97,7 @@ export default function Hero() {
               </AnimatePresence>
             </motion.div>
 
-            {/* H1 */}
+            {/* H1 (#228 — frase del Comandante) */}
             <motion.h1
               className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] tracking-tight mb-6"
               custom={0.1}
@@ -101,10 +105,10 @@ export default function Hero() {
               animate="visible"
               variants={fadeUp}
             >
-              Punto de venta y tienda online para tu restaurante
+              El sistema completo para tu restaurante, con tu tienda online incluida
             </motion.h1>
 
-            {/* Subtítulo */}
+            {/* Subtítulo (#228 — precio con IVA incluido, desde las constantes) */}
             <motion.p
               className="text-lg text-white/60 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0"
               custom={0.2}
@@ -113,7 +117,7 @@ export default function Hero() {
               variants={fadeUp}
             >
               Vende en tu local, recibe pedidos por carta QR y toma pedidos online en el mismo
-              sistema. Desde {PRICE_BASICO} al mes.
+              sistema. {HERO_PRICE_TEXT}
             </motion.p>
 
             {/* CTAs */}
@@ -128,6 +132,7 @@ export default function Hero() {
                 href={LINKS.register}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => track('cta_click', { location: 'hero' })}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-2xl transition-all shadow-xl shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 text-base"
               >
                 Probar 7 días gratis
@@ -138,6 +143,7 @@ export default function Hero() {
                 href={LINKS.demo}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => track('whatsapp_click', { location: 'hero' })}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/5 hover:bg-white/10 border border-white/20 text-white font-bold rounded-2xl transition-all hover:-translate-y-0.5 text-base"
               >
                 Agenda una demo
@@ -155,7 +161,8 @@ export default function Hero() {
               Sin tarjeta. Sin instalar nada. Listo en minutos.
             </motion.p>
 
-            {/* Badge estático boletas (#190) */}
+            {/* Badge estático boletas (#228 — sin "$0 por boleta" como dato
+                destacado; habla del plan Full y su activación) */}
             <motion.div
               className="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-green-500/10 border border-green-500/30 rounded-full"
               custom={0.38}
@@ -165,7 +172,7 @@ export default function Hero() {
             >
               <span className="text-base leading-none">🧾</span>
               <span className="text-green-400 text-sm font-semibold">
-                Boletas Electrónicas al SII — $0 por documento
+                Boletas electrónicas al SII incluidas en el plan Full
               </span>
             </motion.div>
 
@@ -279,7 +286,7 @@ export default function Hero() {
                 <div className="grid grid-cols-3 gap-2">
                   {[
                     { label: 'Ventas hoy',  value: '$487.250', color: 'text-green-400' },
-                    { label: 'Boletas SII',  value: '$0 c/u',   color: 'text-orange-400' },
+                    { label: 'Boletas SII',  value: 'Incluidas', color: 'text-orange-400' },
                     { label: 'En cocina',    value: '4',        color: 'text-blue-400'   },
                   ].map((s, i) => (
                     <div key={i} className="bg-white/5 rounded-xl px-3 py-2 text-center border border-white/5">
@@ -312,8 +319,8 @@ export default function Hero() {
             >
               <CheckCircle className="w-4 h-4" />
               <div>
-                <p>Boleta Emitida al SII</p>
-                <p className="text-green-100 text-[10px] font-medium">Costo: $0</p>
+                <p>Boleta emitida al SII</p>
+                <p className="text-green-100 text-[10px] font-medium">Envío directo</p>
               </div>
             </motion.div>
           </motion.div>

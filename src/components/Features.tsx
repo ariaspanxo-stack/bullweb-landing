@@ -36,7 +36,7 @@ const PAINS: PainPoint[] = [
     desc:    'Cuadrar boletas y pelear con la emisión te roba horas que deberías estar en el salón. → BullWeb emite la boleta electrónica al SII desde la misma pantalla de venta. Cero doble trabajo.',
     color:   'text-blue-500',
     bgColor: 'bg-blue-50',
-    tag:     'Boletas DTE integradas',
+    tag:     'Boletas al SII incluidas en Full',
   },
   {
     icon: (
@@ -45,7 +45,7 @@ const PAINS: PainPoint[] = [
       </div>
     ),
     title:   'Competencia',
-    desc:    `Con otros sistemas partes barato, pero fidelización aparte, reportes aparte, cada función es un cobro nuevo. En seis meses pagas el doble. → En BullWeb eliges tu plan y ese es el precio: ${PRICE_BASICO} (Básico) o ${PRICE_TODO} (TODO) con todo incluido.`,
+    desc:    `Con otros sistemas partes barato, pero fidelización aparte, reportes aparte, cada función es un cobro nuevo. En seis meses pagas el doble. → En BullWeb eliges tu plan y ese es el precio: ${PRICE_BASICO} (Básico) o ${PRICE_TODO} (Full) con todo incluido.`,
     color:   'text-green-500',
     bgColor: 'bg-green-50',
     tag:     `Dos planes — desde ${PRICE_BASICO}`,

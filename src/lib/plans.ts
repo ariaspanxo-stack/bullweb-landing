@@ -12,10 +12,12 @@ export interface Plan {
   destaca:  boolean;
 }
 
-// Taglines extraídos de Pricing.tsx (fuente de verdad del copy).
+// #228 — NAMING "FULL" display-only: el nombre visible del plan TODO pasa a
+// "Full" en TODA la landing. El identificador interno (id:'todo', plan:'TODO'
+// en backend/BD) queda INTACTO — esto es solo texto visible.
 export const PLANS: Plan[] = [
   { id: 'basico', name: 'Básico', priceCLP: 19900, tagline: 'Lo esencial para vender ordenado desde el día uno.', destaca: false },
-  { id: 'todo',   name: 'TODO',   priceCLP: 34000, tagline: 'Todo incluido — un solo precio, sin módulos aparte.',  destaca: true  },
+  { id: 'todo',   name: 'Full',   priceCLP: 34000, tagline: 'Todo incluido — un solo precio, sin módulos aparte.',  destaca: true  },
 ];
 
 export const PLAN_BASICO = PLANS[0];
@@ -29,11 +31,17 @@ export function formatCLP(n: number): string {
 export const PRICE_BASICO = formatCLP(PLAN_BASICO.priceCLP); // $19.900
 export const PRICE_TODO   = formatCLP(PLAN_TODO.priceCLP);   // $34.000
 
-/** "Desde $19.900 (Básico) o $34.000 (TODO)" */
-export const PRICE_RANGE_TEXT = `Desde ${PRICE_BASICO} (Básico) o ${PRICE_TODO} (TODO)`;
+/** #228 — IVA incluido: nota estándar para TODO texto de precio de la landing. */
+export const PRICE_NOTE = 'IVA incluido';
 
-/** Badge dual del Hero (#227). */
-export const BADGE_DUAL = `Básico ${PRICE_BASICO} · TODO ${PRICE_TODO} — tienda online incluida en ambos`;
+/** "Desde $19.900/mes, IVA incluido." — subtítulo del Hero (#228). */
+export const HERO_PRICE_TEXT = `Desde ${PRICE_BASICO}/mes, ${PRICE_NOTE}.`;
+
+/** "Desde $19.900 (Básico) o $34.000 (Full)" */
+export const PRICE_RANGE_TEXT = `Desde ${PRICE_BASICO} (Básico) o ${PRICE_TODO} (Full)`;
+
+/** Badge dual del Hero (#227, naming Full #228). */
+export const BADGE_DUAL = `Básico ${PRICE_BASICO} · Full ${PRICE_TODO} — tienda online incluida en ambos`;
 
 /** Copy SEO (#227) — inyectado en index.html vía vite.config.ts. */
 export const SEO = {
@@ -41,9 +49,9 @@ export const SEO = {
   description: `Gestiona tu restaurante: venta en local, carta QR, comandas y tienda online. Planes desde ${PRICE_BASICO} al mes. Prueba 7 días gratis sin tarjeta.`,
 };
 
-/** Entrada FAQ de precios (#227) — compartida por FAQ.tsx y el JSON-LD FAQPage. */
+/** Entrada FAQ de precios (#227, naming Full #228) — compartida por FAQ.tsx y el JSON-LD FAQPage. */
 export const FAQ_PRECIOS_Q = '¿Los planes son de verdad todo incluido, o hay cobros escondidos?';
-export const FAQ_PRECIOS_A = `${PRICE_RANGE_TEXT} al mes, sin cobros escondidos: no cobramos por usuario ni por función nueva, y el plan TODO trae todas las funciones dentro del precio, sin módulos aparte. Sin contratos amarrados, cancelas cuando quieras.`;
+export const FAQ_PRECIOS_A = `${PRICE_RANGE_TEXT} al mes, sin cobros escondidos: no cobramos por usuario ni por función nueva, y el plan Full trae todas las funciones dentro del precio, sin módulos aparte. Sin contratos amarrados, cancelas cuando quieras.`;
 
 /** AggregateOffer para el JSON-LD de SoftwareApplication (#227). */
 export function jsonLdOffers() {
