@@ -25,12 +25,12 @@ const FEATURES_BASICO = [
   'Tienda online: retiro y delivery propio',
   'Carta digital QR visual',
   'Reportes básicos de ventas',
+  'App Mesero para tus garzones (sin hardware extra)',
 ];
 
 const SIN_BASICO = [
   'Boletas electrónicas al SII',
   'Pantalla de Cocina (KDS)',
-  'App Mesero',
   'Inventario y recetas',
   'Fidelización y campañas',
 ];
