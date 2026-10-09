@@ -53,7 +53,13 @@ export default function Cookies() {
                 nombre: '_ga, _ga_*',
                 tipo: 'Analítica',
                 duracion: '2 años',
-                descripcion: 'Google Analytics. Recopila información anónima sobre cómo los visitantes usan el sitio (páginas vistas, tiempo de visita, dispositivo).',
+                descripcion: 'Google Analytics 4. Recopila información anónima sobre cómo los visitantes usan el sitio (páginas vistas, tiempo de visita, dispositivo).',
+              },
+              {
+                nombre: '_fbp, fr',
+                tipo: 'Marketing',
+                duracion: '3 meses',
+                descripcion: 'Meta Pixel. Nos permite medir la efectividad de nuestra publicidad y mostrar anuncios más relevantes. Se instala solo si usted interactúa con nuestro contenido publicitario.',
               },
               {
                 nombre: 'XSRF-TOKEN',
@@ -84,7 +90,7 @@ export default function Cookies() {
               <CookieTipo
                 color="red"
                 tipo="Marketing"
-                descripcion="Actualmente NO utilizamos cookies de marketing ni publicidad de terceros en nuestro servicio."
+                descripcion="Establecidas por Meta Pixel: nos ayudan a medir el desempeño de nuestras campañas publicitarias y a mostrar anuncios relevantes a quienes visitan nuestro sitio. Puede desactivarlas desde las preferencias de anuncios de Meta o de su navegador, sin que ello afecte el funcionamiento del Servicio."
               />
             </div>
           </Section>
@@ -92,7 +98,8 @@ export default function Cookies() {
           <Section title="Cookies de terceros">
             Algunos servicios integrados en nuestra plataforma pueden establecer sus propias cookies:
             <ul>
-              <li><strong className="text-white">Google Analytics:</strong> análisis de uso del sitio web. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300">Política de privacidad de Google</a></li>
+              <li><strong className="text-white">Google Analytics 4:</strong> análisis estadístico de uso del sitio web. Los datos se procesan por Google bajo sus políticas. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300">Política de privacidad de Google</a></li>
+              <li><strong className="text-white">Meta Pixel:</strong> medición de campañas publicitarias y optimización de audiencias. Los datos se procesan por Meta Platforms Ireland bajo sus políticas. <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300">Política de privacidad de Meta</a></li>
               <li><strong className="text-white">Google Fonts:</strong> tipografías web. No almacena cookies de identificación personal.</li>
             </ul>
           </Section>
@@ -108,8 +115,8 @@ export default function Cookies() {
             <p className="mt-2">Tenga en cuenta que bloquear todas las cookies puede impedir el correcto funcionamiento del sistema POS.</p>
           </Section>
 
-          <Section title="Opt-out de Google Analytics">
-            Para desactivar el seguimiento de Google Analytics puede instalar el <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300">complemento de inhabilitación de Google Analytics</a> disponible para los principales navegadores.
+          <Section title="Opt-out de Google Analytics y Meta Pixel">
+            Para desactivar el seguimiento de Google Analytics puede instalar el <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300">complemento de inhabilitación de Google Analytics</a> disponible para los principales navegadores. Para el seguimiento publicitario de Meta Pixel, puede administrar sus preferencias desde la <a href="https://www.facebook.com/settings?tab=advertisertemplates" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300">configuración de anuncios de Meta</a> o mediante la <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300">herramienta de opt-out de la Digital Advertising Alliance</a>. Ninguna de estas acciones afecta el funcionamiento del Servicio.
           </Section>
 
           <Section title="Actualizaciones de esta política">

@@ -102,8 +102,21 @@ export default function Privacidad() {
             Implementamos medidas técnicas y organizativas para proteger sus datos, incluyendo: cifrado TLS en tránsito, cifrado en reposo, autenticación segura, control de acceso por roles y auditorías periódicas de seguridad.
           </Section>
 
-          <Section title="9. Cookies">
-            Utilizamos cookies técnicas necesarias para el funcionamiento del Servicio y cookies analíticas para mejorar la experiencia. Consulte nuestra <Link to="/cookies" className="text-orange-400 hover:text-orange-300">Política de Cookies</Link> para más detalles.
+          <Section title="9. Cookies y medición">
+            Utilizamos cookies técnicas necesarias para el funcionamiento del Servicio, cookies analíticas y de marketing para mejorar la experiencia. Consulte nuestra <Link to="/cookies" className="text-orange-400 hover:text-orange-300">Política de Cookies</Link> para más detalles.
+          </Section>
+
+          <Section title="9.bis Medición y análisis del sitio (Google Analytics 4 y Meta Pixel)">
+            <p>
+              Utilizamos <strong className="text-white">Google Analytics 4</strong> y <strong className="text-white">Meta Pixel</strong> para medir el uso de nuestros sitios y la efectividad de nuestras campañas publicitarias, con finalidad estadística y publicitaria.
+            </p>
+            <ul>
+              <li><strong className="text-white">Google Analytics 4:</strong> genera métricas agregadas de navegación (páginas visitadas, duración, dispositivo y origen de la visita) para mejorar nuestros contenidos. Los datos son tratados por Google Ireland Ltd. conforme a su <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300">política de privacidad</a>.</li>
+              <li><strong className="text-white">Meta Pixel:</strong> permite evaluar el desempeño de nuestros anuncios y optimizar las audiencias a las que se muestran. Los datos son tratados por Meta Platforms Ireland Ltd. conforme a su <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300">política de privacidad</a>.</li>
+            </ul>
+            <p>
+              Estas herramientas pueden recopilar identifiers técnicos como cookies, dirección IP y parámetros de navegación (incluyendo los códigos UTM de la campaña que le trajo hasta nosotros). Usted puede rechazar o desactivar este seguimiento en cualquier momento mediante las opciones de opt-out descritas en la Política de Cookies, sin que ello afecte el uso del Servicio.
+            </p>
           </Section>
 
           <Section title="10. Modificaciones">
