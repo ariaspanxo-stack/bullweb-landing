@@ -8,6 +8,7 @@
     "build": "tsc && vite build && node scripts/prerender.js",
     "build:only": "tsc && vite build",
     "prerender": "node scripts/prerender.js",
+    "check:dist": "node scripts/check-dist.js",
     "preview": "vite preview"
   },
   "dependencies": {
