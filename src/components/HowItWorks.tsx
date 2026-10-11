@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { REGISTER_URL, track } from '../lib/measurement';
 
 const STEPS = [
   {
@@ -117,15 +118,16 @@ export default function HowItWorks() {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <a
-            href="https://app.bullwebchile.com/register"
+            href={REGISTER_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => track('cta_click', { location: 'how-it-works' })}
             className="inline-flex items-center gap-2 px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-2xl shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all hover:-translate-y-0.5"
           >
-            Comenzar ahora — es gratis
+            Probar 7 días gratis
             <ArrowRight className="w-4 h-4" />
           </a>
-          <p className="text-sm text-slate-400 mt-3">7 días gratis · Sin tarjeta · Sin compromiso</p>
+          <p className="text-sm text-slate-400 mt-3">Sin tarjeta</p>
         </motion.div>
       </div>
     </section>

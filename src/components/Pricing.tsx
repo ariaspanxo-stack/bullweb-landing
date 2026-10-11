@@ -125,10 +125,10 @@ export default function Pricing() {
                 onClick={() => track('cta_click', { location: 'pricing-full' })}
                 className="relative block w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-center py-4 rounded-xl text-lg transition-colors shadow-lg shadow-orange-500/30"
               >
-                Empieza gratis 7 días — sin tarjeta
+                Probar 7 días gratis
               </a>
               <p className="relative text-center text-gray-500 text-xs mt-3">
-                Sin contratos amarrados. Cancela cuando quieras.
+                Sin tarjeta · Sin contratos amarrados, cancela cuando quieras.
               </p>
             </div>
           </motion.div>
@@ -203,10 +203,10 @@ export default function Pricing() {
                 onClick={() => track('plan_selected', { plan: 'basico' })}
                 className="block w-full bg-white hover:bg-slate-50 text-gray-900 font-bold text-center py-4 rounded-xl text-lg transition-colors border-2 border-slate-300 hover:border-slate-400"
               >
-                Empezar con Básico — 7 días gratis
+                Probar 7 días gratis
               </a>
               <p className="text-center text-slate-400 text-xs mt-3">
-                ¿Necesitas más? Mejora a Full desde el panel, en un clic.
+                Sin tarjeta · ¿Necesitas más? Mejora a Full desde el panel, en un clic.
               </p>
             </div>
           </motion.div>

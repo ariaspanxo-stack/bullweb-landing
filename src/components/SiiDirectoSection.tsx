@@ -165,10 +165,10 @@ export default function SiiDirectoSection() {
             onClick={() => track('cta_click', { location: 'sii-directo-full' })}
             className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl text-lg transition-colors shadow-lg shadow-orange-500/30"
           >
-            Quiero el plan Full con boletas incluidas →
+            Probar 7 días gratis
           </a>
           <p className="text-slate-500 text-xs mt-3">
-            7 días gratis · Sin tarjeta · IVA incluido
+            Sin tarjeta
           </p>
           {/* #191 — WhatsApp contextual de la sección */}
           <p className="mt-4">

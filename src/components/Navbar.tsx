@@ -91,8 +91,7 @@ export default function Navbar() {
                 onClick={() => track('cta_click', { location: 'navbar' })}
                 className="inline-flex items-center gap-1.5 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold rounded-xl transition-all shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5"
               >
-                Prueba gratis
-                <span className="text-orange-200">→</span>
+                Probar 7 días gratis
               </a>
             </div>
 
@@ -158,7 +157,7 @@ export default function Navbar() {
                 onClick={() => track('cta_click', { location: 'navbar-mobile' })}
                 className="w-full py-3 text-center bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-2xl transition-colors shadow-lg shadow-orange-500/30"
               >
-                Prueba gratis →
+                Probar 7 días gratis
               </a>
             </div>
           </motion.div>
