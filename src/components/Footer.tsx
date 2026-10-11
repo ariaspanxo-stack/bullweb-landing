@@ -67,7 +67,7 @@ export default function Footer() {
 
           {/* Producto */}
           <div>
-            <h4 className="text-white font-bold text-sm mb-5 uppercase tracking-wider">Producto</h4>
+            <h3 className="text-white font-bold text-sm mb-5 uppercase tracking-wider">Producto</h3>
             <ul className="space-y-3">
               {LINKS.producto.map(l => (
                 <li key={l.label}>
@@ -90,7 +90,7 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="text-white font-bold text-sm mb-5 uppercase tracking-wider">Legal</h4>
+            <h3 className="text-white font-bold text-sm mb-5 uppercase tracking-wider">Legal</h3>
             <ul className="space-y-3">
               {LINKS.legal.map(l => (
                 <li key={l.label}>

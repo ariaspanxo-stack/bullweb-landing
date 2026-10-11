@@ -125,7 +125,7 @@ for (const f of files.filter(f => /\.(html|js)$/.test(f))) {
 
 // --- Las capturas fuente no deben publicarse ---
 for (const f of files) {
-  if (/originales|capturas-fuente|[\/]pos\.png$|app-mesero/i.test(f)) fail(path.relative(DIST, f), 'captura fuente dentro de dist/');
+  if (/originales|capturas-fuente|[\\/]pos\.png$|app-mesero/i.test(f)) fail(path.relative(DIST, f), 'captura fuente dentro de dist/');
 }
 
 console.log(failed ? `\n✗ ${failed} control(es) fallaron` : `\n✅ Controles OK (${PAGES.length} páginas, ${warned} aviso(s))`);
