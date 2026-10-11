@@ -1,27 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import { FAQ_PRECIOS_Q, FAQ_PRECIOS_A } from '../lib/plans';
-
-const FAQS = [
-  {
-    q: '¿Necesito comprar hardware caro?',
-    a: 'No. BullWeb funciona en los dispositivos que ya tienes: el celular o tablet de tus meseros hace de comandera, y cualquier computador o tablet sirve de caja. La App Mesero es una PWA — se abre desde el navegador, sin instalar nada. Si más adelante quieres impresora o pantalla de cocina dedicada, se conectan, pero para partir no necesitas invertir en equipos.',
-  },
-  {
-    q: '¿Qué pasa si me quiero cambiar desde mi sistema actual?',
-    a: 'Te acompañamos en el traspaso. Cargamos tu carta, tus productos y tus datos para que arranques rápido, sin partir de cero. Y como tienes 7 días de prueba gratis sin tarjeta, puedes tenerlo funcionando en paralelo y comprobar que todo calza antes de soltar tu sistema viejo.',
-  },
-  {
-    // #227 — entrada dual desde las constantes (src/lib/plans.ts)
-    q: FAQ_PRECIOS_Q,
-    a: FAQ_PRECIOS_A,
-  },
-  {
-    q: '¿Se integra con Uber Eats o Rappi?',
-    a: 'Hoy no. Gestionas tu delivery propio desde el sistema: recibes el pedido, asignas repartidor y cobras, todo dentro de BullWeb.',
-  },
-];
+import { FAQS } from '../lib/faqs';
 
 function FaqItem({ faq, idx }: { faq: typeof FAQS[0]; idx: number }) {
   const [open, setOpen] = useState(false);

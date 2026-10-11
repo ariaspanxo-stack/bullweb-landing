@@ -113,46 +113,9 @@
     }
     </script>
 
-    <!-- JSON-LD: FAQPage -->
+    <!-- JSON-LD: FAQPage (generado desde src/lib/faqs.ts vía vite.config.ts) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "¿Necesito comprar hardware caro?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. BullWeb funciona en los dispositivos que ya tienes: el celular o tablet de tus meseros hace de comandera, y cualquier computador o tablet sirve de caja. La App Mesero es una PWA — se abre desde el navegador, sin instalar nada. Si más adelante quieres impresora o pantalla de cocina dedicada, se conectan, pero para partir no necesitas invertir en equipos."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Qué pasa si me quiero cambiar desde mi sistema actual?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Te acompañamos en el traspaso. Cargamos tu carta, tus productos y tus datos para que arranques rápido, sin partir de cero. Y como tienes 7 días de prueba gratis sin tarjeta, puedes tenerlo funcionando en paralelo y comprobar que todo calza antes de soltar tu sistema viejo."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "{{FAQ_Q_PRECIOS}}",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "{{FAQ_A_PRECIOS}}"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Se integra con Uber Eats o Rappi?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Hoy no. Gestionas tu delivery propio desde el sistema: recibes el pedido, asignas repartidor y cobras, todo dentro de BullWeb."
-          }
-        }
-      ]
-    }
+    {{JSONLD_FAQ}}
     </script>
 
     <!-- Inter self-hosted (@fontsource/inter vía src/main.tsx — woff2 bundleado, font-display: swap) -->
