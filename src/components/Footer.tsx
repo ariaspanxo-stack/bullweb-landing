@@ -113,7 +113,7 @@ export default function Footer() {
         <div className="my-10 border-t border-white/[0.06]" />
 
         {/* Copyright */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-sm">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-400 text-sm">
           <p>© {new Date().getFullYear()} BullWeb Chile · Hecho con ❤️ en Chile 🇨🇱</p>
           <a href="mailto:f.arias@bullwebchile.com" className="hover:text-white transition-colors">f.arias@bullwebchile.com</a>
         </div>

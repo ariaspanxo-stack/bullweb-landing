@@ -123,7 +123,7 @@ export default function Pricing() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => track('cta_click', { location: 'pricing-full' })}
-                className="relative block w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-center py-4 rounded-xl text-lg transition-colors shadow-lg shadow-orange-500/30"
+                className="relative block w-full bg-orange-500 hover:bg-orange-400 text-brand-bg font-bold text-center py-4 rounded-xl text-lg transition-colors shadow-lg shadow-orange-500/30"
               >
                 Probar 7 días gratis
               </a>

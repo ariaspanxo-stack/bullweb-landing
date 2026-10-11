@@ -8,7 +8,7 @@ function FaqItem({ faq, idx }: { faq: typeof FAQS[0]; idx: number }) {
 
   return (
     <motion.div
-      className="border border-slate-100 rounded-2xl overflow-hidden"
+      className="border border-slate-200 rounded-2xl overflow-hidden"
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -19,7 +19,7 @@ function FaqItem({ faq, idx }: { faq: typeof FAQS[0]; idx: number }) {
         className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-slate-50 transition-colors"
         aria-expanded={open}
       >
-<h3 className={`font-semibold text-[0.9375rem] transition-colors ${open ? 'text-orange-500' : 'text-slate-800'}`}>
+<h3 className={`font-semibold text-[0.9375rem] transition-colors ${open ? 'text-orange-700' : 'text-slate-800'}`}>
           {faq.q}
         </h3>
         <motion.span
@@ -27,7 +27,7 @@ function FaqItem({ faq, idx }: { faq: typeof FAQS[0]; idx: number }) {
           transition={{ duration: 0.25 }}
           className="shrink-0"
         >
-          <ChevronDown className={`w-5 h-5 transition-colors ${open ? 'text-orange-500' : 'text-slate-400'}`} />
+          <ChevronDown className={`w-5 h-5 transition-colors ${open ? 'text-orange-700' : 'text-slate-500'}`} />
         </motion.span>
       </button>
 
@@ -41,7 +41,7 @@ function FaqItem({ faq, idx }: { faq: typeof FAQS[0]; idx: number }) {
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
             style={{ overflow: 'hidden' }}
           >
-            <p className="px-6 pb-5 text-slate-500 text-sm leading-relaxed">
+            <p className="px-6 pb-5 text-slate-600 text-sm leading-relaxed">
               {faq.a}
             </p>
           </motion.div>
@@ -69,9 +69,9 @@ export default function FAQ() {
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-800 leading-tight">
             Preguntas{' '}
-            <span className="text-orange-500">frecuentes</span>
+            <span className="text-orange-600">frecuentes</span>
           </h2>
-          <p className="mt-4 text-slate-500 text-lg">
+          <p className="mt-4 text-slate-600 text-lg">
             ¿Tienes más dudas? Escríbenos por WhatsApp.
           </p>
         </motion.div>
@@ -91,13 +91,13 @@ export default function FAQ() {
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
-          <p className="text-slate-500 text-sm">
+          <p className="text-slate-600 text-sm">
             ¿No encontraste tu respuesta?{' '}
             <a
               href="https://wa.me/56937458347?text=Hola%2C%20quiero%20información%20sobre%20BullWeb%20Chile"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-orange-500 font-semibold hover:underline"
+              className="text-orange-700 font-semibold hover:underline"
             >
               Chatea con nosotros →
             </a>

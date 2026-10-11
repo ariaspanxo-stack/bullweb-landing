@@ -163,11 +163,11 @@ export default function SiiDirectoSection() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => track('cta_click', { location: 'sii-directo-full' })}
-            className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl text-lg transition-colors shadow-lg shadow-orange-500/30"
+            className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-400 text-brand-bg font-bold px-8 py-4 rounded-xl text-lg transition-colors shadow-lg shadow-orange-500/30"
           >
             Probar 7 días gratis
           </a>
-          <p className="text-slate-500 text-xs mt-3">
+          <p className="text-slate-400 text-sm mt-3">
             Sin tarjeta
           </p>
           {/* #191 — WhatsApp contextual de la sección */}

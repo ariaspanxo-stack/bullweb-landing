@@ -89,7 +89,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => track('cta_click', { location: 'navbar' })}
-                className="inline-flex items-center gap-1.5 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold rounded-xl transition-all shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-1.5 px-4 py-2 bg-orange-500 hover:bg-orange-400 text-brand-bg text-sm font-semibold rounded-xl transition-all shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5"
               >
                 Probar 7 días gratis
               </a>
@@ -155,7 +155,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => track('cta_click', { location: 'navbar-mobile' })}
-                className="w-full py-3 text-center bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-2xl transition-colors shadow-lg shadow-orange-500/30"
+                className="w-full py-3 text-center bg-orange-500 hover:bg-orange-400 text-brand-bg font-bold rounded-2xl transition-colors shadow-lg shadow-orange-500/30"
               >
                 Probar 7 días gratis
               </a>

@@ -22,7 +22,7 @@ const PAINS: PainPoint[] = [
     ),
     title:   'Internet',
     desc:    'Se cae el internet un viernes lleno y la caja se congela. Cada minuto sin vender es un cliente que se aburre y se va. → BullWeb es una app instalable que carga rápido y se mantiene estable en la jornada.',
-    color:   'text-orange-500',
+    color:   'text-orange-700',
     bgColor: 'bg-orange-50',
     tag:     'Punto de venta 100% web',
   },
@@ -34,7 +34,7 @@ const PAINS: PainPoint[] = [
     ),
     title:   'SII',
     desc:    'Cuadrar boletas y pelear con la emisión te roba horas que deberías estar en el salón. → Con el plan Full, la boleta electrónica va al SII desde la misma pantalla de venta. Se activa con tu certificado y tus folios; te acompañamos en la puesta en marcha.',
-    color:   'text-blue-500',
+    color:   'text-blue-700',
     bgColor: 'bg-blue-50',
     tag:     'Boletas al SII incluidas en Full',
   },
@@ -46,7 +46,7 @@ const PAINS: PainPoint[] = [
     ),
     title:   'Competencia',
     desc:    `Con otros sistemas partes barato, pero fidelización aparte, reportes aparte, cada función es un cobro nuevo. En seis meses pagas el doble. → En BullWeb eliges tu plan y ese es el precio: ${PRICE_BASICO} (Básico) o ${PRICE_TODO} (Full) con todo incluido.`,
-    color:   'text-green-500',
+    color:   'text-green-700',
     bgColor: 'bg-green-50',
     tag:     `Dos planes — desde ${PRICE_BASICO}`,
   },
@@ -58,7 +58,7 @@ const PAINS: PainPoint[] = [
     ),
     title:   'Dirección del Trabajo',
     desc:    'Un libro de asistencia mal llevado es una multa esperando a pasar. La Dirección del Trabajo no perdona el papeleo. → Reloj control y registro de asistencia con exportación a PDF. Tranquilidad en cada fiscalización.',
-    color:   'text-purple-500',
+    color:   'text-purple-700',
     bgColor: 'bg-purple-50',
     tag:     'Libro de Asistencia Digital',
   },
@@ -81,7 +81,7 @@ function PainCard({ pain, index }: { pain: PainPoint; index: number }) {
         {pain.tag}
       </span>
       <h3 className="text-lg font-bold text-slate-800 mb-3">{pain.title}</h3>
-      <p className="text-sm text-slate-500 leading-relaxed">{pain.desc}</p>
+      <p className="text-sm text-slate-600 leading-relaxed">{pain.desc}</p>
 
       {/* Borde naranja en hover */}
       <div className="absolute inset-0 rounded-3xl border-2 border-orange-400/0 group-hover:border-orange-400/30 transition-all duration-300 pointer-events-none" />
@@ -105,12 +105,12 @@ export default function Features() {
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="inline-block px-4 py-1.5 bg-orange-50 text-orange-500 text-sm font-semibold rounded-full border border-orange-100 mb-4">
+          <span className="inline-block px-4 py-1.5 bg-orange-50 text-orange-700 text-sm font-semibold rounded-full border border-orange-100 mb-4">
             Problemas resueltos
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-800 leading-tight max-w-3xl mx-auto">
             Sabes exactamente{' '}
-            <span className="text-orange-500">de qué hablamos.</span>
+            <span className="text-orange-600">de qué hablamos.</span>
           </h2>
         </motion.div>
 

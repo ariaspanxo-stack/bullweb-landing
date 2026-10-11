@@ -52,14 +52,14 @@ export default function HowItWorks() {
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="inline-block px-4 py-1.5 bg-green-50 text-green-600 text-sm font-semibold rounded-full border border-green-100 mb-4">
+          <span className="inline-block px-4 py-1.5 bg-green-50 text-green-700 text-sm font-semibold rounded-full border border-green-100 mb-4">
             Onboarding
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-800 leading-tight">
             Empieza a vender{' '}
-            <span className="text-orange-500">hoy mismo</span>
+            <span className="text-orange-600">hoy mismo</span>
           </h2>
-          <p className="mt-4 text-slate-500 text-lg max-w-2xl mx-auto">
+          <p className="mt-4 text-slate-600 text-lg max-w-2xl mx-auto">
             Tres pasos simples para tener tu restaurante operando con BullWeb.
           </p>
         </motion.div>
@@ -90,13 +90,13 @@ export default function HowItWorks() {
                 </div>
 
                 {/* Badge número */}
-                <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold mb-3 ${step.bg} text-white`}>
+                <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold mb-3 bg-slate-200 text-slate-700`}>
                   <span>Paso {step.number}</span>
                 </div>
 
                 <h3 className="text-xl font-black text-slate-800 mb-3">{step.title}</h3>
-                <p className="text-slate-500 leading-relaxed max-w-xs">{step.desc}</p>
-                <span className="text-xs text-slate-400 mt-2 block">⏱ {step.time}</span>
+                <p className="text-slate-600 leading-relaxed max-w-xs">{step.desc}</p>
+                <span className="text-xs text-slate-600 mt-2 block">⏱ {step.time}</span>
 
                 {/* Flecha mobile entre pasos */}
                 {i < STEPS.length - 1 && (
@@ -122,12 +122,12 @@ export default function HowItWorks() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => track('cta_click', { location: 'how-it-works' })}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-2xl shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-orange-500 hover:bg-orange-400 text-brand-bg font-bold rounded-2xl shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all hover:-translate-y-0.5"
           >
             Probar 7 días gratis
             <ArrowRight className="w-4 h-4" />
           </a>
-          <p className="text-sm text-slate-400 mt-3">Sin tarjeta</p>
+          <p className="text-sm text-slate-600 mt-3">Sin tarjeta</p>
         </motion.div>
       </div>
     </section>

@@ -15,7 +15,7 @@ export default function WhatsAppButton() {
       {tooltip && (
         <div className="bg-white rounded-xl shadow-xl px-4 py-3 text-sm text-gray-700 border border-gray-100 max-w-[200px] text-right">
           <p className="font-semibold text-gray-900 mb-0.5">¿Tienes dudas?</p>
-          <p className="text-gray-500 text-xs">
+          <p className="text-gray-600 text-xs">
             Escríbenos por WhatsApp antes de registrarte.
           </p>
         </div>

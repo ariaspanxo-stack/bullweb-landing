@@ -189,11 +189,11 @@ function Footer() {
   return (
     <footer className="border-t border-white/5 mt-16 py-8">
       <div className="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="text-slate-500 text-xs">© 2026 BullWeb Chile · Hecho con ❤️ en Chile 🇨🇱</p>
+        <p className="text-slate-400 text-xs">© 2026 BullWeb Chile · Hecho con ❤️ en Chile 🇨🇱</p>
         <div className="flex items-center gap-6">
-          <Link to="/terminos" className="text-slate-500 hover:text-orange-400 text-xs transition-colors">Términos</Link>
-          <Link to="/privacidad" className="text-slate-500 hover:text-orange-400 text-xs transition-colors">Privacidad</Link>
-          <Link to="/cookies" className="text-slate-500 hover:text-orange-400 text-xs transition-colors">Cookies</Link>
+          <Link to="/terminos" className="text-slate-400 hover:text-orange-400 text-xs transition-colors">Términos</Link>
+          <Link to="/privacidad" className="text-slate-400 hover:text-orange-400 text-xs transition-colors">Privacidad</Link>
+          <Link to="/cookies" className="text-slate-400 hover:text-orange-400 text-xs transition-colors">Cookies</Link>
         </div>
       </div>
     </footer>
