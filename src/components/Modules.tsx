@@ -86,6 +86,28 @@ const SUBTITLE: Record<Pillar['accent'], string> = {
   green:  'Lo que el SII y la DT te exigen, resuelto por dentro.',
 };
 
+// Capturas reales del sistema (generadas por scripts/optimize-captures.js).
+function Capture({ name, widths, w, h, alt, caption, sizes }: {
+  name: string; widths: number[]; w: number; h: number; alt: string; caption: string; sizes: string;
+}) {
+  return (
+    <figure>
+      <img
+        src={`/images/${name}-${widths[0]}.webp`}
+        srcSet={widths.map(x => `/images/${name}-${x}.webp ${x}w`).join(', ')}
+        sizes={sizes}
+        width={w}
+        height={h}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        className="w-full h-auto rounded-2xl border border-white/10 shadow-2xl shadow-black/40"
+      />
+      <figcaption className="mt-3 text-sm text-slate-300 text-center">{caption}</figcaption>
+    </figure>
+  );
+}
+
 function PillarCard({ pillar, index }: { pillar: Pillar; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
@@ -146,6 +168,38 @@ export default function Modules() {
             <span className="text-orange-400">todo el restaurante.</span>
           </h2>
         </motion.div>
+
+        {/* Capturas reales */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_15rem] gap-8 items-start mb-8">
+          <Capture
+            name="mesas" widths={[1600, 800]} w={1600} h={570}
+            sizes="(min-width: 1024px) 60rem, 100vw"
+            alt="Pantalla de mesas de BullWeb: salón con mesas libres y ocupadas, consumo y tiempo de cada una"
+            caption="Mesas del salón, con consumo y tiempo por mesa"
+          />
+          <div className="max-w-[15rem] w-full mx-auto">
+            <Capture
+              name="carta-qr" widths={[480]} w={480} h={827}
+              sizes="15rem"
+              alt="Carta digital QR de BullWeb vista en un celular, con productos, precios y botón Ver pedido"
+              caption="Carta QR en el celular de tu cliente"
+            />
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
+          <Capture
+            name="tienda-online" widths={[1200, 640]} w={1200} h={584}
+            sizes="(min-width: 768px) 38rem, 100vw"
+            alt="Tienda online de un restaurante en BullWeb, con categorías, productos y carrito de pedido"
+            caption="Tu tienda online, con carrito de pedido"
+          />
+          <Capture
+            name="reportes" widths={[1200, 640]} w={1200} h={647}
+            sizes="(min-width: 768px) 38rem, 100vw"
+            alt="Reportes de BullWeb: ventas del período, número de órdenes, ticket promedio y evolución de ventas"
+            caption="Reportes de ventas, órdenes y ticket promedio"
+          />
+        </div>
 
         {/* 4 pilares */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
