@@ -46,10 +46,15 @@ export const PRICE_RANGE_TEXT = `Desde ${PRICE_BASICO} (Básico) o ${PRICE_TODO}
 /** Badge dual del Hero (#227, naming Full #228). */
 export const BADGE_DUAL = `Básico ${PRICE_BASICO} · Full ${PRICE_TODO} — tienda online incluida en ambos`;
 
-/** Copy SEO (#227) — inyectado en index.html vía vite.config.ts. */
+/**
+ * Copy SEO (#227) — inyectado en index.html vía vite.config.ts.
+ * "POS" se permite aquí (title, description, Open Graph/Twitter) como
+ * excepción SEO; en la interfaz se sigue usando "punto de venta" o "caja".
+ * Límites: title ≤ 60 caracteres, description ≤ 155 (los valida scripts/check-dist.js).
+ */
 export const SEO = {
-  title:       'BullWeb — Punto de venta y tienda online para restaurantes',
-  description: `Gestiona tu restaurante: venta en local, carta QR, comandas y tienda online. Planes desde ${PRICE_BASICO} al mes. Prueba 7 días gratis sin tarjeta.`,
+  title:       'Sistema POS para Restaurantes en Chile | BullWeb',
+  description: `POS para restaurantes en Chile: punto de venta, comandas, App Mesero, tienda online y carta QR. Desde ${PRICE_BASICO}/mes ${PRICE_NOTE}. 7 días gratis.`,
 };
 
 /** Entrada FAQ de precios (#227, naming Full #228) — compartida por FAQ.tsx y el JSON-LD FAQPage. */
