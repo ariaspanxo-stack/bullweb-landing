@@ -1,7 +1,6 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle, Cpu } from 'lucide-react';
-import { PRICE_BASICO, PRICE_TODO, BADGE_DUAL, HERO_PRICE_TEXT, BOLETAS_ACTIVACION } from '../lib/plans';
+import { HERO_PRICE_TEXT } from '../lib/plans';
 
 import { REGISTER_URL, track } from '../lib/measurement';
 
@@ -11,23 +10,8 @@ const LINKS = {
   demo:     'https://wa.me/56937458347?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20BullWeb',
 };
 
-// #227/#228 — Métricas Hero desde las constantes (src/lib/plans.ts): principal
-// "Desde $19.900/mes, IVA incluido"; secundarias boletas Full y 7 días gratis.
-// La métrica de boletas ya NO dice "$0 por boleta" como dato destacado (#228):
-// habla del plan Full y su activación con certificado y folios.
-const METRICS = [
-  { value: `Desde ${PRICE_BASICO}`, label: `Plan Básico / mes, IVA incluido`, hint: `O plan Full a ${PRICE_TODO} con todo incluido, IVA incluido. Sin costos ocultos ni cobros extra.`, primary: true },
-  { value: 'Boletas al SII', label: 'Incluidas en Full', hint: BOLETAS_ACTIVACION },
-  { value: '7 días',  label: 'Prueba gratis',  hint: 'Sin tarjeta. Listo en minutos.' },
-];
-
-// #227 — El badge dual va PRIMERO: es el que queda en el DOM al prerender
-// (la rotación de AnimatePresence solo renderiza BADGES[0] sin JS).
-const BADGES = [
-  { emoji: '🔒', text: BADGE_DUAL },
-  { emoji: '⚡', text: 'Punto de venta ultrarrápido para tu local'      },
-  { emoji: '🧾', text: 'Boletas electrónicas al SII incluidas en Full'  },
-];
+// Insignia fija y corta (sin rotación): cabe en una línea a 375px.
+const BADGE = 'Hecho en Chile para restaurantes';
 
 const fadeUp = {
   hidden:  { opacity: 0, y: 30 },
@@ -39,15 +23,6 @@ const fadeUp = {
 };
 
 export default function Hero() {
-  const [badgeIdx, setBadgeIdx] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setBadgeIdx(i => (i + 1) % BADGES.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0F172A]">
 
@@ -74,44 +49,26 @@ export default function Hero() {
           {/* Columna izquierda — texto */}
           <div className="text-center lg:text-left">
 
-            {/* Badge rotativo */}
-            <motion.div
-              className="inline-flex h-9 items-center px-4 bg-orange-500/10 border border-orange-500/20 rounded-full mb-6 overflow-hidden"
+            {/* Insignia fija */}
+            <motion.p
+              className="inline-flex items-center px-4 py-1.5 bg-orange-500/10 border border-orange-500/30 rounded-full mb-6 text-orange-300 text-sm font-medium"
               custom={0}
               initial="hidden"
               animate="visible"
               variants={fadeUp}
             >
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={badgeIdx}
-                  className="flex items-center gap-2 text-orange-400 text-sm font-medium"
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{ duration: 0.35, ease: 'easeInOut' }}
-                >
-                  <span>{BADGES[badgeIdx].emoji}</span>
-                  <span>{BADGES[badgeIdx].text}</span>
-                </motion.span>
-              </AnimatePresence>
-            </motion.div>
+              {BADGE}
+            </motion.p>
 
-            {/* H1 (#228 — frase del Comandante) */}
-            <motion.h1
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] tracking-tight mb-6"
-              custom={0.1}
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp}
-            >
+            {/* H1 (#228 — frase del Comandante). Sin animación: es el LCP. */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] tracking-tight mb-6">
               El sistema completo para tu restaurante, con tu tienda online incluida
-            </motion.h1>
+            </h1>
 
             {/* Subtítulo (#228 — precio con IVA incluido, desde las constantes) */}
             <motion.p
-              className="text-lg text-white/60 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0"
-              custom={0.2}
+              className="text-lg text-white/70 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0"
+              custom={0.1}
               initial="hidden"
               animate="visible"
               variants={fadeUp}
@@ -122,8 +79,8 @@ export default function Hero() {
 
             {/* CTAs */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-12"
-              custom={0.3}
+              className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-5"
+              custom={0.2}
               initial="hidden"
               animate="visible"
               variants={fadeUp}
@@ -150,63 +107,16 @@ export default function Hero() {
               </a>
             </motion.div>
 
-            {/* Microcopy */}
+            {/* Línea de confianza */}
             <motion.p
-              className="text-sm text-white/40 mb-4 text-center lg:text-left"
-              custom={0.35}
+              className="text-sm text-white/60 text-center lg:text-left"
+              custom={0.3}
               initial="hidden"
               animate="visible"
               variants={fadeUp}
             >
-              Sin tarjeta. Sin instalar nada. Listo en minutos.
+              Sin tarjeta · Sin instalar nada · Listo en minutos
             </motion.p>
-
-            {/* Badge estático boletas (#228 — sin "$0 por boleta" como dato
-                destacado; habla del plan Full y su activación) */}
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 mb-2 bg-green-500/10 border border-green-500/30 rounded-full"
-              custom={0.38}
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp}
-            >
-              <span className="text-base leading-none">🧾</span>
-              <span className="text-green-400 text-sm font-semibold">
-                Boletas electrónicas al SII incluidas en el plan Full
-              </span>
-            </motion.div>
-            <motion.p
-              className="text-sm text-white/60 mb-8 text-center lg:text-left"
-              custom={0.38}
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp}
-            >
-              {BOLETAS_ACTIVACION}
-            </motion.p>
-
-            {/* Métricas */}
-            <motion.div
-              className="flex gap-8 justify-center lg:justify-start"
-              custom={0.4}
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp}
-            >
-              {METRICS.map((m, i) => (
-                <div key={i} className="text-center lg:text-left">
-                  <p className={`font-black text-white ${m.primary ? 'text-4xl sm:text-5xl bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent' : 'text-2xl'}`}>
-                    {m.value}
-                  </p>
-                  <p className={`font-medium mt-0.5 ${m.primary ? 'text-sm text-orange-400 font-semibold' : 'text-xs text-white/40'}`}>{m.label}</p>
-                  {m.hint && (
-                    <p className="text-[10px] text-white/30 font-normal mt-1 max-w-[140px] leading-tight">
-                      {m.hint}
-                    </p>
-                  )}
-                </div>
-              ))}
-            </motion.div>
           </div>
 
           {/* Columna derecha — Mockup */}
