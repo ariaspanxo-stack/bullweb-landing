@@ -6,6 +6,7 @@ import Hero               from './components/Hero';
 import Features           from './components/Features';          // Pain Points
 import HowItWorks         from './components/HowItWorks';        // Onboarding 3 pasos (#190)
 import Modules            from './components/Modules';            // 4 pilares
+import PosChileSection    from './components/PosChileSection';   // H2 SEO entre Modules y Pricing
 import SiiDirectoSection  from './components/SiiDirectoSection'; // Boletas Full, tras Pricing (#228)
 import Pricing            from './components/Pricing';
 import FAQ                from './components/FAQ';
@@ -25,6 +26,7 @@ function HomePage() {
         <Features />            {/* Pain Points */}
         <HowItWorks />          {/* Onboarding en 3 pasos (#190) */}
         <Modules />             {/* 4 pilares */}
+        <PosChileSection />     {/* Sección SEO corta */}
         <Pricing />
         <SiiDirectoSection />   {/* Boletas incluidas en Full, módulo del plan — después de Pricing (#228) */}
         <FAQ />
