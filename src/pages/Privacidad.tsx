@@ -120,7 +120,7 @@ export default function Privacidad() {
           </Section>
 
           <Section title="10. Modificaciones">
-            Podemos actualizar esta política periódicamente. Notificaremos cambios significativos por correo electrónico. La versión vigente estará siempre disponible en esta página.
+            Podemos actualizar esta política periódicamente. Notificaremos cambios significativos por correo electrónico. La versión vigente estará publicada en esta página.
           </Section>
 
           <Section title="11. Contacto">
