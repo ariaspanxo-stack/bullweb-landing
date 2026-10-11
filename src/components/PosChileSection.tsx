@@ -2,8 +2,8 @@ import { BOLETAS_ACTIVACION } from '../lib/plans';
 import { scrollBehavior } from '../lib/motion';
 
 /**
- * Sección SEO corta entre Modules y Pricing. "POS" se permite SOLO en el H2
- * (excepción SEO); en el cuerpo se usa "punto de venta".
+ * Sección SEO corta entre Modules y Pricing. "POS" se permite en el H2 y,
+ * como máximo, 2 veces en el cuerpo (excepción SEO; lo valida check-dist.js).
  */
 const LINKS = [
   { label: 'Ver módulos',          href: '#modules' },
@@ -21,7 +21,7 @@ export default function PosChileSection() {
 
         <div className="space-y-4 text-slate-600 text-lg leading-relaxed">
           <p>
-            BullWeb es un sistema de punto de venta pensado para restaurantes, cafeterías y
+            BullWeb es un sistema POS (punto de venta) pensado para restaurantes, cafeterías y
             locales de comida en Chile. Reúne en un solo lugar lo que suele estar repartido
             entre la caja, las libretas y varias aplicaciones: cobras en el punto de venta, ves
             el estado de cada mesa y envías las comandas a cocina sin pasos intermedios.
@@ -32,7 +32,7 @@ export default function PosChileSection() {
             tienda online, sin comisiones, para retiro o delivery propio.
           </p>
           <p>
-            Funciona desde el navegador, en los equipos que ya tienes. El plan Full incluye
+            El POS funciona desde el navegador, en los equipos que ya tienes. El plan Full incluye
             además boletas electrónicas al SII: {BOLETAS_ACTIVACION.charAt(0).toLowerCase() + BOLETAS_ACTIVACION.slice(1)}
           </p>
         </div>
