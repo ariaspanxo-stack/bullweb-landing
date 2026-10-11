@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { MotionConfig } from 'framer-motion';
 import Navbar             from './components/Navbar';
 import Hero               from './components/Hero';
 import Features           from './components/Features';          // Pain Points
@@ -43,6 +44,7 @@ export default function App() {
   }, []);
 
   return (
+    <MotionConfig reducedMotion="user">
     <BrowserRouter>
       <Routes>
         <Route path="/"           element={<HomePage />} />
@@ -51,5 +53,6 @@ export default function App() {
         <Route path="/cookies"    element={<Cookies />} />
       </Routes>
     </BrowserRouter>
+    </MotionConfig>
   );
 }

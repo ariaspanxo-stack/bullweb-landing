@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { REGISTER_URL, track } from '../lib/measurement';
+import { scrollBehavior } from '../lib/motion';
 
 const LINKS = {
   register: REGISTER_URL,
@@ -28,7 +29,7 @@ export default function Navbar() {
   const handleNav = (href: string) => {
     setMobileOpen(false);
     const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (el) el.scrollIntoView({ behavior: scrollBehavior() });
   };
 
   return (
@@ -49,7 +50,7 @@ export default function Navbar() {
             {/* Logo */}
             <a
               href="#"
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              onClick={() => window.scrollTo({ top: 0, behavior: scrollBehavior() })}
               className="flex items-center gap-2 flex-shrink-0"
             >
               <img
@@ -100,6 +101,7 @@ export default function Navbar() {
               onClick={() => setMobileOpen(v => !v)}
               className="md:hidden p-2 text-white/80 hover:text-white"
               aria-label="Menú"
+              aria-expanded={mobileOpen}
             >
               <AnimatePresence mode="wait" initial={false}>
                 {mobileOpen ? (

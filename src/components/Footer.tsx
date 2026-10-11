@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Instagram, MessageCircle } from 'lucide-react';
 import { BOLETAS_ACTIVACION } from '../lib/plans';
+import { scrollBehavior } from '../lib/motion';
 
 const LINKS = {
   producto:  [
@@ -70,7 +71,7 @@ export default function Footer() {
                     href={l.href}
                     onClick={e => {
                       e.preventDefault();
-                      document.getElementById(l.href.slice(1))?.scrollIntoView({ behavior: 'smooth' });
+                      document.getElementById(l.href.slice(1))?.scrollIntoView({ behavior: scrollBehavior() });
                     }}
                     className="text-slate-400 hover:text-orange-400 text-sm transition-colors cursor-pointer"
                   >

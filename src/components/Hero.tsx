@@ -122,6 +122,7 @@ export default function Hero() {
           {/* Columna derecha — Mockup */}
           <motion.div
             className="relative hidden lg:block"
+            aria-hidden="true"
             initial={{ opacity: 0, x: 40, scale: 0.95 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -157,7 +158,7 @@ export default function Hero() {
                     </div>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                    <div className="w-2 h-2 rounded-full bg-green-400" />
                     <span className="text-green-400 text-[10px] font-medium">En línea</span>
                   </div>
                 </div>
@@ -219,29 +220,21 @@ export default function Hero() {
 
             {/* Badges flotantes */}
 
-            <motion.div
-              className="absolute -bottom-4 -left-4 bg-white rounded-2xl px-3 py-2 shadow-xl flex items-center gap-2"
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-            >
+            <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl px-3 py-2 shadow-xl flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-green-500 fill-green-500" />
               <div>
                 <p className="text-xs font-black text-gray-800">+12 órdenes</p>
                 <p className="text-[10px] text-gray-400">esta hora</p>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              className="absolute bottom-16 left-4 bg-gradient-to-r from-green-500 to-green-600 rounded-xl shadow-lg px-4 py-2.5 text-xs font-bold text-white flex items-center gap-2"
-              animate={{ y: [0, -5, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1.2 }}
-            >
+            <div className="absolute bottom-16 left-4 bg-gradient-to-r from-green-500 to-green-600 rounded-xl shadow-lg px-4 py-2.5 text-xs font-bold text-white flex items-center gap-2">
               <CheckCircle className="w-4 h-4" />
               <div>
                 <p>Boletas SII incluidas en Full</p>
                 <p className="text-green-100 text-[10px] font-medium">Se activa con tu certificado y tus folios</p>
               </div>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
