@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
  * Genera las versiones web (WebP, recortadas) de las capturas reales y del
- * logo transparente, a partir de los originales que NO se publican tal cual.
+ * logo transparente. Los originales viven en capturas-fuente/ (fuera de public/
+ * y de git), así que nunca llegan a dist/.
  *
  * Uso:  node scripts/optimize-captures.js
  */
@@ -13,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC = path.resolve(__dirname, '..', 'public');
-const SRC = path.join(PUBLIC, 'images', 'originales');
+const SRC = path.resolve(__dirname, '..', 'capturas-fuente');
 const OUT = path.join(PUBLIC, 'images');
 
 // crop: región a conservar del original (px). widths: anchos de salida.

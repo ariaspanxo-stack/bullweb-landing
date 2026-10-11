@@ -13,3 +13,6 @@ tsc_out.txt
 tsc_out.txt
 dist/
 node_modules/
+
+# Capturas fuente (originales sin recortar; no se publican)
+capturas-fuente/
