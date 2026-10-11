@@ -73,7 +73,6 @@ const PILLARS: Pillar[] = [
     bullets: [
       { icon: <FileText className="w-4 h-4" />,    text: 'Boletas electrónicas al SII incluidas en Full: se activan con tu certificado y tus folios; te acompañamos en la puesta en marcha' },
       { icon: <Clock className="w-4 h-4" />,       text: 'Reloj control y registro de asistencia con exportación a PDF' },
-      { icon: <BarChart3 className="w-4 h-4" />,   text: 'Cuadres de caja, turnos, ingresos y egresos' },
       { icon: <BarChart3 className="w-4 h-4" />,   text: 'Reportes avanzados: ventas por mesero, heatmaps, exportación a Excel' },
     ],
   },
