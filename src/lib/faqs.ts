@@ -1,8 +1,11 @@
 /**
  * Fuente única de la FAQ de la landing: la consumen FAQ.tsx y el JSON-LD
  * FAQPage de index.html (inyectado vía vite.config.ts).
+ *
+ * "POS" se permite SOLO en las preguntas (excepción SEO); en las respuestas
+ * se usa "punto de venta".
  */
-import { FAQ_PRECIOS_Q, FAQ_PRECIOS_A, BOLETAS_ACTIVACION, PRICE_NOTE } from './plans';
+import { FAQ_PRECIOS_Q, FAQ_PRECIOS_A, BOLETAS_ACTIVACION, PRICE_NOTE, PRICE_BASICO, PRICE_TODO } from './plans';
 
 export interface Faq {
   q: string;
@@ -10,6 +13,18 @@ export interface Faq {
 }
 
 export const FAQS: Faq[] = [
+  {
+    q: '¿Qué es un sistema POS para restaurantes?',
+    a: 'Es el sistema de punto de venta con el que un restaurante toma pedidos, cobra y controla su caja. En BullWeb además reúne el mapa de mesas, las comandas, la App Mesero para tus garzones, la carta QR y tu tienda online, todo conectado, para que no tengas que repetir la información en varios programas.',
+  },
+  {
+    q: '¿Cuánto cuesta un POS para restaurantes en Chile?',
+    a: `En BullWeb hay dos planes mensuales: Básico a ${PRICE_BASICO} y Full a ${PRICE_TODO}, ambos con ${PRICE_NOTE}. No cobramos por usuario ni por función nueva, y no hay contratos amarrados. Puedes probar cualquiera de los dos durante 7 días gratis, sin tarjeta, y decidir después cuál le sirve a tu local.`,
+  },
+  {
+    q: '¿Sirve para cafeterías, sushi y locales de comida?',
+    a: 'Sí. BullWeb funciona para restaurantes con mesas y también para cafeterías, locales de sushi, locales de mostrador y comida para llevar. Puedes vender en el local, atender mesas, recibir pedidos por carta QR y tomar pedidos de tu tienda online para retiro o delivery propio. Cargas tu propia carta y la ordenas en las categorías que uses.',
+  },
   {
     q: '¿Necesito comprar hardware caro?',
     a: 'No. BullWeb funciona en los dispositivos que ya tienes: el celular o tablet de tus meseros hace de comandera, y cualquier computador o tablet sirve de caja. La App Mesero es una PWA — se abre desde el navegador, sin instalar nada. Si más adelante quieres impresora o pantalla de cocina dedicada, se conectan, pero para partir no necesitas invertir en equipos.',
