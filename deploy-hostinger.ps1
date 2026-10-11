@@ -95,7 +95,7 @@ if (Test-Path "$DIST\images") {
 $rootAll    = Get-ChildItem "$DIST\*" -File
 $rootAssets = $rootAll | Where-Object {
   $_.Name -eq "robots.txt" -or $_.Name -eq "sitemap.xml" -or
-  $_.Extension -in ".svg",".png",".ico",".webmanifest",".webp"
+  $_.Extension -in ".svg",".png",".ico",".webmanifest",".webp" -or $_.Name -in "terminos.html","privacidad.html","cookies.html"
 }
 foreach ($f in $rootAssets) {
   doDelete "$REMOTE/$($f.Name)"
