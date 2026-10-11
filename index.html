@@ -61,20 +61,23 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "BullWeb Chile",
-      "description": "Sistema todo-en-uno para restaurantes chilenos. Punto de venta, tienda online, KDS, App Mesero y boletas electrónicas al SII incluidas en el plan Full (se activan con tu certificado y tus folios).",
+      "description": "Sistema POS para restaurantes en Chile. Punto de venta, tienda online, KDS, App Mesero y boletas electrónicas al SII incluidas en el plan Full (se activan con tu certificado y tus folios).",
       "url": "https://bullwebchile.com",
       "logo": "https://bullwebchile.com/logo_transparente_440.png",
       "email": "f.arias@bullwebchile.com",
+      "telephone": "+56937458347",
       "address": {
         "@type": "PostalAddress",
-        "addressCountry": "CL",
-        "addressRegion": "Región Metropolitana",
-        "addressLocality": "Santiago"
+        "streetAddress": "Bulnes 470, Oficina 820, Edificio Aranjuez",
+        "addressLocality": "Chillán",
+        "addressRegion": "Ñuble",
+        "addressCountry": "CL"
       },
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "soporte",
         "telephone": "+56937458347",
+        "contactOption": "WhatsApp",
         "areaServed": "CL",
         "availableLanguage": ["Spanish"]
       },
@@ -89,27 +92,31 @@
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "BullWeb Chile — Sistema de punto de venta para Restaurantes",
+      "name": "BullWeb — Sistema POS para restaurantes en Chile",
       "applicationCategory": "BusinessApplication",
-      "applicationSubCategory": "Punto de venta para restaurantes",
-      "operatingSystem": "Web, Android, iOS, Windows, macOS",
-      "browserRequirements": "Requires a modern web browser (Chrome, Edge, Firefox, Safari)",
-      "description": "Sistema de punto de venta todo-en-uno para restaurantes chilenos. Incluye KDS (Kitchen Display System), App Mesero con código QR, Delivery integrado, Inventario y boletas electrónicas al SII incluidas en el plan Full (se activan con tu certificado y tus folios).",
+      "applicationSubCategory": "Sistema POS para restaurantes",
+      "operatingSystem": "Web (PWA)",
+      "browserRequirements": "Navegador web moderno (Chrome, Edge, Firefox, Safari)",
+      "inLanguage": "es-CL",
+      "keywords": "sistema POS para restaurantes, POS Chile, punto de venta restaurante Chile, comandas, App Mesero, tienda online para restaurantes, carta QR, boletas electrónicas SII",
+      "description": "Sistema POS para restaurantes, cafeterías y locales de comida en Chile: punto de venta, mesas, comandas, App Mesero con PIN por empleado, tienda online y carta QR. El plan Full incluye boletas electrónicas al SII (se activan con tu certificado y tus folios).",
       "url": "https://bullwebchile.com",
       "image": "https://bullwebchile.com/og-image.png",
       "offers": {{JSONLD_OFFERS}},
       "featureList": [
         "Punto de venta",
-        "KDS Kitchen Display System",
-        "App Mesero con QR",
-        "Delivery integrado",
+        "Gestión de mesas y comandas",
+        "App Mesero con PIN por empleado",
+        "Tienda online con retiro y delivery propio",
+        "Carta digital QR",
+        "Pantalla de Cocina (KDS)",
         "Inventario y proveedores",
         "Boletas electrónicas al SII en el plan Full (se activan con tu certificado y tus folios)",
         "Reportes en tiempo real"
       ],
       "audience": {
         "@type": "BusinessAudience",
-        "audienceType": "Restaurantes, Cafeterías, Bars, Food Trucks en Chile"
+        "audienceType": "Restaurantes, cafeterías y locales de comida en Chile"
       },
       "areaServed": "CL"
     }
