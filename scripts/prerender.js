@@ -6,7 +6,10 @@
  * Puppeteer las rutas públicas de la landing y guarda el HTML resultante en
  * `dist/prerendered/`.
  *
- * Rutas: "/", "/funciones", "/precios", "/faq".
+ * Rutas de la portada: "/", "/funciones", "/precios", "/faq".
+ * Páginas legales: "/terminos", "/privacidad", "/cookies" → dist/<nombre>.html,
+ * con su propio title/description/canonical (src/lib/seo.ts). El .htaccess las
+ * sirve en su URL sin extensión.
  *
  * Uso:  node scripts/prerender.js
  */
@@ -33,6 +36,21 @@ const ROUTES = [
   { route: '/#pricing',   file: 'precios.html' },
   { route: '/#faq',       file: 'faq.html' },
 ];
+
+// Páginas legales: se escriben en la raíz de dist/ y solo conservan el JSON-LD
+// de Organization (FAQPage y SoftwareApplication describen la portada).
+const LEGAL_ROUTES = [
+  { route: '/terminos',   file: 'terminos.html' },
+  { route: '/privacidad', file: 'privacidad.html' },
+  { route: '/cookies',    file: 'cookies.html' },
+];
+
+function keepOnlyOrganizationJsonLd(html) {
+  return html.replace(
+    /\s*(?:<!--[^>]*JSON-LD[^>]*-->\s*)?<script type="application\/ld\+json">([\s\S]*?)<\/script>/g,
+    (block, json) => (/"@type":\s*"Organization"/.test(json) ? block : ''),
+  );
+}
 
 const PORT = process.env.PRERENDER_PORT || 4318;
 const HOST = '127.0.0.1';
@@ -193,6 +211,17 @@ async function main() {
       }
     }
     console.log('✅ Prerender completo en dist/prerendered/ y dist/index.html actualizado');
+
+    // Las legales se renderizan después de la portada: el servidor estático les
+    // entrega dist/index.html (fallback SPA) y React pinta la ruta pedida.
+    for (const { route, file } of LEGAL_ROUTES) {
+      process.stdout.write(`  → ${route.padEnd(12)} `);
+      const html = keepOnlyOrganizationJsonLd(await renderRoute(browser, route));
+      const outPath = path.join(DIST_DIR, file);
+      await writeFile(outPath, html, 'utf8');
+      console.log(`✓ ${path.relative(ROOT, outPath)} (${(html.length / 1024).toFixed(1)} KB)`);
+    }
+    console.log('✅ Páginas legales prerenderizadas en dist/');
   } finally {
     await browser.close();
     server.close();

@@ -1,9 +1,15 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Zap, ArrowLeft } from 'lucide-react';
+import { usePageSeo } from '../lib/seo';
 
 export default function Cookies() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
+  usePageSeo({
+    title:       'Política de cookies | BullWeb',
+    description: 'Qué cookies usa BullWeb, para qué sirven y cómo puedes gestionarlas desde tu navegador.',
+    path:        '/cookies',
+  });
 
   return (
     <div className="min-h-screen font-sans" style={{ background: '#0F172A' }}>

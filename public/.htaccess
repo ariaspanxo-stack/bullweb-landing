@@ -14,6 +14,9 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
   SetEnv no-cache 1
 </IfModule>
 
+# Páginas legales prerenderizadas (title, description y canonical propios)
+RewriteRule ^(terminos|privacidad|cookies)/?$ /$1.html [L]
+
 # Servir archivos existentes directamente
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^ - [L]

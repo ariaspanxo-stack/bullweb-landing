@@ -1,9 +1,15 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Zap, ArrowLeft } from 'lucide-react';
+import { usePageSeo } from '../lib/seo';
 
 export default function Terminos() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
+  usePageSeo({
+    title:       'Términos y condiciones | BullWeb',
+    description: 'Términos y condiciones de uso de BullWeb, el sistema de punto de venta en la nube para restaurantes en Chile.',
+    path:        '/terminos',
+  });
 
   return (
     <div className="min-h-screen font-sans" style={{ background: '#0F172A' }}>

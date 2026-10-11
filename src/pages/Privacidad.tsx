@@ -1,9 +1,15 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Zap, ArrowLeft } from 'lucide-react';
+import { usePageSeo } from '../lib/seo';
 
 export default function Privacidad() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
+  usePageSeo({
+    title:       'Política de privacidad | BullWeb',
+    description: 'Cómo BullWeb Chile recopila, usa y protege los datos personales de quienes usan bullwebchile.com y el sistema.',
+    path:        '/privacidad',
+  });
 
   return (
     <div className="min-h-screen font-sans" style={{ background: '#0F172A' }}>
