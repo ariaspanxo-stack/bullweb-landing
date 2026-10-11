@@ -5,9 +5,10 @@ import { scrollBehavior } from '../lib/motion';
 
 const LINKS = {
   producto:  [
-    { label: 'Funcionalidades', href: '#features' },
-    { label: 'Módulos',         href: '#modules' },
-    { label: 'Precios',         href: '#pricing' },
+    { label: 'Funciones', href: '#features' },
+    { label: 'Módulos',   href: '#modules' },
+    { label: 'Precios',   href: '#pricing' },
+    { label: 'FAQ',       href: '#faq' },
   ],
   legal:    [
     { label: 'Términos de uso',     href: '/terminos'   },
