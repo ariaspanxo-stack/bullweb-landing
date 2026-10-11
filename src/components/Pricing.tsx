@@ -1,21 +1,18 @@
 ﻿import { motion } from 'framer-motion';
-import { Check, X, Rocket, Zap } from 'lucide-react';
-import { PRICE_BASICO, PRICE_TODO, PRICE_NOTE } from '../lib/plans';
+import { Check, X, Rocket, Zap, FileText } from 'lucide-react';
+import { PRICE_BASICO, PRICE_TODO, PRICE_NOTE, BOLETAS_ACTIVACION } from '../lib/plans';
 import { REGISTER_URL, track } from '../lib/measurement';
 
+// Solo lo ADICIONAL de Full sobre Básico (la card abre con "Todo lo del
+// Básico, más:"). Las boletas SII van aparte, destacadas, con su frase de
+// activación.
 const FEATURES_TODO = [
-  'Punto de venta ultrarrápido para tu local',
-  'App Mesero (sin hardware extra)',
   'Pantalla de Cocina (KDS)',
-  'Carta digital QR',
   'Inventario en tiempo real y recetas',
-  'Cuadres de caja y turnos',
-  'Reloj control y asistencia con exportación a PDF',
   'CRM y fidelización · 100 emails incluidos al mes',
   'Cupones y promociones',
-  'Boletas electrónicas al SII: se activan con tu certificado y tus folios; te acompañamos en la puesta en marcha',
+  'Reloj control y asistencia con exportación a PDF',
   'Reportes avanzados y exportación a Excel',
-  '1 sucursal incluida por plan',
 ];
 
 const FEATURES_BASICO = [
@@ -48,14 +45,14 @@ export default function Pricing() {
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="inline-flex items-center gap-2 bg-orange-50 border border-orange-200 text-orange-600 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+          <span className="inline-flex items-center gap-2 bg-orange-50 border border-orange-200 text-orange-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
             💎 Dos planes — Sin letra chica
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4 leading-tight">
             Parte vendiendo hoy.{' '}
-            <span className="text-orange-500">Crece cuando quieras.</span>
+            <span className="text-orange-600">Crece cuando quieras.</span>
           </h2>
-          <p className="text-gray-500 text-lg">
+          <p className="text-slate-600 text-lg">
             Los dos planes con 7 días de prueba gratis, sin tarjeta.
           </p>
         </motion.div>
@@ -63,9 +60,9 @@ export default function Pricing() {
         {/* Grid de dos cards */}
         <div className="grid lg:grid-cols-2 gap-8 items-start">
 
-          {/* ============ CARD TODO (destacada) ============ */}
+          {/* ============ CARD TODO (destacada) — en celular va después de Básico ============ */}
           <motion.div
-            className="relative"
+            className="relative order-2 lg:order-1"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -76,7 +73,7 @@ export default function Pricing() {
 
               {/* Badge destacada */}
               <div className="relative flex justify-center mb-4">
-                <span className="inline-flex items-center gap-1.5 bg-orange-500 text-white text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full shadow-lg shadow-orange-500/30">
+                <span className="inline-flex items-center gap-1.5 bg-orange-500 text-brand-bg text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full shadow-lg shadow-orange-500/30">
                   <Rocket className="w-3.5 h-3.5" />
                   Recomendado
                 </span>
@@ -86,7 +83,7 @@ export default function Pricing() {
               <h3 className="relative text-center text-xl font-extrabold text-white mb-1">
                 Plan Full
               </h3>
-              <p className="relative text-center text-gray-400 text-sm mb-6">
+              <p className="relative text-center text-gray-300 text-sm mb-6">
                 Todo incluido — un solo precio, sin módulos aparte.
               </p>
 
@@ -94,13 +91,25 @@ export default function Pricing() {
               <div className="relative mb-2">
                 <div className="flex items-baseline gap-2 mb-1 flex-wrap justify-center">
                   <span className="text-white text-5xl font-black">{PRICE_TODO}</span>
-                  <span className="text-gray-400 text-lg">/ mes</span>
+                  <span className="text-gray-300 text-lg">/ mes</span>
                 </div>
-                <p className="text-center text-gray-500 text-xs">{PRICE_NOTE}</p>
+                <p className="text-center text-gray-200 text-sm font-semibold">{PRICE_NOTE}</p>
               </div>
 
-              {/* Lista de características */}
-              <ul className="relative grid sm:grid-cols-2 gap-x-6 gap-y-3 my-8">
+              {/* Boletas SII — módulo destacado de Full, con su frase de activación */}
+              <div className="relative mt-8 flex items-start gap-3 bg-orange-500/10 border border-orange-500/40 rounded-2xl p-4">
+                <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-orange-500 text-brand-bg shrink-0">
+                  <FileText className="w-5 h-5" />
+                </span>
+                <div>
+                  <p className="text-white font-bold">Boletas electrónicas al SII incluidas</p>
+                  <p className="text-gray-300 text-sm leading-relaxed mt-0.5">{BOLETAS_ACTIVACION}</p>
+                </div>
+              </div>
+
+              {/* Lista de características: solo lo adicional sobre Básico */}
+              <p className="relative text-white font-bold mt-6 mb-3">Todo lo del Básico, más:</p>
+              <ul className="relative grid sm:grid-cols-2 gap-x-6 gap-y-3 mb-4">
                 {FEATURES_TODO.map((f, i) => (
                   <li key={i} className="flex items-start gap-3 text-gray-200 text-sm">
                     <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-orange-500/20 text-orange-400 mt-0.5 shrink-0">
@@ -110,6 +119,7 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
+              <p className="relative text-gray-300 text-sm mb-8">1 sucursal incluida por plan.</p>
 
               {/* Ancla de valor */}
               <p className="relative text-orange-300 text-sm font-medium text-center max-w-xl mx-auto leading-relaxed mb-8">
@@ -127,15 +137,15 @@ export default function Pricing() {
               >
                 Probar 7 días gratis
               </a>
-              <p className="relative text-center text-gray-500 text-xs mt-3">
+              <p className="relative text-center text-gray-300 text-sm mt-3">
                 Sin tarjeta · Sin contratos amarrados, cancela cuando quieras.
               </p>
             </div>
           </motion.div>
 
-          {/* ============ CARD BÁSICO (secundaria) ============ */}
+          {/* ============ CARD BÁSICO (secundaria) — primera en celular ============ */}
           <motion.div
-            className="relative"
+            className="relative order-1 lg:order-2"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -155,7 +165,7 @@ export default function Pricing() {
               <h3 className="text-center text-xl font-extrabold text-gray-900 mb-1">
                 Plan Básico
               </h3>
-              <p className="text-center text-slate-500 text-sm mb-6">
+              <p className="text-center text-slate-600 text-sm mb-6">
                 Lo esencial para vender ordenado desde el día uno.
               </p>
 
@@ -163,9 +173,9 @@ export default function Pricing() {
               <div className="mb-2">
                 <div className="flex items-baseline gap-2 mb-1 flex-wrap justify-center">
                   <span className="text-gray-900 text-5xl font-black">{PRICE_BASICO}</span>
-                  <span className="text-slate-400 text-lg">/ mes</span>
+                  <span className="text-slate-600 text-lg">/ mes</span>
                 </div>
-                <p className="text-center text-slate-400 text-xs">{PRICE_NOTE}</p>
+                <p className="text-center text-slate-700 text-sm font-semibold">{PRICE_NOTE}</p>
               </div>
 
               {/* Lista de características */}
@@ -182,13 +192,13 @@ export default function Pricing() {
 
               {/* Los "SIN" — visibles y honestos */}
               <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-8">
-                <p className="text-xs font-bold text-slate-500 uppercase tracking-wide mb-3 text-center">
+                <p className="text-xs font-bold text-slate-600 uppercase tracking-wide mb-3 text-center">
                   Lo que no incluye
                 </p>
                 <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-2">
                   {SIN_BASICO.map((f, i) => (
-                    <li key={i} className="flex items-center gap-2 text-slate-400 text-xs">
-                      <X className="w-3.5 h-3.5 text-slate-300 shrink-0" />
+                    <li key={i} className="flex items-center gap-2 text-slate-600 text-sm">
+                      <X className="w-4 h-4 text-slate-500 shrink-0" />
                       <span>Sin {f.charAt(0).toLowerCase() + f.slice(1)}</span>
                     </li>
                   ))}
@@ -205,7 +215,7 @@ export default function Pricing() {
               >
                 Probar 7 días gratis
               </a>
-              <p className="text-center text-slate-400 text-xs mt-3">
+              <p className="text-center text-slate-600 text-sm mt-3">
                 Sin tarjeta · ¿Necesitas más? Mejora a Full desde el panel, en un clic.
               </p>
             </div>
@@ -219,7 +229,7 @@ export default function Pricing() {
             href="https://wa.me/56937458347?text=Hola%2C%20quiero%20empezar%20la%20prueba%20gratis%20de%207%20d%C3%ADas"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-500 hover:text-green-600 underline underline-offset-4 decoration-gray-300 hover:decoration-green-500 transition-colors text-xs"
+            className="text-slate-600 hover:text-green-700 underline underline-offset-4 decoration-slate-400 hover:decoration-green-600 transition-colors text-sm"
           >
             ¿Prefieres que te guiemos? Escríbenos por WhatsApp
           </a>
