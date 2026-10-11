@@ -53,13 +53,17 @@ export default function Navbar() {
               onClick={() => window.scrollTo({ top: 0, behavior: scrollBehavior() })}
               className="flex items-center gap-2 flex-shrink-0"
             >
-              <img
-                src="/logo-bullweb.webp"
-                alt="BullWeb Chile"
-                width="320"
-                height="320"
-                className="h-9 w-auto"
-              />
+              {/* Logo de trazo azul oscuro: va sobre pastilla blanca para verse en fondo oscuro */}
+              <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white p-0.5">
+                <img
+                  src="/logo-bullweb-transparente.webp"
+                  alt="BullWeb Chile"
+                  width="160"
+                  height="160"
+                  className="w-full h-full"
+                />
+              </span>
+              <span className="text-white font-black text-lg tracking-tight" aria-hidden="true">BullWeb</span>
             </a>
 
             {/* Centro — Desktop */}

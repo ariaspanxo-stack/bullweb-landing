@@ -32,14 +32,17 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-5">
             <div className="flex items-center gap-2">
-              <img
-                src="/logo-bullweb.webp"
-                alt="BullWeb Chile"
-                width="320"
-                height="320"
-                loading="lazy"
-                className="h-10 w-auto brightness-0 invert"
-              />
+              <span className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white p-0.5">
+                <img
+                  src="/logo-bullweb-transparente.webp"
+                  alt="BullWeb Chile"
+                  width="160"
+                  height="160"
+                  loading="lazy"
+                  className="w-full h-full"
+                />
+              </span>
+              <span className="text-white font-black text-lg tracking-tight" aria-hidden="true">BullWeb</span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed">
               El sistema de punto de venta en la nube diseñado para restaurantes chilenos. Rápido, simple y completo.
