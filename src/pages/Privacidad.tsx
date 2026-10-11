@@ -32,7 +32,7 @@ export default function Privacidad() {
         <div className="prose-legal">
 
           <Section title="1. Responsable del tratamiento">
-            BullWeb Chile SpA, con domicilio en Chile, es el responsable del tratamiento de sus datos personales recopilados a través de bullwebchile.com y el sistema POS asociado. Contacto: <a href="mailto:contacto@bullwebchile.com" className="text-orange-400 hover:text-orange-300">contacto@bullwebchile.com</a>
+            BullWeb Chile SpA, con domicilio en Chile, es el responsable del tratamiento de sus datos personales recopilados a través de bullwebchile.com y el sistema de punto de venta asociado. Contacto: <a href="mailto:contacto@bullwebchile.com" className="text-orange-400 hover:text-orange-300">contacto@bullwebchile.com</a>
           </Section>
 
           <Section title="2. Datos que recopilamos">

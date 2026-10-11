@@ -36,7 +36,7 @@ export default function Terminos() {
           </Section>
 
           <Section title="2. Descripción del Servicio">
-            BullWeb Chile es un sistema de punto de venta (POS) en la nube diseñado para restaurantes y comercios chilenos. El Servicio incluye gestión de mesas, pedidos, cocina (KDS), caja, delivery y reportes, accesible vía navegador web y dispositivos móviles.
+            BullWeb Chile es un sistema de punto de venta en la nube diseñado para restaurantes y comercios chilenos. El Servicio incluye gestión de mesas, pedidos, cocina (KDS), caja, delivery y reportes, accesible vía navegador web y dispositivos móviles.
           </Section>
 
           <Section title="3. Registro y cuenta">

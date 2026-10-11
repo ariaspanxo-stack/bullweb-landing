@@ -24,7 +24,7 @@ const PAINS: PainPoint[] = [
     desc:    'Se cae el internet un viernes lleno y la caja se congela. Cada minuto sin vender es un cliente que se aburre y se va. → BullWeb es una app instalable que carga rápido y se mantiene estable en la jornada.',
     color:   'text-orange-500',
     bgColor: 'bg-orange-50',
-    tag:     'POS 100% web',
+    tag:     'Punto de venta 100% web',
   },
   {
     icon: (

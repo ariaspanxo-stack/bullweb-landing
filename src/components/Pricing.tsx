@@ -19,8 +19,8 @@ const FEATURES_TODO = [
 ];
 
 const FEATURES_BASICO = [
-  'POS de mostrador con caja y cobros',
-  'Gestión de mesas desde el POS',
+  'Punto de venta de mostrador con caja y cobros',
+  'Gestión de mesas desde el punto de venta',
   'Comandas e impresión de tickets',
   'Tienda online: retiro y delivery propio',
   'Carta digital QR visual',

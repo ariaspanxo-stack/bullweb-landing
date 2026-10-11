@@ -41,7 +41,7 @@ export default function Cookies() {
                 nombre: 'auth-storage',
                 tipo: 'Esencial',
                 duracion: 'Sesión / Persistente',
-                descripcion: 'Mantiene la sesión iniciada del usuario en el panel de administración. Sin esta cookie el sistema POS no puede funcionar.',
+                descripcion: 'Mantiene la sesión iniciada del usuario en el panel de administración. Sin esta cookie el sistema de punto de venta no puede funcionar.',
               },
               {
                 nombre: 'theme-preference',
@@ -75,7 +75,7 @@ export default function Cookies() {
               <CookieTipo
                 color="green"
                 tipo="Esenciales"
-                descripcion="Necesarias para el funcionamiento básico del Servicio. No pueden desactivarse. Sin ellas, el sistema POS no puede operar correctamente."
+                descripcion="Necesarias para el funcionamiento básico del Servicio. No pueden desactivarse. Sin ellas, el sistema de punto de venta no puede operar correctamente."
               />
               <CookieTipo
                 color="blue"
@@ -112,7 +112,7 @@ export default function Cookies() {
               <li><strong className="text-white">Safari:</strong> Preferencias → Privacidad → Cookies</li>
               <li><strong className="text-white">Edge:</strong> Configuración → Privacidad → Cookies</li>
             </ul>
-            <p className="mt-2">Tenga en cuenta que bloquear todas las cookies puede impedir el correcto funcionamiento del sistema POS.</p>
+            <p className="mt-2">Tenga en cuenta que bloquear todas las cookies puede impedir el correcto funcionamiento del sistema de punto de venta.</p>
           </Section>
 
           <Section title="Opt-out de Google Analytics y Meta Pixel">

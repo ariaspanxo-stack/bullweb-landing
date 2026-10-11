@@ -27,7 +27,7 @@ const STEPS = [
     number: '03',
     emoji:  '🚀',
     title:  'Empieza a vender',
-    desc:   'Sistema listo al instante. POS, cocina y delivery desde el día 1.',
+    desc:   'Sistema listo al instante. Punto de venta, cocina y delivery desde el día 1.',
     time:   'Inmediato',
     color:  'text-green-500',
     border: 'border-green-500',

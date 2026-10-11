@@ -226,7 +226,7 @@ export default function Hero() {
               {/* Contenido del mockup */}
               <div className="bg-[#0F172A] p-4 min-h-[380px]">
 
-                {/* Header POS */}
+                {/* Header punto de venta */}
                 <div className="flex items-center justify-between mb-4 bg-white/5 rounded-xl px-4 py-2.5">
                   <div className="flex items-center gap-2">
                     <div className="w-7 h-7 bg-orange-500 rounded-lg flex items-center justify-center">

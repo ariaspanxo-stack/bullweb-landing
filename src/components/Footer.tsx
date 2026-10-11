@@ -40,7 +40,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-slate-400 text-sm leading-relaxed">
-              El sistema POS en la nube diseñado para restaurantes chilenos. Rápido, simple y completo.
+              El sistema de punto de venta en la nube diseñado para restaurantes chilenos. Rápido, simple y completo.
             </p>
             {/* Social */}
             <div className="flex items-center gap-3">
