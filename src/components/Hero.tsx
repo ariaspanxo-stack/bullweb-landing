@@ -228,7 +228,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="absolute bottom-16 left-4 bg-gradient-to-r from-green-500 to-green-600 rounded-xl shadow-lg px-4 py-2.5 text-xs font-bold text-white flex items-center gap-2">
+            <div className="absolute -bottom-4 right-6 bg-gradient-to-r from-green-500 to-green-600 rounded-xl shadow-lg px-4 py-2.5 text-xs font-bold text-white flex items-center gap-2">
               <CheckCircle className="w-4 h-4" />
               <div>
                 <p>Boletas SII incluidas en Full</p>
