@@ -124,7 +124,7 @@ export default function Hero() {
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   width={1600}
                   height={570}
-                  alt="Mapa de mesas de BullWeb: salón con mesas libres y ocupadas, consumo y tiempo de cada una"
+                  alt="Mapa de mesas del sistema POS para restaurantes BullWeb"
                   decoding="async"
                   {...{ fetchpriority: 'high' }}
                   className="block w-full h-auto"
@@ -142,7 +142,7 @@ export default function Hero() {
                   src="/images/carta-qr-480.webp"
                   width={480}
                   height={827}
-                  alt="Carta digital QR de BullWeb en un celular, con productos, precios y botón Ver pedido"
+                  alt="Carta digital QR de un restaurante vista en un celular"
                   loading="lazy"
                   decoding="async"
                   className="block w-full h-auto rounded-[1rem] sm:rounded-[1.35rem]"

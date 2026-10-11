@@ -173,14 +173,14 @@ export default function Modules() {
           <Capture
             name="mesas" widths={[1600, 800]} w={1600} h={570}
             sizes="(min-width: 1024px) 60rem, 100vw"
-            alt="Pantalla de mesas de BullWeb: salón con mesas libres y ocupadas, consumo y tiempo de cada una"
+            alt="Mesas del salón en BullWeb, con el consumo y el tiempo de cada mesa"
             caption="Mesas del salón, con consumo y tiempo por mesa"
           />
           <div className="max-w-[15rem] w-full mx-auto">
             <Capture
               name="carta-qr" widths={[480]} w={480} h={827}
               sizes="15rem"
-              alt="Carta digital QR de BullWeb vista en un celular, con productos, precios y botón Ver pedido"
+              alt="Carta QR con productos, precios y botón para ver el pedido"
               caption="Carta QR en el celular de tu cliente"
             />
           </div>
@@ -189,13 +189,13 @@ export default function Modules() {
           <Capture
             name="tienda-online" widths={[1200, 640]} w={1200} h={584}
             sizes="(min-width: 768px) 38rem, 100vw"
-            alt="Tienda online de un restaurante en BullWeb, con categorías, productos y carrito de pedido"
+            alt="Tienda online de un restaurante creada con el POS BullWeb, con carrito de pedido"
             caption="Tu tienda online, con carrito de pedido"
           />
           <Capture
             name="reportes" widths={[1200, 640]} w={1200} h={647}
             sizes="(min-width: 768px) 38rem, 100vw"
-            alt="Reportes de BullWeb: ventas del período, número de órdenes, ticket promedio y evolución de ventas"
+            alt="Reportes de ventas del punto de venta BullWeb: órdenes, ticket promedio y evolución"
             caption="Reportes de ventas, órdenes y ticket promedio"
           />
         </div>
