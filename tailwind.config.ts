@@ -20,8 +20,14 @@ const config: Config = {
       animation: {
         'float': 'float 6s ease-in-out infinite',
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        // Aparición única de las capturas del Hero (se usa con motion-safe:)
+        'hero-in': 'hero-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both',
       },
       keyframes: {
+        'hero-in': {
+          from: { opacity: '0', transform: 'translateY(16px)' },
+          to:   { opacity: '1', transform: 'translateY(0)' },
+        },
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%':      { transform: 'translateY(-12px)' },

@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle, Cpu } from 'lucide-react';
+import { ArrowRight, CalendarCheck, FileText, Headset, KeyRound, Lock, ShieldCheck } from 'lucide-react';
 import { HERO_PRICE_TEXT } from '../lib/plans';
 
 import { REGISTER_URL, track } from '../lib/measurement';
@@ -13,84 +12,61 @@ const LINKS = {
 // Insignia fija y corta (sin rotación): cabe en una línea a 375px.
 const BADGE = 'Hecho en Chile para restaurantes';
 
-const fadeUp = {
-  hidden:  { opacity: 0, y: 30 },
-  visible: (delay: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
-  }),
-};
+const TRUST = [
+  { icon: CalendarCheck, text: '7 días gratis' },
+  { icon: ShieldCheck,   text: 'Sin tarjeta' },
+  { icon: Headset,       text: 'Soporte en vivo y remoto' },
+];
+
+// Insignias junto a las capturas: máximo 2, en el flujo (no se cortan) y sin bucle.
+const CHIPS = [
+  { icon: FileText, title: 'Boletas SII incluidas en Full', sub: 'Se activa con tu certificado y tus folios' },
+  { icon: KeyRound, title: 'App Mesero con PIN por empleado', sub: null },
+];
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0F172A]">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#0F172A] to-[#1E2A4A]">
 
-      {/* Fondo degradado */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0F172A] via-[#1E2A4A] to-[#0F172A]" />
-
-      {/* Grid pattern sutil */}
+      {/* Brillo sutil de fondo */}
       <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage:
-            'linear-gradient(#F97316 1px, transparent 1px), linear-gradient(90deg, #F97316 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-        }}
+        className="absolute -top-40 left-1/4 w-[44rem] h-[32rem] rounded-full bg-orange-500/[0.07] blur-[120px] pointer-events-none"
+        aria-hidden="true"
       />
 
-      {/* Glow blob naranja difuso */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-orange-500/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-600/8 rounded-full blur-[100px] pointer-events-none" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-14 sm:pt-28 lg:pt-32 lg:pb-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-14 items-center">
 
           {/* Columna izquierda — texto */}
           <div className="text-center lg:text-left">
 
             {/* Insignia fija */}
-            <motion.p
-              className="inline-flex items-center px-4 py-1.5 bg-orange-500/10 border border-orange-500/30 rounded-full mb-6 text-orange-300 text-sm font-medium"
-              custom={0}
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp}
-            >
+            <p className="inline-flex items-center px-3.5 py-1 bg-orange-500/10 border border-orange-500/30 rounded-full mb-5 text-orange-300 text-sm font-medium">
               {BADGE}
-            </motion.p>
+            </p>
 
-            {/* H1 (#228 — frase del Comandante). Sin animación: es el LCP. */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] tracking-tight mb-6">
-              El sistema completo para tu restaurante, con tu tienda online incluida
+            {/* H1 (#228 — frase del Comandante). Sin animación: es texto crítico de la primera vista. */}
+            <h1 className="text-[clamp(2.25rem,0.9rem+2.35vw,2.9rem)] font-extrabold text-white leading-[1.08] tracking-[-0.03em] [text-wrap:balance] mb-5">
+              El sistema completo para tu restaurante, con tu{' '}
+              <span className="text-orange-500 underline decoration-orange-500/40 decoration-[3px] underline-offset-[0.18em]">
+                tienda online incluida
+              </span>
             </h1>
 
-            {/* Subtítulo (#228 — precio con IVA incluido, desde las constantes) */}
-            <motion.p
-              className="text-lg text-white/70 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0"
-              custom={0.1}
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp}
-            >
+            {/* Subtítulo (#228 — único precio visible del Hero, desde las constantes) */}
+            <p className="text-lg text-white/75 leading-relaxed mb-7 max-w-xl mx-auto lg:mx-0">
               Vende en tu local, recibe pedidos por carta QR y toma pedidos online en el mismo
               sistema. {HERO_PRICE_TEXT}
-            </motion.p>
+            </p>
 
-            {/* CTAs */}
-            <motion.div
-              className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-5"
-              custom={0.2}
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp}
-            >
+            {/* CTAs: mismo alto, ancho completo en celular */}
+            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-6">
               <a
                 href={LINKS.register}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => track('cta_click', { location: 'hero' })}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-orange-500 hover:bg-orange-400 text-brand-bg font-bold rounded-2xl transition-all shadow-xl shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 text-base"
+                className="inline-flex items-center justify-center gap-2 h-14 px-7 w-full sm:w-auto bg-orange-500 hover:bg-orange-400 text-brand-bg font-bold rounded-2xl transition-all shadow-xl shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 text-base"
               >
                 Probar 7 días gratis
                 <ArrowRight className="w-4 h-4" />
@@ -101,149 +77,97 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => track('whatsapp_click', { location: 'hero' })}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/5 hover:bg-white/10 border border-white/20 text-white font-bold rounded-2xl transition-all hover:-translate-y-0.5 text-base"
+                className="inline-flex items-center justify-center gap-2 h-14 px-7 w-full sm:w-auto bg-white/5 hover:bg-white/10 border border-white/20 hover:border-white/40 text-white font-bold rounded-2xl transition-all hover:-translate-y-0.5 text-base"
               >
                 Agenda una demo
               </a>
-            </motion.div>
+            </div>
 
             {/* Línea de confianza */}
-            <motion.p
-              className="text-sm text-white/60 text-center lg:text-left"
-              custom={0.3}
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp}
-            >
-              Sin tarjeta · Sin instalar nada · Listo en minutos
-            </motion.p>
+            <ul className="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 text-sm text-white/80">
+              {TRUST.map(({ icon: Icon, text }) => (
+                <li key={text} className="inline-flex items-center gap-1.5">
+                  <Icon className="w-4 h-4 text-orange-400" aria-hidden="true" />
+                  {text}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Columna derecha — Mockup */}
-          <motion.div
-            className="relative hidden lg:block"
-            aria-hidden="true"
-            initial={{ opacity: 0, x: 40, scale: 0.95 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          >
-            {/* Browser frame */}
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/60">
+          {/* Columna derecha — capturas reales */}
+          <div className="relative w-full max-w-2xl mx-auto lg:max-w-none">
 
-              {/* Barra del browser */}
-              <div className="bg-[#1E2A4A] px-4 py-3 flex items-center gap-2 border-b border-white/5">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-red-500/60" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
-                  <div className="w-3 h-3 rounded-full bg-green-500/60" />
-                </div>
-                <div className="flex-1 mx-4 bg-white/5 rounded-lg px-3 py-1 text-white/30 text-xs flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-green-400" />
-                  app.bullwebchile.com
-                </div>
-              </div>
+            {/* Brillo radial naranja detrás */}
+            <div
+              className="absolute -inset-x-8 -inset-y-10 bg-[radial-gradient(closest-side,rgba(249,115,22,0.28),transparent)] blur-2xl pointer-events-none"
+              aria-hidden="true"
+            />
 
-              {/* Contenido del mockup */}
-              <div className="bg-[#0F172A] p-4 min-h-[380px]">
-
-                {/* Header punto de venta */}
-                <div className="flex items-center justify-between mb-4 bg-white/5 rounded-xl px-4 py-2.5">
-                  <div className="flex items-center gap-2">
-                    <div className="w-7 h-7 bg-orange-500 rounded-lg flex items-center justify-center">
-                      <Cpu className="w-3.5 h-3.5 text-white" />
-                    </div>
-                    <div>
-                      <p className="text-white text-xs font-bold">BullWeb punto de venta</p>
-                      <p className="text-white/30 text-[10px]">Turno abierto · $10.000</p>
-                    </div>
+            {/* Navegador con el mapa de mesas */}
+            <div className="relative motion-safe:animate-hero-in">
+              <div className="rounded-xl overflow-hidden border border-white/15 bg-[#0B1120] shadow-[0_40px_80px_-24px_rgba(0,0,0,0.75)] lg:[transform:perspective(1600px)_rotateY(-5deg)_rotateX(2deg)] lg:origin-left">
+                <div className="flex items-center gap-3 px-3.5 h-9 bg-[#1B2540] border-b border-white/10">
+                  <div className="flex gap-1.5" aria-hidden="true">
+                    <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
                   </div>
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-2 h-2 rounded-full bg-green-400" />
-                    <span className="text-green-400 text-[10px] font-medium">En línea</span>
+                  <div className="flex-1 flex items-center justify-center gap-1.5 h-6 max-w-xs mx-auto rounded-md bg-white/10 text-white/70 text-xs">
+                    <Lock className="w-3 h-3" aria-hidden="true" />
+                    app.bullwebchile.com
                   </div>
+                  <div className="w-10" aria-hidden="true" />
                 </div>
-
-                {/* Grid de mesas */}
-                <p className="text-white/30 text-[10px] font-semibold uppercase tracking-wider mb-2 px-1">Salón principal</p>
-                <div className="grid grid-cols-4 gap-2 mb-4">
-                  {[
-                    { n: 1,  status: 'libre'    },
-                    { n: 2,  status: 'ocupada'  },
-                    { n: 3,  status: 'ocupada'  },
-                    { n: 4,  status: 'libre'    },
-                    { n: 5,  status: 'cuenta'   },
-                    { n: 6,  status: 'ocupada'  },
-                    { n: 7,  status: 'libre'    },
-                    { n: 8,  status: 'ocupada'  },
-                  ].map(t => (
-                    <div
-                      key={t.n}
-                      className={`rounded-xl p-2.5 text-center border transition-colors ${
-                        t.status === 'libre'   ? 'bg-white/5 border-white/10' :
-                        t.status === 'cuenta' ? 'bg-amber-500/20 border-amber-500/40' :
-                                                 'bg-orange-500/20 border-orange-500/30'
-                      }`}
-                    >
-                      <p className={`text-sm font-bold ${
-                        t.status === 'libre'  ? 'text-white/30' :
-                        t.status === 'cuenta' ? 'text-amber-400' :
-                                                'text-orange-400'
-                      }`}>
-                        {t.n}
-                      </p>
-                      <p className={`text-[8px] font-medium leading-tight ${
-                        t.status === 'libre'  ? 'text-white/20' :
-                        t.status === 'cuenta' ? 'text-amber-500/70' :
-                                                'text-orange-300/70'
-                      }`}>
-                        {t.status === 'libre' ? 'Libre' : t.status === 'cuenta' ? 'Cuenta' : 'Ocupada'}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Stats rápidas */}
-                <div className="grid grid-cols-3 gap-2">
-                  {[
-                    { label: 'Ventas hoy',  value: '$487.250', color: 'text-green-400' },
-                    { label: 'Boletas SII',  value: 'En Full', color: 'text-orange-400' },
-                    { label: 'En cocina',    value: '4',        color: 'text-blue-400'   },
-                  ].map((s, i) => (
-                    <div key={i} className="bg-white/5 rounded-xl px-3 py-2 text-center border border-white/5">
-                      <p className={`text-base font-black ${s.color}`}>{s.value}</p>
-                      <p className="text-white/30 text-[9px]">{s.label}</p>
-                    </div>
-                  ))}
-                </div>
+                <img
+                  src="/images/mesas-1600.webp"
+                  srcSet="/images/mesas-800.webp 800w, /images/mesas-1600.webp 1600w"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  width={1600}
+                  height={570}
+                  alt="Mapa de mesas de BullWeb: salón con mesas libres y ocupadas, consumo y tiempo de cada una"
+                  decoding="async"
+                  {...{ fetchpriority: 'high' }}
+                  className="block w-full h-auto"
+                />
               </div>
             </div>
 
-            {/* Badges flotantes */}
-
-            <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl px-3 py-2 shadow-xl flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-green-500 fill-green-500" />
-              <div>
-                <p className="text-xs font-black text-gray-800">+12 órdenes</p>
-                <p className="text-[10px] text-gray-400">esta hora</p>
+            {/* Celular con la carta QR (superpuesto abajo a la izquierda) + insignias */}
+            <div className="relative z-10 mt-3 sm:mt-4 flex items-start lg:items-end gap-3 sm:gap-5 pl-3 sm:pl-6">
+              <div
+                className="shrink-0 -mt-14 sm:-mt-20 w-[6.5rem] sm:w-36 xl:w-40 rounded-[1.4rem] sm:rounded-[1.75rem] border-[5px] border-[#0B1120] bg-[#0B1120] ring-1 ring-white/20 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] overflow-hidden motion-safe:animate-hero-in"
+                style={{ animationDelay: '0.15s' }}
+              >
+                <img
+                  src="/images/carta-qr-480.webp"
+                  width={480}
+                  height={827}
+                  alt="Carta digital QR de BullWeb en un celular, con productos, precios y botón Ver pedido"
+                  loading="lazy"
+                  decoding="async"
+                  className="block w-full h-auto rounded-[1rem] sm:rounded-[1.35rem]"
+                />
               </div>
-            </div>
 
-            <div className="absolute -bottom-4 right-6 bg-gradient-to-r from-green-500 to-green-600 rounded-xl shadow-lg px-4 py-2.5 text-xs font-bold text-white flex items-center gap-2">
-              <CheckCircle className="w-4 h-4" />
-              <div>
-                <p>Boletas SII incluidas en Full</p>
-                <p className="text-green-100 text-[10px] font-medium">Se activa con tu certificado y tus folios</p>
-              </div>
+              <ul className="flex-1 min-w-0 flex flex-col gap-2.5 pb-1 text-left">
+                {CHIPS.map(({ icon: Icon, title, sub }) => (
+                  <li
+                    key={title}
+                    className="flex items-center gap-3 rounded-xl border border-white/15 bg-[#0F172A]/80 backdrop-blur px-3.5 py-2.5 shadow-lg shadow-black/30"
+                  >
+                    <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-orange-500/15 text-orange-400 shrink-0">
+                      <Icon className="w-[18px] h-[18px]" aria-hidden="true" />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block text-white text-sm font-semibold leading-snug">{title}</span>
+                      {sub && <span className="block text-slate-300 text-[13px] leading-snug mt-0.5">{sub}</span>}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </motion.div>
+          </div>
         </div>
-      </div>
-
-      {/* Wave bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-16">
-        <svg viewBox="0 0 1440 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" preserveAspectRatio="none">
-          <path d="M0 64V40C120 10 240 0 360 0s240 20 360 40 240 30 360 10 240-40 360-40v54H0z" fill="white" />
-        </svg>
       </div>
     </section>
   );
