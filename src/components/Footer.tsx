@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Instagram, MessageCircle } from 'lucide-react';
+import { BOLETAS_ACTIVACION } from '../lib/plans';
 
 const LINKS = {
   producto:  [
@@ -100,8 +101,11 @@ export default function Footer() {
 
             {/* Badge SII */}
             <div className="mt-6 inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-500/10 text-green-400 text-xs font-semibold rounded-lg border border-green-500/20">
-              ✓ Boletas Electrónicas Nativas · SII Chile
+              ✓ Boletas SII incluidas en Full
             </div>
+            <p className="mt-2 text-slate-400 text-xs leading-relaxed max-w-xs">
+              {BOLETAS_ACTIVACION}
+            </p>
           </div>
         </div>
 

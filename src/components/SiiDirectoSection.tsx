@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { CheckCircle, Zap, Upload, ShieldCheck, FileCheck } from 'lucide-react';
 import { REGISTER_URL, track } from '../lib/measurement';
+import { BOLETAS_ACTIVACION } from '../lib/plans';
 
 /**
  * #228 — BOLETAS REUBICADAS (módulo del plan Full, se muestra después de
@@ -51,7 +52,7 @@ export default function SiiDirectoSection() {
           <motion.h2
             variants={fadeUp}
             custom={0}
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight"
+            className="text-3xl sm:text-4xl font-black text-white leading-tight"
           >
             Boletas incluidas en{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">
@@ -63,9 +64,8 @@ export default function SiiDirectoSection() {
             custom={1}
             className="mt-4 text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed"
           >
-            Boletas incluidas en Full: emisión directa al SII, sin comisión por
-            documento. Se activa cargando tu certificado y tus folios — te
-            acompañamos en la puesta en marcha.
+            Emisión directa al SII, sin comisión por documento.{' '}
+            {BOLETAS_ACTIVACION}
           </motion.p>
         </motion.div>
 
@@ -147,9 +147,6 @@ export default function SiiDirectoSection() {
           <p className="text-slate-200 leading-relaxed">
             Para activarlas necesitas tu certificado digital (un certificador
             externo), tus folios CAF (gratis en mi.sii.cl) y tu RUT.
-          </p>
-          <p className="text-slate-500 text-xs mt-3">
-            Requisito informado en la primera conversación de venta.
           </p>
         </motion.div>
 

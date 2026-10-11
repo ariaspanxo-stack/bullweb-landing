@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { ArrowRight, CheckCircle, Cpu } from 'lucide-react';
-import { PRICE_BASICO, PRICE_TODO, BADGE_DUAL, HERO_PRICE_TEXT } from '../lib/plans';
+import { PRICE_BASICO, PRICE_TODO, BADGE_DUAL, HERO_PRICE_TEXT, BOLETAS_ACTIVACION } from '../lib/plans';
 
 import { REGISTER_URL, track } from '../lib/measurement';
 
@@ -17,7 +17,7 @@ const LINKS = {
 // habla del plan Full y su activación con certificado y folios.
 const METRICS = [
   { value: `Desde ${PRICE_BASICO}`, label: `Plan Básico / mes, IVA incluido`, hint: `O plan Full a ${PRICE_TODO} con todo incluido, IVA incluido. Sin costos ocultos ni cobros extra.`, primary: true },
-  { value: 'Boletas al SII', label: 'Incluidas en Full', hint: 'Emisión directa al SII. Se activa con tu certificado y tus folios.' },
+  { value: 'Boletas al SII', label: 'Incluidas en Full', hint: BOLETAS_ACTIVACION },
   { value: '7 días',  label: 'Prueba gratis',  hint: 'Sin tarjeta. Listo en minutos.' },
 ];
 
@@ -164,7 +164,7 @@ export default function Hero() {
             {/* Badge estático boletas (#228 — sin "$0 por boleta" como dato
                 destacado; habla del plan Full y su activación) */}
             <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-green-500/10 border border-green-500/30 rounded-full"
+              className="inline-flex items-center gap-2 px-4 py-2 mb-2 bg-green-500/10 border border-green-500/30 rounded-full"
               custom={0.38}
               initial="hidden"
               animate="visible"
@@ -175,6 +175,15 @@ export default function Hero() {
                 Boletas electrónicas al SII incluidas en el plan Full
               </span>
             </motion.div>
+            <motion.p
+              className="text-sm text-white/60 mb-8 text-center lg:text-left"
+              custom={0.38}
+              initial="hidden"
+              animate="visible"
+              variants={fadeUp}
+            >
+              {BOLETAS_ACTIVACION}
+            </motion.p>
 
             {/* Métricas */}
             <motion.div
@@ -286,7 +295,7 @@ export default function Hero() {
                 <div className="grid grid-cols-3 gap-2">
                   {[
                     { label: 'Ventas hoy',  value: '$487.250', color: 'text-green-400' },
-                    { label: 'Boletas SII',  value: 'Incluidas', color: 'text-orange-400' },
+                    { label: 'Boletas SII',  value: 'En Full', color: 'text-orange-400' },
                     { label: 'En cocina',    value: '4',        color: 'text-blue-400'   },
                   ].map((s, i) => (
                     <div key={i} className="bg-white/5 rounded-xl px-3 py-2 text-center border border-white/5">
@@ -319,8 +328,8 @@ export default function Hero() {
             >
               <CheckCircle className="w-4 h-4" />
               <div>
-                <p>Boleta emitida al SII</p>
-                <p className="text-green-100 text-[10px] font-medium">Envío directo</p>
+                <p>Boletas SII incluidas en Full</p>
+                <p className="text-green-100 text-[10px] font-medium">Se activa con tu certificado y tus folios</p>
               </div>
             </motion.div>
           </motion.div>

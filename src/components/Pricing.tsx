@@ -13,7 +13,7 @@ const FEATURES_TODO = [
   'Reloj control y asistencia con exportación a PDF',
   'CRM y fidelización · 100 emails incluidos al mes',
   'Cupones y promociones',
-  'Boletas electrónicas al SII (requieren activación con tu certificado y folios)',
+  'Boletas electrónicas al SII: se activan con tu certificado y tus folios; te acompañamos en la puesta en marcha',
   'Reportes avanzados y exportación a Excel',
   '1 sucursal incluida por plan',
 ];

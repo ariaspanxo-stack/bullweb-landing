@@ -33,7 +33,7 @@ const PAINS: PainPoint[] = [
       </div>
     ),
     title:   'SII',
-    desc:    'Cuadrar boletas y pelear con la emisión te roba horas que deberías estar en el salón. → BullWeb emite la boleta electrónica al SII desde la misma pantalla de venta. Cero doble trabajo.',
+    desc:    'Cuadrar boletas y pelear con la emisión te roba horas que deberías estar en el salón. → Con el plan Full, la boleta electrónica va al SII desde la misma pantalla de venta. Se activa con tu certificado y tus folios; te acompañamos en la puesta en marcha.',
     color:   'text-blue-500',
     bgColor: 'bg-blue-50',
     tag:     'Boletas al SII incluidas en Full',

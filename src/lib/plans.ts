@@ -34,6 +34,9 @@ export const PRICE_TODO   = formatCLP(PLAN_TODO.priceCLP);   // $34.000
 /** #228 — IVA incluido: nota estándar para TODO texto de precio de la landing. */
 export const PRICE_NOTE = 'IVA incluido';
 
+/** Frase estándar de activación de boletas SII: va en o junto a cada mención. */
+export const BOLETAS_ACTIVACION = 'Se activa con tu certificado y tus folios; te acompañamos en la puesta en marcha.';
+
 /** "Desde $19.900/mes, IVA incluido." — subtítulo del Hero (#228). */
 export const HERO_PRICE_TEXT = `Desde ${PRICE_BASICO}/mes, ${PRICE_NOTE}.`;
 
